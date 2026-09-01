@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yugal | Graphic Design & Visual Systems</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#ffe1e1',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            900: '#7f1d1d',
+                            950: '#450a0a',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                        hand: ['Caveat', 'cursive'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    />
+
+    <style>
+        /* ============================================================
+           THEME VARIABLES (Same as index.html)
+           ============================================================ */
+        :root.dark {
+            --bg-base: #0a0809;
+            --bg-card: #120e10;
+            --bg-elevated: #1a1417;
+            --bg-border: #2a1a1e;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
+            --header-bg: rgba(10, 8, 9, 0.85);
+            --mobile-bg: rgba(18, 14, 16, 0.95);
+        }
+
+        :root:not(.dark) {
+            --bg-base: #f8f6f6;
+            --bg-card: #ffffff;
+            --bg-elevated: #f1eded;
+            --bg-border: #e2dcd0;
+            --text-primary: #181113;
+            --text-muted: #64748b;
+            --header-bg: rgba(248, 246, 246, 0.85);
+            --mobile-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: none;
+        }
+
+        .glass-header {
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glass-mobile-menu {
+            background: var(--mobile-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ef4444; }
+
+        ::selection { background: rgba(239, 68, 68, 0.3); color: #f87171; }
+
+        /* ============================================================
+           CUSTOM CURSOR
+           ============================================================ */
+        #cursor-dot {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease, opacity 0.2s ease;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+            display: none;
+        }
+
+        #cursor-ring {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(239, 68, 68, 0.3);
+            border-radius: 50%;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        border-color 0.2s ease,
+                        width 0.2s ease,
+                        height 0.2s ease,
+                        opacity 0.2s ease;
+            display: none;
+        }
+
+        #cursor-ring.hover { width: 56px; height: 56px; border-color: #ef4444; border-width: 2px; box-shadow: 0 0 30px rgba(239, 68, 68, 0.3); }
+        #cursor-dot.hover { transform: translate(-50%, -50%) scale(1.8); }
+
+        /* ============================================================
+           SCROLL REVEAL
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.05s; }
+        .reveal-delay-2 { transition-delay: 0.1s; }
+        .reveal-delay-3 { transition-delay: 0.15s; }
+        .reveal-delay-4 { transition-delay: 0.2s; }
+        .reveal-delay-5 { transition-delay: 0.25s; }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+        ::view-transition-old(root) { z-index: 1; }
+        ::view-transition-new(root) { z-index: 9999; }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            body { cursor: auto; }
+            #cursor-dot, #cursor-ring { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-3 group text-left">
+                <div class="w-9 h-9 rounded-lg bg-brand-950 border border-brand-500/40 flex items-center justify-center font-display text-brand-500 font-bold group-hover:bg-brand-500 group-hover:text-black transition-all">Y</div>
+                <div class="flex flex-col">
+                    <span class="font-display tracking-wider text-xl font-bold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">YUGAL <span class="text-brand-500">.</span></span>
+                    <span class="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase -mt-1">Multidisciplinary Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-1 bg-[var(--bg-card)] p-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono uppercase tracking-wider shadow-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
+                    Home
+                </a>
+                <a href="graphic-design.html" class="px-4 py-2 rounded-full text-brand-500 bg-[var(--bg-elevated)] font-semibold transition-all flex items-center gap-1.5">
+                    🎨 Graphic Design
+                </a>
+                <a href="index.html#work" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
+                    Projects
+                </a>
+                <a href="index.html#mindset" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
+                    Mindset
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 text-[var(--text-primary)] transition-all flex items-center justify-center shadow-sm"
+                    aria-label="Toggle Theme">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <a href="index.html#contact" class="hidden sm:flex px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-brand-950/60 items-center gap-2 group">
+                    <span>Let's Connect</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+
+                <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--bg-border)] focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-[var(--bg-border)] px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-wider">
+            <a href="index.html" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                01. Home
+            </a>
+            <a href="graphic-design.html" class="block text-brand-400 font-bold py-2 border-b border-[var(--bg-border)]">
+                02. 🎨 Graphic Design
+            </a>
+            <a href="index.html#work" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                03. Selected Projects
+            </a>
+            <a href="index.html#capabilities" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                04. Capabilities Matrix
+            </a>
+            <a href="index.html#mindset" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                05. Mindset
+            </a>
+            <a href="index.html#contact" class="block text-brand-500 font-bold py-2">
+                06. Initiate Contact
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT - GRAPHIC DESIGN PAGE
+    ============================================================ -->
+    <main class="relative z-10 pt-12 pb-24">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+
+            <!-- Breadcrumb & Header -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-brand-500">
+                    <a href="index.html" class="hover:underline text-[var(--text-muted)]">Home</a>
+                    <span>/</span>
+                    <span>Graphic Design Discipline</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[var(--bg-border)] pb-8">
+                    <div>
+                        <h1 class="font-display text-5xl sm:text-6xl font-bold uppercase tracking-tight text-[var(--text-primary)]">
+                            GRAPHIC DESIGN &amp; <span class="text-brand-500">VISUAL SYSTEMS</span>
+                        </h1>
+                        <p class="text-sm text-[var(--text-muted)] max-w-2xl mt-3 leading-relaxed">
+                            Designing intent-driven visual hierarchy, brand identities, typography layouts, and spatial poster compositions grounded in dark-mode aesthetics.
+                        </p>
+                    </div>
+                    <a href="index.html" class="px-5 py-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 transition-all self-start md:self-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        <span>Back to Homepage</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Philosophy Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] space-y-4 shadow-sm reveal reveal-delay-1">
+                    <div class="w-12 h-12 rounded-xl bg-brand-950 border border-brand-800/40 flex items-center justify-center text-brand-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold uppercase text-[var(--text-primary)]">Grid &amp; Spatial Math</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">Treating layout composition not as random placement, but as calculated visual proportions. Every element serves an anatomical purpose.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] space-y-4 shadow-sm reveal reveal-delay-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-950 border border-brand-800/40 flex items-center justify-center text-brand-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold uppercase text-[var(--text-primary)]">Typographic Contrast</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">Contrasting oversized display headers with ultra-refined monospace metadata tags to build immediate scanability and visual tension.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] space-y-4 shadow-sm reveal reveal-delay-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-950 border border-brand-800/40 flex items-center justify-center text-brand-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold uppercase text-[var(--text-primary)]">Design Tokens &amp; Palette</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">Establishing multi-tonal dark surface levels paired with crimson pop accents rather than raw neon overload.</p>
+                </div>
+            </div>
+
+            <!-- Showcase Gallery -->
+            <div class="space-y-8">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-brand-500">// Visual Work Showcase</span>
+                        <h2 class="font-display text-3xl font-bold uppercase text-[var(--text-primary)] mt-1">BRANDING &amp; POSTER ARCHITECTURE</h2>
+                    </div>
+                    <span class="text-xs font-mono text-[var(--text-muted)] hidden sm:block">4 FEATURED DESIGN EXPERIMENTS</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all space-y-6 group shadow-sm reveal reveal-delay-1">
+                        <div class="aspect-[16/10] bg-[var(--bg-elevated)] rounded-xl border border-[var(--bg-border)] relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-950/40 via-[var(--bg-card)] to-[var(--bg-elevated)] opacity-80"></div>
+                            <span class="font-display text-7xl font-bold text-[var(--bg-border)] group-hover:scale-105 transition-transform duration-500 select-none">DESIGN 01</span>
+                            <div class="absolute bottom-4 left-4 z-10 flex gap-2">
+                                <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-black/80 text-brand-400 border border-brand-900/40">Editorial Typography</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-mono text-brand-400">POSTER &amp; COVER SYSTEM</span>
+                            <h3 class="font-display text-2xl font-bold uppercase text-[var(--text-primary)]">High-Contrast Editorial Grid</h3>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed">Exploring massive condensed display headline pairing with fine serif signatures and dark atmospheric lighting.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all space-y-6 group shadow-sm reveal reveal-delay-2">
+                        <div class="aspect-[16/10] bg-[var(--bg-elevated)] rounded-xl border border-[var(--bg-border)] relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-950/40 via-[var(--bg-card)] to-[var(--bg-elevated)] opacity-80"></div>
+                            <span class="font-display text-7xl font-bold text-[var(--bg-border)] group-hover:scale-105 transition-transform duration-500 select-none">DESIGN 02</span>
+                            <div class="absolute bottom-4 left-4 z-10 flex gap-2">
+                                <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-black/80 text-brand-400 border border-brand-900/40">Brand Identity</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-mono text-brand-400">SYSTEM SPECIFICATION</span>
+                            <h3 class="font-display text-2xl font-bold uppercase text-[var(--text-primary)]">Dark-Mode Brand Token Architecture</h3>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed">Crafting systematic color guidelines, spacing tokens, and component state rules for dark digital interfaces.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all space-y-6 group shadow-sm reveal reveal-delay-3">
+                        <div class="aspect-[16/10] bg-[var(--bg-elevated)] rounded-xl border border-[var(--bg-border)] relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-950/40 via-[var(--bg-card)] to-[var(--bg-elevated)] opacity-80"></div>
+                            <span class="font-display text-7xl font-bold text-[var(--bg-border)] group-hover:scale-105 transition-transform duration-500 select-none">DESIGN 03</span>
+                            <div class="absolute bottom-4 left-4 z-10 flex gap-2">
+                                <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-black/80 text-brand-400 border border-brand-900/40">Visual Composition</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-mono text-brand-400">LAYOUT EXPERIMENT</span>
+                            <h3 class="font-display text-2xl font-bold uppercase text-[var(--text-primary)]">Asymmetric Grid &amp; Negative Space</h3>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed">Balancing density against intentional negative space to prevent user cognitive overload in complex data layouts.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all space-y-6 group shadow-sm reveal reveal-delay-4">
+                        <div class="aspect-[16/10] bg-[var(--bg-elevated)] rounded-xl border border-[var(--bg-border)] relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-950/40 via-[var(--bg-card)] to-[var(--bg-elevated)] opacity-80"></div>
+                            <span class="font-display text-7xl font-bold text-[var(--bg-border)] group-hover:scale-105 transition-transform duration-500 select-none">DESIGN 04</span>
+                            <div class="absolute bottom-4 left-4 z-10 flex gap-2">
+                                <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-black/80 text-brand-400 border border-brand-900/40">Micro-UI Components</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-mono text-brand-400">UI SYSTEM DESIGN</span>
+                            <h3 class="font-display text-2xl font-bold uppercase text-[var(--text-primary)]">Tactile Button &amp; Card States</h3>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed">Designing high-tactile hover feedback, subtle border transitions, and keyboard focus indicators.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] flex flex-col sm:flex-row items-center justify-between gap-4 reveal reveal-delay-2">
+                <div>
+                    <h4 class="font-display text-xl font-bold uppercase text-[var(--text-primary)]">Interested in Visual Design Collaboration?</h4>
+                    <p class="text-xs text-[var(--text-muted)] mt-1">Connect direct or jump back to explore other multidisciplinary nodes.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="px-5 py-2.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-500/50 transition-all">
+                        Homepage Overview
+                    </a>
+                    <a href="index.html#contact" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs uppercase font-bold transition-all">
+                        Contact Direct
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="border-t border-[var(--bg-border)] py-12 bg-[var(--bg-base)]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-muted)]">
+            <div>&copy; 2026 Yugal <span class="text-brand-500">&bull;</span> Multidisciplinary Studio</div>
+            <div class="flex items-center gap-6">
+                <a href="/llms.txt" class="hover:text-brand-400 transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    /llms.txt
+                </a>
+                <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap.xml</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT (Same as index.html but without case studies)
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            initCursor();
+            initCanvas();
+            initScrollReveals();
+            initMobileMenu();
+        });
+
+        function initThemeToggle() {
+            var btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            btn.addEventListener('click', function(e) {
+                var isDark = document.documentElement.classList.contains('dark');
+                var x = e.clientX || window.innerWidth / 2;
+                var y = e.clientY || window.innerHeight / 2;
+                var radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+                function toggle() {
+                    var dark = document.documentElement.classList.toggle('dark');
+                    var sun = document.getElementById('theme-icon-sun');
+                    var moon = document.getElementById('theme-icon-moon');
+                    if (sun) sun.classList.toggle('hidden', dark);
+                    if (moon) moon.classList.toggle('hidden', !dark);
+                }
+
+                if (document.startViewTransition) {
+                    var transition = document.startViewTransition(toggle);
+                    transition.ready.then(function() {
+                        document.documentElement.animate(
+                            [{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)' }],
+                            { duration: 500, easing: 'ease-in-out', pseudoElement: '::view-transition-new(root)' }
+                        );
+                    });
+                } else {
+                    toggle();
+                }
+            });
+        }
+
+        function initCursor() {
+            var dot = document.getElementById('cursor-dot');
+            var ring = document.getElementById('cursor-ring');
+            if (!dot || !ring) return;
+            var isDesktop = window.matchMedia('(pointer: fine)').matches;
+            if (!isDesktop) {
+                dot.style.display = 'none';
+                ring.style.display = 'none';
+                document.body.style.cursor = 'auto';
+                return;
+            }
+            dot.style.display = 'block';
+            ring.style.display = 'block';
+            var mouseX = window.innerWidth / 2,
+                mouseY = window.innerHeight / 2;
+            var ringX = mouseX,
+                ringY = mouseY;
+            document.addEventListener('mousemove', function(e) { mouseX = e.clientX;
+                mouseY = e.clientY; });
+            document.addEventListener('mouseleave', function() { dot.style.opacity = '0';
+                ring.style.opacity = '0'; });
+            document.addEventListener('mouseenter', function() { dot.style.opacity = '1';
+                ring.style.opacity = '1'; });
+            var interactives = document.querySelectorAll('a, button, article, input, textarea, [onclick], .group');
+            interactives.forEach(function(el) {
+                el.addEventListener('mouseenter', function() { dot.classList.add('hover');
+                    ring.classList.add('hover'); });
+                el.addEventListener('mouseleave', function() { dot.classList.remove('hover');
+                    ring.classList.remove('hover'); });
+            });
+
+            function animate() {
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+                ring.style.left = ringX + 'px';
+                ring.style.top = ringY + 'px';
+                requestAnimationFrame(animate);
+            }
+            animate();
+            document.body.style.cursor = 'none';
+            interactives.forEach(function(el) { el.style.cursor = 'none'; });
+        }
+
+        function initCanvas() {
+            var canvas = document.getElementById('bg-canvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var w, h;
+            var mouse = { x: -1000, y: -1000 };
+
+            function resize() { w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight; }
+            resize();
+            window.addEventListener('resize', resize);
+            document.addEventListener('mousemove', function(e) { mouse.x = e.clientX;
+                mouse.y = e.clientY; });
+
+            var particles = [];
+            for (var i = 0; i < 30; i++) {
+                particles.push({ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, r: Math.random() * 1.5 + 0.5, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, a: Math.random() * 0.4 + 0.1 });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                if (mouse.x > 0 && mouse.y > 0) {
+                    var isDark = document.documentElement.classList.contains('dark');
+                    var grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 350);
+                    grad.addColorStop(0, isDark ? 'rgba(239, 68, 68, 0.08)' : 'rgba(239, 68, 68, 0.05)');
+                    grad.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, w, h);
+                }
+                particles.forEach(function(p) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < 0) p.x = w;
+                    if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h;
+                    if (p.y > h) p.y = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(239, 68, 68, ' + p.a + ')';
+                    ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        function initScrollReveals() {
+            var elements = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                elements.forEach(function(el) { el.classList.add('visible'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+            elements.forEach(function(el) { observer.observe(el); });
+        }
+
+        function initMobileMenu() {
+            var toggle = document.getElementById('menu-toggle');
+            var menu = document.getElementById('mobile-menu');
+            if (!toggle || !menu) return;
+            toggle.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+        }
+    </script>
+</body>
+</html>

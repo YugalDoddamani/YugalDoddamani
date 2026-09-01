@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yugal | Multidisciplinary Designer & Technologist</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#ffe1e1',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            900: '#7f1d1d',
+                            950: '#450a0a',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                        hand: ['Caveat', 'cursive'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- ===== EXTERNAL CSS ===== -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+    <!-- Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group text-left">
+                <div class="w-9 h-9 rounded-lg bg-brand-950 border border-brand-500/40 flex items-center justify-center font-display text-brand-500 font-bold group-hover:bg-brand-500 group-hover:text-black transition-all">
+                    Y
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display tracking-wider text-xl font-bold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                        YUGAL <span class="text-brand-500">.</span>
+                    </span>
+                    <span class="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase -mt-1">Design &amp; Technology</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-1 bg-[var(--bg-card)] p-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono uppercase tracking-wider shadow-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full text-brand-500 bg-[var(--bg-elevated)] font-semibold transition-all">
+                    Home
+                </a>
+
+                <!-- Services Dropdown -->
+                <div class="dropdown-container" id="services-dropdown">
+                    <button class="dropdown-trigger px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all flex items-center gap-1" onclick="toggleDropdown(event)">
+                        <span>Services</span>
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dental-design.html">
+                            <span class="icon">🦷</span>
+                            Dental Design &amp; CAD
+                        </a>
+                        <a href="video-editing.html">
+                            <span class="icon">🎬</span>
+                            Video Editing &amp; Production
+                        </a>
+                        <a href="graphic-design.html">
+                            <span class="icon">🎨</span>
+                            Graphic Design &amp; Visual Systems
+                        </a>
+                        <div class="divider"></div>
+                        <a href="web-design.html">
+                            <span class="icon">💻</span>
+                            Web Design &amp; Architecture
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#work" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
+                    Projects
+                </a>
+                <a href="index.html#mindset" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
+                    Mindset
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 text-[var(--text-primary)] transition-all flex items-center justify-center shadow-sm"
+                    aria-label="Toggle Theme">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <!-- Contact CTA -->
+                <a href="index.html#contact" class="hidden sm:flex px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-brand-950/60 items-center gap-2 group">
+                    <span>Let's Connect</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--bg-border)] focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-[var(--bg-border)] px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-wider">
+            <a href="index.html" class="block text-brand-400 font-bold py-2 border-b border-[var(--bg-border)]">
+                01. Home
+            </a>
+
+            <!-- Mobile Services Section -->
+            <div class="py-2 border-b border-[var(--bg-border)] space-y-3">
+                <div class="text-[var(--text-muted)] text-[10px] tracking-widest">02. SERVICES</div>
+                <a href="dental-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
+                    🦷 Dental Design &amp; CAD
+                </a>
+                <a href="video-editing.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
+                    🎬 Video Editing &amp; Production
+                </a>
+                <a href="graphic-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
+                    🎨 Graphic Design &amp; Visual Systems
+                </a>
+                <a href="web-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
+                    💻 Web Design &amp; Architecture
+                </a>
+            </div>
+
+            <a href="index.html#work" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                03. Selected Projects
+            </a>
+            <a href="index.html#capabilities" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                04. Capabilities Matrix
+            </a>
+            <a href="index.html#mindset" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
+                05. Mindset
+            </a>
+            <a href="index.html#contact" class="block text-brand-500 font-bold py-2">
+                06. Initiate Contact
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main class="relative z-10">
+
+        <!-- HERO -->
+        <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                    <div class="lg:col-span-7 space-y-6 text-left">
+                        <!-- Status Pill -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-brand-900/60 text-xs font-mono text-brand-400 reveal reveal-delay-1">
+                            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                            <span>MULTIDISCIPLINARY MAKER &amp; TECHNOLOGIST</span>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="space-y-1 reveal reveal-delay-2">
+                            <span class="font-hand text-3xl text-brand-400 block -rotate-1">Hello, I'm</span>
+                            <h1 class="font-display text-6xl sm:text-7xl md:text-8xl font-bold uppercase tracking-tight text-[var(--text-primary)] leading-none">
+                                YUGAL<span class="text-brand-500">.</span>
+                            </h1>
+                        </div>
+
+                        <!-- Identity Pills -->
+                        <div class="flex flex-wrap items-center gap-2 pt-1 reveal reveal-delay-3">
+                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
+                                <span class="text-brand-400">🦷</span>
+                                <span>Dental Technologist</span>
+                            </div>
+                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
+                                <span class="text-brand-400">🎬</span>
+                                <span>Video Editor</span>
+                            </div>
+                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
+                                <span class="text-brand-400">🎨</span>
+                                <span>Graphic Designer</span>
+                            </div>
+                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
+                                <span class="text-brand-400">💻</span>
+                                <span>Web Designer &amp; Technologist</span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed max-w-xl pt-2 font-normal reveal reveal-delay-4">
+                            Understanding root problems before picking tools. Fusing micron-level physical CAD precision, digital visual media, and high-performance web architecture.
+                        </p>
+
+                        <!-- CTAs -->
+                        <div class="pt-4 flex flex-wrap items-center gap-4 reveal reveal-delay-5">
+                            <a href="#work" class="px-6 py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all shadow-xl shadow-brand-950/60 flex items-center gap-2 group">
+                                <span>Explore Selected Projects</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"><line x1="7" y1="7" x2="17" y2="17"/><polyline points="17 7 17 17 7 17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Portrait -->
+                    <div class="lg:col-span-5 flex justify-center reveal reveal-delay-3">
+                        <div class="portrait-glow-frame w-full max-w-sm sm:max-w-md shadow-2xl shadow-brand-950/80 group">
+                            <div class="portrait-glow-inner relative aspect-[4/5] bg-[var(--bg-card)] flex flex-col justify-between p-6 overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-base)] via-[var(--bg-card)]/60 to-transparent z-10"></div>
+                                <div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+                                    <svg class="w-full h-full text-brand-950" viewBox="0 0 400 500" fill="currentColor">
+                                        <path d="M200 120 C 150 120, 130 180, 130 240 C 130 300, 150 340, 200 340 C 250 340, 270 300, 270 240 C 270 180, 250 120, 200 120 Z" fill="#2a1a1e" />
+                                        <path d="M100 480 C 100 380, 140 360, 200 360 C 260 360, 300 380, 300 480 Z" fill="#1f1216" />
+                                    </svg>
+                                </div>
+                                <div class="relative z-20 flex items-center justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-black/70 backdrop-blur-md border border-brand-900/50 text-[10px] font-mono text-brand-400 uppercase">
+                                        PORTRAIT FRAME PLACEHOLDER
+                                    </span>
+                                    <div class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></div>
+                                </div>
+                                <div class="relative z-20 my-auto text-center space-y-2">
+                                    <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/90 border border-brand-500/40 flex items-center justify-center text-brand-400 shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    </div>
+                                    <p class="text-xs font-mono text-[var(--text-muted)]">[ Subtle Dark Portrait Image ]</p>
+                                </div>
+                                <div class="relative z-20 space-y-1 bg-black/80 backdrop-blur-md p-3.5 rounded-xl border border-[var(--bg-border)]">
+                                    <div class="flex items-center justify-between text-xs font-mono">
+                                        <span class="text-slate-400">LOCATION</span>
+                                        <span class="text-slate-200">INDIA</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-[11px] font-mono">
+                                        <span class="text-slate-400">STATUS</span>
+                                        <span class="text-emerald-400">AVAILABLE FOR COLLABORATION</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 pt-8 border-t border-[var(--bg-border)]">
+                    <!-- Stat 1 -->
+                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-1">
+                        <div class="flex items-start justify-between">
+                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">01</span>
+                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Dental CAD &amp; CAM</h3>
+                            <p class="text-xs font-mono text-brand-400 mt-1">&lt;20µm Fit Tolerance</p>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
+                                Micron-level precision in dental restorations through advanced 3D CAD modeling, occlusal morphology optimization, and precise CAM milling workflows.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Exocad</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">CAM Milling</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Zirconia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-2">
+                        <div class="flex items-start justify-between">
+                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">02</span>
+                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Visual Media &amp; Design</h3>
+                            <p class="text-xs font-mono text-brand-400 mt-1">Design &amp; Video Production</p>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
+                                Strategic visual storytelling through video editing, color grading, and graphic design systems that establish clear hierarchy and emotional resonance.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Color Grading</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Visual Hierarchy</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Dark Micro-UI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-3">
+                        <div class="flex items-start justify-between">
+                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">03</span>
+                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Web Systems &amp; Architecture</h3>
+                            <p class="text-xs font-mono text-brand-400 mt-1">100/100 Lighthouse Perf</p>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
+                                High-performance static site architecture with zero runtime JavaScript, achieving perfect Lighthouse scores while maintaining $0 recurring infrastructure costs.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Astro SSG</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">PostgreSQL RLS</span>
+                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">$0 Hosting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="work" class="py-24 bg-[var(--bg-card)]/40 border-t border-[var(--bg-border)]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-brand-500 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                            <span>Selected Works</span>
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">
+                            PROBLEM <span class="text-brand-500">→</span> SOLUTION EVIDENCE
+                        </h2>
+                    </div>
+                    <p class="text-xs font-mono text-[var(--text-muted)] max-w-sm">
+                        Detailed case studies breaking down root cause diagnosis, cross-domain inputs, and measurable outcomes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-1" onclick="openCaseStudy('case-1')">
+                        <div>
+                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
+                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">01</span>
+                                <div class="absolute top-4 left-4 z-20 flex gap-2">
+                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-brand-950 text-brand-400 border border-brand-800/40">Dental CAD/CAM</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+                                    <span>PRECISION FIT</span>
+                                    <span>2025</span>
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Micron-Margin Crown System</h3>
+                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
+                                    Resolving fit discrepancy in zirconia restorations through strict CAD alignment &amp; sintering compensation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer flex items-center justify-between text-xs font-mono">
+                            <span class="text-[var(--text-muted)]">&lt;20µm Margin Fit</span>
+                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
+                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-2" onclick="openCaseStudy('case-2')">
+                        <div>
+                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
+                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">02</span>
+                                <div class="absolute top-4 left-4 z-20 flex gap-2">
+                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-rose-950 text-rose-300 border border-rose-800/40">Web Architecture</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+                                    <span>WEB ENGINE</span>
+                                    <span>2026</span>
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Zero-JS Portfolio Platform</h3>
+                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
+                                    Zero-client-JS static engine achieving 100/100 Lighthouse metrics with $0 hosting cost.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer flex items-center justify-between text-xs font-mono">
+                            <span class="text-[var(--text-muted)]">100/100 Perf Metric</span>
+                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
+                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-3" onclick="openCaseStudy('case-3')">
+                        <div>
+                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
+                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">03</span>
+                                <div class="absolute top-4 left-4 z-20 flex gap-2">
+                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-emerald-950 text-emerald-300 border border-emerald-800/40">PostgreSQL RLS</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+                                    <span>SECURITY &amp; DATA</span>
+                                    <span>2026</span>
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Secure Contact Tap Pipeline</h3>
+                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
+                                    Supabase PostgreSQL backend with Row Level Security for physical NFC/QR card contact ingestion.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer flex items-center justify-between text-xs font-mono">
+                            <span class="text-[var(--text-muted)]">Zero Secret Exposure</span>
+                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
+                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPABILITIES -->
+        <section id="capabilities" class="py-24 max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-12">
+                <div class="text-xs font-mono uppercase tracking-widest text-brand-500 mb-2 reveal reveal-delay-1">// Interdisciplinary Matrix</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide reveal reveal-delay-2">FOUR DOMAINS. ONE THINKING PROCESS.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-1">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Dental Tech</h3>
+                        <p class="text-xs font-mono text-brand-400 mb-3">Micron Fit Precision</p>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">3D intraoral CAD, occlusal morphology, and sintering math.</p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Exocad • CAM Milling</div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-2">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Video Editing</h3>
+                        <p class="text-xs font-mono text-brand-400 mb-3">Pacing &amp; Storytelling</p>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Rhythmic video pacing, color grading, and audio mix design.</p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Color Grading • Pacing</div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-3">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.5 2.5 6.5 8 10 5.5-3.5 8-6.5 8-10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Graphic Design</h3>
+                        <p class="text-xs font-mono text-brand-400 mb-3">Visual Hierarchy</p>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Dark aesthetic systems, typography hierarchy, and spatial layout.</p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Design Tokens • Grid System</div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-4">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                        </div>
+                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Web Architecture</h3>
+                        <p class="text-xs font-mono text-brand-400 mb-3">Performance &amp; Security</p>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Static HTML pre-rendering, Supabase RLS, zero runtime JS.</p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Astro SSG • PostgreSQL RLS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MINDSET -->
+        <section id="mindset" class="py-24 max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 p-8 rounded-2xl bg-gradient-to-br from-brand-950/60 via-[var(--bg-card)] to-[var(--bg-card)] border border-brand-900/40 relative shadow-md reveal reveal-delay-1">
+                    <span class="font-serif text-6xl text-brand-500/30 absolute top-4 left-6 select-none">&ldquo;</span>
+                    <div class="relative z-10 space-y-4 pt-4">
+                        <p class="font-display text-xl text-[var(--text-primary)] tracking-wide uppercase leading-snug">
+                            Good design is not just how clean something looks, but how accurately it solves a physical or digital problem.
+                        </p>
+                        <div class="pt-4 border-t border-brand-900/40 flex items-center justify-between">
+                            <span class="font-hand text-2xl text-brand-400">Yugal</span>
+                            <span class="text-[10px] font-mono text-[var(--text-muted)] uppercase">TECHNOLOGIST STATEMENT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-5 text-sm text-[var(--text-muted)] leading-relaxed reveal reveal-delay-2">
+                    <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Personal Philosophy</div>
+                    <h3 class="font-display text-3xl font-bold uppercase text-[var(--text-primary)]">FACT-BASED LOGIC &amp; HUMAN JUDGMENT</h3>
+                    <p>
+                        I value direct clarity and objective problem-solving over unsupported claims. In dental technology, if a crown margin is off by 30 micrometers, it fails. That same standard applies across video editing, graphic design, and code architecture.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="py-24 bg-[var(--bg-card)]/60 border-t border-[var(--bg-border)]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center max-w-xl mx-auto mb-12 space-y-2 reveal reveal-delay-1">
+                    <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Direct Communication</div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">LET'S WORK TOGETHER</h2>
+                    <p class="text-xs text-[var(--text-muted)]">
+                        Open for collaborations in dental CAD, video editing, graphic design systems, or web architecture.
+                    </p>
+                </div>
+
+                <form id="contact-form" class="space-y-5 bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--bg-border)] shadow-2xl relative reveal reveal-delay-2" novalidate>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="form-group">
+                            <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Your Name <span class="text-brand-500">*</span></label>
+                            <input type="text" id="sender_name" required placeholder="Alex Vance"
+                                class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
+                            <div class="error-message" id="name-error">
+                                <span class="error-icon">⚠</span>
+                                <span>Please enter your name</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Your Email <span class="text-brand-500">*</span></label>
+                            <input type="email" id="sender_email" required placeholder="alex@domain.com"
+                                class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
+                            <div class="error-message" id="email-error">
+                                <span class="error-icon">⚠</span>
+                                <span>Please enter a valid email address</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Subject</label>
+                        <input type="text" id="subject" placeholder="General Inquiry / CAD Collaboration"
+                            class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
+                    </div>
+                    <div class="form-group">
+                        <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Message <span class="text-brand-500">*</span></label>
+                        <textarea id="message" required rows="4" placeholder="Describe your project, timeline, or inquiry in detail..."
+                            class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300 resize-y"></textarea>
+                        <div class="error-message" id="message-error">
+                            <span class="error-icon">⚠</span>
+                            <span>Please describe your inquiry</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="origin_source" value="NFC_QR_TAP" />
+                    <button type="submit" id="submit-btn"
+                        class="w-full py-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-950/60 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        <span>Transmit Message</span>
+                    </button>
+                </form>
+                <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg border text-xs font-mono"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="border-t border-[var(--bg-border)] py-12 bg-[var(--bg-base)]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-muted)]">
+            <div>&copy; 2026 Yugal <span class="text-brand-500">&bull;</span> Design &amp; Technology</div>
+            <div class="flex items-center gap-6">
+                <a href="/llms.txt" class="hover:text-brand-400 transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    /llms.txt
+                </a>
+                <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap.xml</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    CASE STUDY MODAL
+    ============================================================ -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="modal-container" class="bg-[var(--bg-card)] border border-[var(--bg-border)] w-full max-w-2xl rounded-2xl p-6 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- ===== EXTERNAL JAVASCRIPT ===== -->
+    <script src="js/main.js"></script>
+</body>
+</html>
