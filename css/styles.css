@@ -414,3 +414,13 @@ body {
         padding: 20px;
     }
 }
+
+/* Override to show default cursor */
+body {
+    cursor: auto !important;
+}
+
+#cursor-dot,
+#cursor-ring {
+    display: none !important;
+}
