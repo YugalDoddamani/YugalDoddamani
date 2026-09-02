@@ -443,3 +443,32 @@ nav button {
     cursor: pointer !important;
 }
 
+
+/* ============================================================
+   CURSOR FIX - Show custom cursor everywhere except navigation
+   ============================================================ */
+
+/* Default cursor on navigation */
+.glass-header a,
+.glass-header button,
+.glass-header .dropdown-trigger,
+.glass-header .dropdown-menu a,
+.glass-header #menu-toggle,
+nav a,
+nav button {
+    cursor: pointer !important;
+}
+
+/* Ensure custom cursor is visible everywhere else */
+#cursor-dot,
+#cursor-ring {
+    display: block !important;
+}
+
+/* Only hide custom cursor when actually hovering over nav */
+.glass-header a:hover ~ #cursor-dot,
+.glass-header a:hover ~ #cursor-ring,
+.glass-header button:hover ~ #cursor-dot,
+.glass-header button:hover ~ #cursor-ring {
+    display: none !important;
+}
