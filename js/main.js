@@ -88,27 +88,72 @@ function initCursor() {
         return;
     }
 
+    // Show custom cursor
     dot.style.display = 'block';
     ring.style.display = 'block';
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
 
     var mouseX = window.innerWidth / 2,
         mouseY = window.innerHeight / 2;
     var ringX = mouseX,
         ringY = mouseY;
 
-    document.addEventListener('mousemove', function(e) { mouseX = e.clientX;
-        mouseY = e.clientY; });
-    document.addEventListener('mouseleave', function() { dot.style.opacity = '0';
-        ring.style.opacity = '0'; });
-    document.addEventListener('mouseenter', function() { dot.style.opacity = '1';
-        ring.style.opacity = '1'; });
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-    var interactives = document.querySelectorAll('a, button, article, input, textarea, [onclick], .group, .dropdown-trigger');
-    interactives.forEach(function(el) {
-        el.addEventListener('mouseenter', function() { dot.classList.add('hover');
-            ring.classList.add('hover'); });
-        el.addEventListener('mouseleave', function() { dot.classList.remove('hover');
-            ring.classList.remove('hover'); });
+    document.addEventListener('mouseleave', function() {
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', function() {
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+    });
+
+    // Navigation elements - show default cursor
+    var navElements = document.querySelectorAll(
+        '.glass-header a, ' +
+        '.glass-header button, ' +
+        '.glass-header .dropdown-trigger, ' +
+        '.glass-header .dropdown-menu a, ' +
+        '.glass-header #menu-toggle, ' +
+        'nav a, ' +
+        'nav button'
+    );
+    
+    navElements.forEach(function(el) {
+        el.style.cursor = 'pointer';
+        // When hovering nav, hide custom cursor
+        el.addEventListener('mouseenter', function() {
+            dot.style.display = 'none';
+            ring.style.display = 'none';
+        });
+        el.addEventListener('mouseleave', function() {
+            dot.style.display = 'block';
+            ring.style.display = 'block';
+            dot.style.opacity = '1';
+            ring.style.opacity = '1';
+        });
+    });
+
+    // Interactive elements - show custom cursor hover effect
+    var interactiveElements = document.querySelectorAll('article, .group, [onclick]');
+    interactiveElements.forEach(function(el) {
+        // Skip if inside header
+        if (el.closest('.glass-header')) return;
+        
+        el.addEventListener('mouseenter', function() {
+            dot.classList.add('hover');
+            ring.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', function() {
+            dot.classList.remove('hover');
+            ring.classList.remove('hover');
+        });
     });
 
     function animate() {
@@ -123,9 +168,12 @@ function initCursor() {
 
     animate();
     document.body.style.cursor = 'none';
-    interactives.forEach(function(el) { el.style.cursor = 'none'; });
+    
+    // Make sure nav elements show default cursor
+    navElements.forEach(function(el) {
+        el.style.cursor = 'pointer';
+    });
 }
-
 // ============================================================
 // ENHANCED AMBIENT CANVAS
 // ============================================================
