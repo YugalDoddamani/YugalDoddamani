@@ -443,8 +443,3 @@ nav button {
     cursor: pointer !important;
 }
 
-/* Hide custom cursor when inside header */
-.glass-header #cursor-dot,
-.glass-header #cursor-ring {
-    display: none !important;
-}
