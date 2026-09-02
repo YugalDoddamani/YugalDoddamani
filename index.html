@@ -49,6 +49,28 @@
 </head>
 <body>
 
+    <body>
+<!-- ============================================================
+    LOADING SCREEN WITH CUSTOM SVG ICONS
+    ============================================================ -->
+<div id="loading-screen">
+    <div class="loading-content">
+        <!-- Icon Container - Icons will cycle here -->
+        <div class="loading-icon" id="loading-icon">
+            <img src="assets/tooth-svgrepo-com.svg" alt="Loading" id="loading-icon-img" />
+        </div>
+        <div class="loading-bar">
+            <div class="loading-fill" id="loading-fill"></div>
+        </div>
+    </div>
+</div>
+
+    <!-- Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- ... rest of your code ... -->
+    
+
     <!-- Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
@@ -71,7 +93,7 @@
                     <span class="font-display tracking-wider text-xl font-bold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
                         YUGAL DODDAMANI<span class="text-brand-500">.</span>
                     </span>
-                    <span class="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase -mt-1">Design &amp; Technology</span>
+                    <span class="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase -mt">Design &amp; Technology</span>
                 </div>
             </a>
 
@@ -235,7 +257,7 @@
                         </div>
                     </div>
 
-                    <!-- Portrait -->
+                    <<!-- Portrait -->
 <div class="lg:col-span-5 flex justify-center reveal reveal-delay-3">
     <div class="portrait-glow-frame w-full max-w-sm sm:max-w-md shadow-2xl shadow-brand-950/80 group">
         <div class="portrait-glow-inner relative aspect-[4/5] bg-[var(--bg-card)] flex flex-col justify-between p-6 overflow-hidden">
