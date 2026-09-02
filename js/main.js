@@ -1,4 +1,81 @@
 /* ============================================================
+   LOADING SCREEN WITH CUSTOM SVG ICONS
+   ============================================================ */
+(function() {
+    var loadingScreen = document.getElementById('loading-screen');
+    var fillBar = document.getElementById('loading-fill');
+    var iconImg = document.getElementById('loading-icon-img');
+    var iconContainer = document.getElementById('loading-icon');
+    
+    if (!loadingScreen || !iconImg) return;
+    
+    // ============================================================
+    // ICON SET - SVG files in sequence
+    // ============================================================
+    var iconFiles = [
+        'assets/tooth-svgrepo-com.svg',      // 1. Dental
+        'assets/design-svgrepo-com.svg',     // 2. Graphic Design
+        'assets/code-tech-dev-svgrepo-com.svg', // 3. Web/Code
+        'assets/camera-svgrepo-com.svg',     // 4. Video/Photography
+        'assets/tools-svgrepo-com.svg'       // 5. Multidisciplinary Tools
+    ];
+    
+    var currentIconIndex = 0;
+    var progress = 0;
+    var duration = 2000; // 2 seconds total
+    var interval = 20;
+    var steps = duration / interval;
+    var increment = 100 / steps;
+    var iconChangeInterval = duration / iconFiles.length; // Change every ~400ms
+    
+    // Set initial icon
+    function setIcon(index) {
+        var iconPath = iconFiles[index % iconFiles.length];
+        iconImg.src = iconPath;
+        // Add pulse animation
+        iconContainer.classList.remove('pulse');
+        // Force reflow
+        void iconContainer.offsetWidth;
+        iconContainer.classList.add('pulse');
+    }
+    
+    // Set first icon
+    setIcon(0);
+    
+    // Icon cycling timer
+    var lastIconChange = Date.now();
+    
+    function updateProgress() {
+        progress = Math.min(progress + increment, 100);
+        if (fillBar) {
+            fillBar.style.width = progress + '%';
+        }
+        
+        // Change icon at intervals
+        var now = Date.now();
+        if (now - lastIconChange > iconChangeInterval && progress < 100) {
+            currentIconIndex++;
+            setIcon(currentIconIndex);
+            lastIconChange = now;
+        }
+        
+        if (progress < 100) {
+            setTimeout(updateProgress, interval);
+        } else {
+            // Set final icon (tools) and hide
+            setIcon(iconFiles.length - 1);
+            setTimeout(function() {
+                loadingScreen.classList.add('hide');
+            }, 300);
+        }
+    }
+    
+    // Start after a tiny delay
+    setTimeout(updateProgress, 100);
+})();
+
+
+/* ============================================================
    MAIN APPLICATION
    ============================================================ */
 
@@ -537,3 +614,4 @@ function initContactForm() {
         }, 1000);
     });
 }
+
