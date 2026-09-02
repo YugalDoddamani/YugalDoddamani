@@ -424,3 +424,27 @@ body {
 #cursor-ring {
     display: none !important;
 }
+
+/* ============================================================
+   FIX: Default cursor on navigation
+   ============================================================ */
+
+/* Force default cursor on all header interactive elements */
+header a,
+header button,
+header .dropdown-trigger,
+header .dropdown-menu a,
+header #menu-toggle,
+.glass-header a,
+.glass-header button,
+.glass-header [onclick],
+nav a,
+nav button {
+    cursor: pointer !important;
+}
+
+/* Hide custom cursor when inside header */
+.glass-header #cursor-dot,
+.glass-header #cursor-ring {
+    display: none !important;
+}
