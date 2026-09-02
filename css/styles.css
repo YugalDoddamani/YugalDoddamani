@@ -578,3 +578,228 @@ body {
         width: 130px;
     }
 }
+
+/* ============================================================
+   SOFTWARE PROFICIENCY SECTION
+   ============================================================ */
+
+#proficiency {
+    border-top: 1px solid var(--bg-border);
+    border-bottom: 1px solid var(--bg-border);
+    /* background removed - now matches page background */
+}
+/* Light theme adjustments */
+:root:not(.dark) #proficiency {
+    background: var(--bg-base);
+}
+
+/* Proficiency Item */
+.proficiency-item {
+    width: 100%;
+}
+
+.proficiency-item .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.proficiency-item .proficiency-label {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.03em;
+    opacity: 0.8;
+}
+
+/* Progress Track */
+.proficiency-track {
+    width: 100%;
+    height: 4px;
+    background: var(--bg-border);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Progress Fill - Starts at 0% width */
+.proficiency-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    border-radius: 2px;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: width;
+}
+
+/* When section is visible, animate to target width */
+#proficiency-container.is-visible .proficiency-fill {
+    width: var(--target-width);
+}
+
+/* Light theme track */
+:root:not(.dark) .proficiency-track {
+    background: #e0d8d0;
+}
+
+:root:not(.dark) .proficiency-fill {
+    background: linear-gradient(90deg, #dc2626, #b91c1c);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #proficiency {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    
+    .proficiency-item .font-mono {
+        font-size: 0.8rem;
+    }
+    
+    .proficiency-item .proficiency-label {
+        font-size: 0.65rem;
+    }
+}
+
+/* ============================================================
+   MICRO-INTERACTIONS & SCROLL TYPOGRAPHY FX
+   ============================================================ */
+
+/* ============================================================
+   1. TYPOGRAPHY SCROLL REVEAL
+   ============================================================ */
+
+/* Base state - hidden */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+/* Visible state - triggered by IntersectionObserver */
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for multiple elements */
+.scroll-reveal-delay-1 { transition-delay: 0.05s; }
+.scroll-reveal-delay-2 { transition-delay: 0.1s; }
+.scroll-reveal-delay-3 { transition-delay: 0.15s; }
+.scroll-reveal-delay-4 { transition-delay: 0.2s; }
+.scroll-reveal-delay-5 { transition-delay: 0.25s; }
+.scroll-reveal-delay-6 { transition-delay: 0.3s; }
+
+/* Reduced motion - disable all scroll reveals */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+}
+
+/* ============================================================
+   2. INTERACTIVE HOVER STATES
+   ============================================================ */
+
+/* Section Headers - Color switch on hover */
+.section-header {
+    transition: color 0.3s ease;
+}
+
+.section-header:hover {
+    color: #ef4444;
+}
+
+/* Heading hover in dark/light themes */
+:root.dark .section-header:hover {
+    color: #ef4444;
+}
+
+:root:not(.dark) .section-header:hover {
+    color: #dc2626;
+}
+
+/* ============================================================
+   PROJECT / CAPABILITY CARDS - Lift & Border Glow
+   ============================================================ */
+
+/* Card hover effect - translateY lift + border glow */
+.card-interactive {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: #ef4444;
+    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.08);
+}
+
+/* Dark theme card hover */
+:root.dark .card-interactive:hover {
+    box-shadow: 0 8px 40px rgba(239, 68, 68, 0.12);
+}
+
+/* Light theme card hover */
+:root:not(.dark) .card-interactive:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Reduced motion - disable card hover effects */
+@media (prefers-reduced-motion: reduce) {
+    .card-interactive {
+        transform: none !important;
+        transition: none !important;
+    }
+    .card-interactive:hover {
+        transform: none !important;
+    }
+}
+
+/* ============================================================
+   3. MAGNETIC BORDER ILLUMINATE (Alternative subtle effect)
+   ============================================================ */
+
+/* Border illuminate on hover */
+.card-border-glow {
+    position: relative;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.card-border-glow::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 40%, rgba(239, 68, 68, 0.15) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.card-border-glow:hover::after {
+    opacity: 1;
+}
+
+.card-border-glow:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================================
+   4. GLOBAL REDUCED MOTION SUPPORT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

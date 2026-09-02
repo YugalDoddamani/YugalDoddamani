@@ -1,7 +1,7 @@
-# robots.txt for GitHub Pages
+# robots.txt
 # Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yugaldoddamani.github.io/YugalDoddamani/sitemap.xml
+Sitemap: https://yugaldoddamani.com/sitemap.xml

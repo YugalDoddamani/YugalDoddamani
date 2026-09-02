@@ -736,3 +736,218 @@ function initContactForm() {
         }, 1000);
     });
 }
+
+/* ============================================================
+   SOFTWARE PROFICIENCY - Scroll Triggered Bars
+   ============================================================ */
+
+(function initProficiency() {
+    var container = document.getElementById('proficiency-container');
+    if (!container) return;
+
+    // Get all proficiency items and set their target widths
+    var items = container.querySelectorAll('.proficiency-item');
+    var fills = container.querySelectorAll('.proficiency-fill');
+
+    // Set CSS custom property for each fill
+    items.forEach(function(item, index) {
+        var percent = parseInt(item.getAttribute('data-percent'), 10);
+        var fill = fills[index];
+        if (fill) {
+            fill.style.setProperty('--target-width', percent + '%');
+        }
+    });
+
+    // Use IntersectionObserver to trigger animation
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                container.classList.add('is-visible');
+                
+                // Update aria-valuenow for accessibility
+                var fills2 = container.querySelectorAll('.proficiency-fill');
+                var items2 = container.querySelectorAll('.proficiency-item');
+                fills2.forEach(function(fill, idx) {
+                    var percent = parseInt(items2[idx].getAttribute('data-percent'), 10);
+                    fill.setAttribute('aria-valuenow', percent);
+                });
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    observer.observe(container);
+
+    // Also trigger if already visible on load
+    if (container.getBoundingClientRect().top < window.innerHeight) {
+        container.classList.add('is-visible');
+        var fills3 = container.querySelectorAll('.proficiency-fill');
+        var items3 = container.querySelectorAll('.proficiency-item');
+        fills3.forEach(function(fill, idx) {
+            var percent = parseInt(items3[idx].getAttribute('data-percent'), 10);
+            fill.setAttribute('aria-valuenow', percent);
+        });
+    }
+})();
+
+/* ============================================================
+   MICRO-INTERACTIONS & SCROLL TYPOGRAPHY FX
+   ============================================================ */
+
+// ============================================================
+// 1. TYPOGRAPHY SCROLL REVEAL
+// ============================================================
+
+(function initScrollRevealsEnhanced() {
+    // Target all major headings and section kickers
+    var targets = document.querySelectorAll(
+        'h1, h2, h3, ' +
+        '.section-header, ' +
+        '.page-kicker, ' +
+        '.section-kicker, ' +
+        '.hero-title, ' +
+        '.section-title, ' +
+        '.card-title, ' +
+        '.stat-title, ' +
+        '.philosophy-quote, ' +
+        '.mindset-title, ' +
+        '.contact-title'
+    );
+
+    // Filter out elements that are already hidden or in the header
+    var filteredTargets = [];
+    targets.forEach(function(el) {
+        // Skip if inside header or footer
+        if (el.closest('header') || el.closest('footer')) return;
+        // Skip if already has scroll-reveal class
+        if (el.classList.contains('scroll-reveal')) return;
+        filteredTargets.push(el);
+    });
+
+    // Add scroll-reveal class to filtered elements
+    filteredTargets.forEach(function(el, index) {
+        el.classList.add('scroll-reveal');
+        // Add staggered delay (up to 6 levels)
+        var delayClass = 'scroll-reveal-delay-' + ((index % 6) + 1);
+        el.classList.add(delayClass);
+    });
+
+    // Use IntersectionObserver
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        var revealElements = document.querySelectorAll('.scroll-reveal');
+        revealElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback: reveal all immediately
+        document.querySelectorAll('.scroll-reveal').forEach(function(el) {
+            el.classList.add('is-visible');
+        });
+    }
+})();
+
+
+// ============================================================
+// 2. SECTION HEADER HOVER - Add class for targeting
+// ============================================================
+
+// This adds the section-header class to appropriate elements
+(function initSectionHeaders() {
+    var headers = document.querySelectorAll(
+        'section h2, ' +
+        'section .font-display.text-3xl, ' +
+        'section .font-display.text-4xl, ' +
+        '.section-title, ' +
+        '.mindset-title, ' +
+        '.contact-title'
+    );
+
+    headers.forEach(function(el) {
+        // Skip if inside header/footer
+        if (el.closest('header') || el.closest('footer')) return;
+        // Skip if already has class
+        if (el.classList.contains('section-header')) return;
+        el.classList.add('section-header');
+    });
+})();
+
+
+// ============================================================
+// 3. CARD INTERACTIVE - Add hover effects to existing cards
+// ============================================================
+
+(function initCardInteractions() {
+    // Target project cards and capability cards
+    var cards = document.querySelectorAll(
+        '.project-card, ' +
+        '.capability-card, ' +
+        '.proficiency-item, ' +
+        '.service-card, ' +
+        '.specialization-card, ' +
+        '.pipeline-step, ' +
+        '.grid > .p-6, ' +
+        '.grid > .p-8, ' +
+        '.grid > article'
+    );
+
+    cards.forEach(function(el) {
+        // Skip if inside header/footer
+        if (el.closest('header') || el.closest('footer')) return;
+        // Skip if already has class
+        if (el.classList.contains('card-interactive')) return;
+        el.classList.add('card-interactive');
+    });
+})();
+
+
+// ============================================================
+// 4. REDUCED MOTION - Check and respect user preference
+// ============================================================
+
+(function checkReducedMotion() {
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+        // Remove all animation classes if user prefers reduced motion
+        document.querySelectorAll('.scroll-reveal').forEach(function(el) {
+            el.classList.remove('scroll-reveal');
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.style.transition = 'none';
+        });
+        
+        document.querySelectorAll('.card-interactive').forEach(function(el) {
+            el.style.transform = 'none';
+            el.style.transition = 'none';
+        });
+    }
+    
+    // Listen for changes in motion preference
+    prefersReducedMotion.addEventListener('change', function(e) {
+        if (e.matches) {
+            // User prefers reduced motion - disable animations
+            document.querySelectorAll('.scroll-reveal').forEach(function(el) {
+                el.classList.remove('scroll-reveal');
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                el.style.transition = 'none';
+            });
+        } else {
+            // User prefers motion - re-enable (will need page refresh to re-init observers)
+            location.reload();
+        }
+    });
+})();
