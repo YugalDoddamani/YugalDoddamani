@@ -1,0 +1,7 @@
+# robots.txt
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yugaldoddamani.com/sitemap.xml

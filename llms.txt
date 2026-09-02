@@ -1,0 +1,20 @@
+# Yugal Doddamani - Portfolio
+
+## Professional Summary
+Multidisciplinary Designer & Technologist specializing in Dental CAD/CAM, Video Editing, Graphic Design, and Web Architecture. Based in India, available for collaborations.
+
+## Core Services
+- Dental Design & CAD (Exocad, CAM Milling, Zirconia)
+- Video Editing & Production (Color Grading, Pacing)
+- Graphic Design & Visual Systems (Design Tokens, Grid System)
+- Web Design & Architecture (Astro SSG, PostgreSQL RLS)
+
+## Contact
+- Email: yugal.work@proton.me
+- WhatsApp: +91 9552232349
+- Instagram: @yugaldoddamani
+- LinkedIn: /in/yugaldoddamani
+
+## Pages
+- Home: https://yugaldoddamani.com/
+- Graphic Design: https://yugaldoddamani.com/graphic-design.html

@@ -1,4 +1,122 @@
 /* ============================================================
+   THEME PERSISTENCE - Store and load theme from localStorage
+   ============================================================ */
+
+(function initThemePersistence() {
+    // Check if user has a saved theme preference
+    var savedTheme = localStorage.getItem('theme');
+    var isDark = document.documentElement.classList.contains('dark');
+    
+    // If there's a saved theme, apply it
+    if (savedTheme) {
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    } else {
+        // If no saved theme, use system preference
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }
+    
+    // Update icons based on current theme
+    var sun = document.getElementById('theme-icon-sun');
+    var moon = document.getElementById('theme-icon-moon');
+    var isDarkNow = document.documentElement.classList.contains('dark');
+    if (sun && moon) {
+        if (isDarkNow) {
+            sun.classList.add('hidden');
+            moon.classList.remove('hidden');
+        } else {
+            sun.classList.remove('hidden');
+            moon.classList.add('hidden');
+        }
+    }
+})();
+
+/**************************************************************************/
+/* ============================================================
+   PAGE TRANSITIONS - Full Screen Color Wipe
+   ============================================================ */
+
+(function initPageTransitions() {
+    var transitionEl = document.getElementById('page-transition');
+    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    var isTransitioning = false;
+
+    // Function to navigate with transition
+    window.navigateTo = function(url, transitionType) {
+        if (isTransitioning || url === currentPath) return;
+        isTransitioning = true;
+
+        var type = transitionType || 'wipe-up';
+
+        if (transitionEl) {
+            // Reset and set the transition type
+            transitionEl.className = '';
+            transitionEl.style.display = 'block'; // Make visible
+            // Force reflow
+            void transitionEl.offsetWidth;
+            transitionEl.classList.add(type);
+            transitionEl.classList.add('active');
+        }
+
+        setTimeout(function() {
+            window.location.href = url;
+        }, 600);
+    };
+
+    // Handle page load - complete transition
+    window.addEventListener('pageshow', function() {
+        if (transitionEl) {
+            transitionEl.classList.remove('active');
+            transitionEl.className = '';
+            transitionEl.style.display = 'none'; // Hide after transition
+        }
+        isTransitioning = false;
+    });
+
+    // Also handle when page first loads
+    if (transitionEl) {
+        transitionEl.style.display = 'none';
+    }
+
+    // Intercept all navigation clicks
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href) return;
+
+        // Skip if external link, anchor, or javascript:
+        if (href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+        // Skip if it's the same page
+        var targetPath = href.split('/').pop() || 'index.html';
+        if (targetPath === currentPath) return;
+
+        // Skip if it's a download or mailto
+        if (href.includes('.pdf') || href.includes('.zip') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+        e.preventDefault();
+
+        // Determine transition direction
+        var isBack = href.includes('index.html') && currentPath.includes('graphic-design');
+        var type = isBack ? 'wipe-down' : 'wipe-up';
+
+        // Navigate with transition
+        navigateTo(href, type);
+    });
+})();
+
+
+/* ============================================================
    LOADING SCREEN WITH CUSTOM SVG ICONS
    ============================================================ */
 (function() {
@@ -115,7 +233,7 @@ function toggleDropdown(event) {
 }
 
 // ============================================================
-// THEME TOGGLE
+// THEME TOGGLE - Now saves to localStorage
 // ============================================================
 function initThemeToggle() {
     var btn = document.getElementById('theme-toggle');
@@ -133,6 +251,9 @@ function initThemeToggle() {
             var moon = document.getElementById('theme-icon-moon');
             if (sun) sun.classList.toggle('hidden', dark);
             if (moon) moon.classList.toggle('hidden', !dark);
+            
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
         }
 
         if (document.startViewTransition) {
@@ -251,6 +372,7 @@ function initCursor() {
         el.style.cursor = 'pointer';
     });
 }
+
 // ============================================================
 // ENHANCED AMBIENT CANVAS
 // ============================================================
@@ -614,4 +736,3 @@ function initContactForm() {
         }, 1000);
     });
 }
-
