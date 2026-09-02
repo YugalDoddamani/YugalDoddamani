@@ -16,5 +16,5 @@ Multidisciplinary Designer & Technologist specializing in Dental CAD/CAM, Video 
 - LinkedIn: /in/yugaldoddamani
 
 ## Pages
-- Home: https://yugaldoddamani.com/
-- Graphic Design: https://yugaldoddamani.com/graphic-design.html
+- Home: https://yugaldoddamani.github.io/YugalDoddamani/
+- Graphic Design: https://yugaldoddamani.github.io/YugalDoddamani/graphic-design.html
