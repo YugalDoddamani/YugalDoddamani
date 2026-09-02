@@ -41,8 +41,7 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: none;
-}
+    
 
 /* Glass Header */
 .glass-header {
