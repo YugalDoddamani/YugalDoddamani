@@ -274,7 +274,7 @@
             
             <!-- Top badge -->
             <div class="relative z-20 flex items-center justify-between">
-               
+                
             </div>
             
             <!-- Bottom info -->
@@ -558,80 +558,140 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="py-24 bg-[var(--bg-card)]/60 border-t border-[var(--bg-border)]">
-            <div class="max-w-4xl mx-auto px-6">
-                <div class="text-center max-w-xl mx-auto mb-12 space-y-2 reveal reveal-delay-1">
-                    <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Direct Communication</div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">LET'S WORK TOGETHER</h2>
-                    <p class="text-xs text-[var(--text-muted)]">
-                        Open for collaborations in dental CAD, video editing, graphic design systems, or web architecture.
-                    </p>
+        <!-- CONTACT SECTION -->
+<section id="contact" class="py-24 bg-[var(--bg-card)]/60 border-t border-[var(--bg-border)]">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2 reveal reveal-delay-1">
+            <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Let's Connect</div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">GET IN TOUCH</h2>
+            <p class="text-sm text-[var(--text-muted)] max-w-lg mx-auto">
+                I'm always open to collaborations, creative projects, or just a conversation. Reach out through any of the channels below.
+            </p>
+        </div>
+
+        <!-- Contact Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto reveal reveal-delay-2">
+            
+            <!-- Email -->
+            <a href="mailto:yugal.work@proton.me?subject=Portfolio%20Inquiry&body=Hi%20Yugal%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect." 
+               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
+                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
+                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Email</h4>
+                <p class="text-xs text-[var(--text-muted)] mt-1">yugal.work@proton.me</p>
+                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Send message →</span>
+            </a>
 
-                <form id="contact-form" class="space-y-5 bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--bg-border)] shadow-2xl relative reveal reveal-delay-2" novalidate>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div class="form-group">
-                            <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Your Name <span class="text-brand-500">*</span></label>
-                            <input type="text" id="sender_name" required placeholder="Alex Vance"
-                                class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
-                            <div class="error-message" id="name-error">
-                                <span class="error-icon">⚠</span>
-                                <span>Please enter your name</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Your Email <span class="text-brand-500">*</span></label>
-                            <input type="email" id="sender_email" required placeholder="alex@domain.com"
-                                class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
-                            <div class="error-message" id="email-error">
-                                <span class="error-icon">⚠</span>
-                                <span>Please enter a valid email address</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Subject</label>
-                        <input type="text" id="subject" placeholder="General Inquiry / CAD Collaboration"
-                            class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300" />
-                    </div>
-                    <div class="form-group">
-                        <label class="block text-xs font-mono text-[var(--text-muted)] uppercase mb-2 tracking-wider">Message <span class="text-brand-500">*</span></label>
-                        <textarea id="message" required rows="4" placeholder="Describe your project, timeline, or inquiry in detail..."
-                            class="w-full px-4 py-3 rounded-lg bg-[var(--bg-elevated)] border-2 border-[var(--bg-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-brand-500 transition-all duration-300 resize-y"></textarea>
-                        <div class="error-message" id="message-error">
-                            <span class="error-icon">⚠</span>
-                            <span>Please describe your inquiry</span>
-                        </div>
-                    </div>
-                    <input type="hidden" id="origin_source" value="NFC_QR_TAP" />
-                    <button type="submit" id="submit-btn"
-                        class="w-full py-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-950/60 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        <span>Transmit Message</span>
-                    </button>
-                </form>
-                <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg border text-xs font-mono"></div>
-            </div>
-        </section>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/919552232349?text=Hi%20Yugal%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
+                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">WhatsApp</h4>
+                <p class="text-xs text-[var(--text-muted)] mt-1">+91 9552232349</p>
+                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Chat now →</span>
+            </a>
 
+            <!-- Instagram -->
+            <a href="https://instagram.com/yugaldoddamani" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
+                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Instagram</h4>
+                <p class="text-xs text-[var(--text-muted)] mt-1">@yugaldoddamani</p>
+                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Follow →</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/yugaldoddamani" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
+                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">LinkedIn</h4>
+                <p class="text-xs text-[var(--text-muted)] mt-1">Connect with me</p>
+                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Connect →</span>
+            </a>
+
+        </div>
+
+        <!-- Brand Instagram -->
+        <div class="text-center mt-8 reveal reveal-delay-3">
+            <p class="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">Also find my brand</p>
+            <a href="https://instagram.com/carnixsmilestudio" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 mt-2 text-sm text-[var(--text-primary)] hover:text-brand-400 transition-colors font-mono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @carnixsmilestudio
+                <span class="text-[10px] text-[var(--text-muted)]">(Brand)</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+        
     </main>
 
     <!-- ============================================================
     FOOTER
     ============================================================ -->
-    <footer class="border-t border-[var(--bg-border)] py-12 bg-[var(--bg-base)]">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-muted)]">
-            <div>&copy; 2026 Yugal Doddamani<span class="text-brand-500">&bull;</span> Design &amp; Technology</div>
+    <!-- FOOTER -->
+<footer class="border-t border-[var(--bg-border)] py-12 bg-[var(--bg-base)]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <!-- Copyright -->
+            <div class="text-xs font-mono text-[var(--text-muted)] text-center md:text-left">
+                &copy; 2026 Yugal Doddamani <span class="text-brand-500">&bull;</span> Design &amp; Technology
+            </div>
+
+            <!-- Social Links -->
             <div class="flex items-center gap-6">
+                <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
+                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
+                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://instagram.com/carnixsmilestudio" target="_blank" rel="noopener noreferrer" 
+                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="Brand Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <span class="w-px h-6 bg-[var(--bg-border)]"></span>
+                <a href="mailto:yugal.work@proton.me" 
+                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors text-xs font-mono">
+                    Email
+                </a>
+                <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer"
+                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors text-xs font-mono">
+                    WhatsApp
+                </a>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="flex items-center gap-6 text-xs font-mono text-[var(--text-muted)]">
                 <a href="/llms.txt" class="hover:text-brand-400 transition-colors flex items-center gap-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     /llms.txt
                 </a>
                 <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap.xml</a>
             </div>
+
         </div>
-    </footer>
+    </div>
+</footer>
 
     <!-- ============================================================
     CASE STUDY MODAL
