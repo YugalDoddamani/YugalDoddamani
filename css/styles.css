@@ -1,31 +1,35 @@
 /* ============================================================
-   THEME VARIABLES - Dark & Light
+   THEME VARIABLES - Clean Fallback Cascade
    ============================================================ */
 
-/* DARK THEME (Default) */
-:root.dark {
-    --bg-base: #0a0809;
-    --bg-card: #120e10;
-    --bg-elevated: #1a1417;
-    --bg-border: #2a1a1e;
-    --text-primary: #f1f5f9;
-    --text-muted: #94a3b8;
-    --header-bg: rgba(10, 8, 9, 0.85);
-    --mobile-bg: rgba(18, 14, 16, 0.95);
-    --card-hover: rgba(239, 68, 68, 0.1);
+:root {
+    /* Default Dark Theme - Warm Terracotta Accent */
+    --bg-base: #0e0a08;
+    --bg-card: #16100d;
+    --bg-elevated: #1f1713;
+    --bg-border: #2d201a;
+    --text-primary: #ede6e2;
+    --text-muted: #a8948a;
+    --header-bg: rgba(14, 10, 8, 0.92);
+    --mobile-bg: rgba(14, 10, 8, 0.98);
+    --accent: #c4725a;
+    --accent-dim: rgba(196, 114, 90, 0.15);
+    --accent-glow: rgba(196, 114, 90, 0.08);
 }
 
-/* LIGHT THEME */
-:root:not(.dark) {
-    --bg-base: #f5f3f0;
+/* LIGHT THEME OVERRIDE */
+html:not(.dark) {
+    --bg-base: #f5f0ec;
     --bg-card: #ffffff;
-    --bg-elevated: #f0eded;
-    --bg-border: #e0d8d0;
-    --text-primary: #1a1412;
-    --text-muted: #6b5f5a;
-    --header-bg: rgba(255, 255, 255, 0.92);
-    --mobile-bg: rgba(255, 255, 255, 0.98);
-    --card-hover: rgba(239, 68, 68, 0.05);
+    --bg-elevated: #f0eae6;
+    --bg-border: #e0d5ce;
+    --text-primary: #1e1613;
+    --text-muted: #7a6b63;
+    --header-bg: rgba(245, 240, 236, 0.92);
+    --mobile-bg: rgba(245, 240, 236, 0.98);
+    --accent: #b56047;
+    --accent-dim: rgba(181, 96, 71, 0.12);
+    --accent-glow: rgba(181, 96, 71, 0.06);
 }
 
 /* ============================================================
@@ -38,13 +42,146 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-base);
     color: var(--text-primary);
     font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 350;
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: none;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    line-height: 1.7;
+}
+
+/* Standard cursor retained until custom cursor is confirmed running */
+@media (pointer: fine) {
+    body.custom-cursor-active {
+        cursor: none;
+    }
+}
+
+/* ============================================================
+   HEADER - Fixed Spacing
+   ============================================================ */
+
+header {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+header .h-18 {
+    height: 64px;
+}
+
+header nav .px-3\.5 {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+header nav .py-1\.5 {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+header .gap-3 {
+    gap: 12px;
+}
+
+header .w-8 {
+    width: 32px;
+    height: 32px;
+}
+
+header .text-base {
+    font-size: 15px;
+}
+
+header .text-\[9px\] {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+#mobile-menu {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#mobile-menu .space-y-3 > * + * {
+    margin-top: 12px;
+}
+
+#mobile-menu .py-1\.5 {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* ============================================================
+   VIEW TRANSITION
+   ============================================================ */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+    opacity: 0;
+}
+
+::view-transition-new(root) {
+    z-index: 2;
+    opacity: 1;
+    will-change: clip-path;
+}
+
+::view-transition-new(root)::before {
+    content: none;
+}
+
+/* ============================================================
+   SMOOTH THEME TRANSITION
+   ============================================================ */
+
+body,
+.glass-header,
+.glass-mobile-menu,
+.portrait-frame,
+.portrait-inner,
+.bg-card,
+.border,
+.shadow {
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+body:not(.page-loaded) * {
+    transition: none !important;
+}
+
+/* ============================================================
+   HANDWRITTEN FONT
+   ============================================================ */
+
+.font-hand {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1.3;
+}
+
+.hero .font-hand {
+    font-size: 2rem;
+}
+
+.about-quote .font-hand {
+    font-size: 1.1rem;
 }
 
 /* ============================================================
@@ -53,86 +190,40 @@ body {
 
 .glass-header {
     background: var(--header-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-mobile-menu {
     background: var(--mobile-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 /* ============================================================
    PORTRAIT FRAME
    ============================================================ */
 
-.portrait-glow-frame {
+.portrait-frame {
     position: relative;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.35) 0%, var(--bg-card) 60%, var(--bg-border) 100%);
+    background: var(--bg-elevated);
     padding: 2px;
     border-radius: 1.25rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-.portrait-glow-inner {
+.portrait-inner {
     background: var(--bg-card);
     border-radius: calc(1.25rem - 2px);
     overflow: hidden;
+    position: relative;
 }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-base);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--bg-border);
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #ef4444;
-}
-
-/* Light theme scrollbar */
-:root:not(.dark) ::-webkit-scrollbar-track {
-    background: #f0edeb;
-}
-:root:not(.dark) ::-webkit-scrollbar-thumb {
-    background: #d0c8c0;
-}
-:root:not(.dark) ::-webkit-scrollbar-thumb:hover {
-    background: #ef4444;
-}
-
-/* ============================================================
-   LINE CLAMP
-   ============================================================ */
-
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 2;
-}
-
-/* ============================================================
-   SELECTION
-   ============================================================ */
-
-::selection {
-    background: rgba(239, 68, 68, 0.3);
-    color: #f87171;
-}
-
-:root:not(.dark) ::selection {
-    background: rgba(239, 68, 68, 0.2);
-    color: #b91c1c;
+.portrait-inner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ============================================================
@@ -144,15 +235,14 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 8px;
-    height: 8px;
-    background-color: #ef4444;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent);
     border-radius: 50%;
     z-index: 99999;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease, opacity 0.2s ease;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
-    display: none;
+    opacity: 0;
 }
 
 #cursor-ring {
@@ -160,87 +250,170 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(239, 68, 68, 0.3);
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--accent);
     border-radius: 50%;
     z-index: 99998;
     transform: translate(-50%, -50%);
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
                 border-color 0.2s ease,
                 width 0.2s ease,
                 height 0.2s ease,
                 opacity 0.2s ease;
-    display: none;
+    opacity: 0;
+}
+
+@media (pointer: fine) {
+    #cursor-dot, #cursor-ring {
+        opacity: 0.6;
+    }
 }
 
 #cursor-ring.hover {
-    width: 56px;
-    height: 56px;
-    border-color: #ef4444;
-    border-width: 2px;
-    box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
+    width: 48px;
+    height: 48px;
+    border-color: var(--accent);
+    border-width: 1.5px;
+    opacity: 1;
 }
 
 #cursor-dot.hover {
-    transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-50%, -50%) scale(1.6);
 }
 
 /* ============================================================
-   SCROLL REVEAL ANIMATIONS
+   SCROLL REVEAL
    ============================================================ */
 
-.reveal {
+.reveal, .scroll-reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
 }
 
-.reveal.visible {
+.reveal.visible, .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.05s; }
+.reveal-delay-1 { transition-delay: 0s; }
 .reveal-delay-2 { transition-delay: 0.1s; }
-.reveal-delay-3 { transition-delay: 0.15s; }
-.reveal-delay-4 { transition-delay: 0.2s; }
-.reveal-delay-5 { transition-delay: 0.25s; }
-.reveal-delay-6 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.2s; }
+.reveal-delay-4 { transition-delay: 0.3s; }
+.reveal-delay-5 { transition-delay: 0.4s; }
 
 /* ============================================================
-   VIEW TRANSITION
+   CARD INTERACTIVE (Hardware-Accelerated)
    ============================================================ */
 
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
+.card-interactive {
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease;
+    will-change: transform;
 }
-::view-transition-old(root) {
-    z-index: 1;
-}
-::view-transition-new(root) {
-    z-index: 9999;
+
+.card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
 }
 
 /* ============================================================
-   AMBIENT CANVAS
+   SECTION HEADERS
    ============================================================ */
 
-#bg-canvas {
+.section-kicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-top: 0.25rem;
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+
+#loading-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    z-index: 99999;
+    background: var(--bg-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    z-index: 0;
+}
+
+#loading-screen .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#loading-screen .loading-icon {
+    width: 48px;
+    height: 48px;
+    opacity: 0.8;
+}
+
+#loading-screen .loading-bar {
+    width: 120px;
+    height: 1.5px;
+    background: var(--bg-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#loading-screen .loading-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.1s linear;
 }
 
 /* ============================================================
-   DROPDOWN MENU
+   PAGE TRANSITION
+   ============================================================ */
+
+#page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: none;
+    background: var(--bg-base);
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    display: none;
+}
+
+#page-transition.active {
+    display: block;
+    transform: scale(1.5);
+    pointer-events: all;
+    border-radius: 0;
+}
+
+/* ============================================================
+   DROPDOWN
    ============================================================ */
 
 .dropdown-container {
@@ -256,28 +429,27 @@ body {
 
 .dropdown-trigger .arrow {
     transition: transform 0.2s ease;
-    font-size: 10px;
+    font-size: 8px;
 }
 
-.dropdown-trigger:hover .arrow,
 .dropdown-container.open .dropdown-trigger .arrow {
     transform: rotate(180deg);
 }
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 6px);
     left: 50%;
-    transform: translateX(-50%) translateY(-8px);
+    transform: translateX(-50%) translateY(-4px);
     background: var(--bg-card);
     border: 1px solid var(--bg-border);
-    border-radius: 12px;
-    padding: 6px;
-    min-width: 200px;
+    border-radius: 10px;
+    padding: 4px;
+    min-width: 190px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
     z-index: 100;
 }
 
@@ -290,27 +462,18 @@ body {
 .dropdown-menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 16px;
-    border-radius: 8px;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
     color: var(--text-primary);
     text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-size: 0.75rem;
     transition: background 0.15s ease, color 0.15s ease;
-    white-space: nowrap;
 }
 
 .dropdown-menu a:hover {
     background: var(--bg-elevated);
-    color: #ef4444;
-}
-
-.dropdown-menu a .icon {
-    font-size: 16px;
-    opacity: 0.7;
+    color: var(--accent);
 }
 
 .dropdown-menu .divider {
@@ -320,207 +483,18 @@ body {
 }
 
 /* ============================================================
-   PROJECT CARDS
+   AMBIENT CANVAS
    ============================================================ */
 
-.project-card .card-footer {
-    padding: 16px 24px 24px 24px;
-    margin-top: auto;
-    border-top: 1px solid var(--bg-border);
-}
-
-.project-card .card-body {
-    padding: 24px;
-    flex: 1;
-}
-
-.project-card .card-body .description {
-    margin-bottom: 16px;
-}
-
-/* ============================================================
-   FORM VALIDATION
-   ============================================================ */
-
-.form-group {
-    position: relative;
-}
-
-.form-group .error-message {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    margin-top: 6px;
-    padding: 8px 12px;
-    background: var(--error-bg);
-    border: 1px solid var(--error-border);
-    border-radius: 8px;
-    font-size: 11px;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--error-text);
-    animation: slideDown 0.3s ease;
-}
-
-.form-group .error-message.show {
-    display: flex;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    border-color: var(--error-border) !important;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-4px); }
-    75% { transform: translateX(4px); }
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    animation: shake 0.3s ease;
-}
-
-/* ============================================================
-   LOADING SCREEN
-   ============================================================ */
-
-#loading-screen {
+#bg-canvas {
     position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: var(--bg-base);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-
-#loading-screen.hide {
-    opacity: 0;
-    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-}
-
-#loading-screen .loading-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-}
-
-#loading-screen .loading-icon {
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-#loading-screen .loading-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(35%) sepia(99%) saturate(2047%) hue-rotate(341deg) brightness(95%) contrast(94%);
-}
-
-:root.dark #loading-screen .loading-icon img {
-    filter: brightness(0) saturate(100%) invert(55%) sepia(95%) saturate(1730%) hue-rotate(338deg) brightness(101%) contrast(101%);
-}
-
-:root:not(.dark) #loading-screen .loading-icon img {
-    filter: brightness(0) saturate(100%) invert(28%) sepia(97%) saturate(1678%) hue-rotate(341deg) brightness(95%) contrast(94%);
-}
-
-#loading-screen .loading-icon.pulse {
-    animation: icon-pulse 0.5s ease-in-out;
-}
-
-@keyframes icon-pulse {
-    0% { transform: scale(0.8); opacity: 0.3; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-#loading-screen .loading-bar {
-    width: 160px;
-    height: 2px;
-    background: var(--bg-border);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-#loading-screen .loading-fill {
-    height: 100%;
-    width: 0%;
-    background: #ef4444;
-    border-radius: 2px;
-    transition: width 0.1s linear;
-}
-
-/* ============================================================
-   PAGE TRANSITIONS - Full Screen Color Wipe
-   ============================================================ */
-
-#page-transition {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    pointer-events: none;
-    background: var(--bg-base);
-    transform: translateY(0);
-    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: transform;
-    display: none; /* Add this - hidden by default */
-}
-
-#page-transition.active {
-    display: block; /* Show when active */
-    pointer-events: all;
-}
-
-/* Wipe Up - Default (going to new page) */
-#page-transition.wipe-up {
-    transform: translateY(100%);
-}
-
-#page-transition.wipe-up.active {
-    transform: translateY(0);
-}
-
-/* Wipe Down - For going back */
-#page-transition.wipe-down {
-    transform: translateY(-100%);
-}
-
-#page-transition.wipe-down.active {
-    transform: translateY(0);
-}
-
-/* Dark mode accent glow on transition */
-:root.dark #page-transition::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
-}
-
-:root.dark #page-transition.active::before {
-    opacity: 1;
+    z-index: 0;
+    opacity: 0.5;
 }
 
 /* ============================================================
@@ -528,13 +502,7 @@ body {
    ============================================================ */
 
 @media (max-width: 768px) {
-    body {
-        cursor: auto;
-    }
-    #cursor-dot,
-    #cursor-ring {
-        display: none !important;
-    }
+    #cursor-dot, #cursor-ring { display: none !important; }
     .dropdown-menu {
         position: static;
         transform: none;
@@ -545,261 +513,56 @@ body {
         background: transparent;
         padding: 0;
         margin-top: 8px;
-        min-width: unset;
     }
-    .dropdown-menu a {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--bg-border);
-        border-radius: 0;
-    }
-    .dropdown-menu a:last-child {
-        border-bottom: none;
-    }
-    .dropdown-container.open .dropdown-menu {
-        transform: none;
-    }
-    .dropdown-trigger .arrow {
-        display: none;
-    }
-    .dropdown-container .dropdown-trigger {
-        pointer-events: none;
-    }
-    .project-card .card-footer {
-        padding: 12px 20px 20px 20px;
-    }
-    .project-card .card-body {
-        padding: 20px;
-    }
-    #loading-screen .loading-icon {
-        width: 44px;
-        height: 44px;
-    }
-    #loading-screen .loading-bar {
-        width: 130px;
+    .section-title {
+        font-size: 1.6rem;
     }
 }
+
 
 /* ============================================================
-   SOFTWARE PROFICIENCY SECTION
+   BENTO ACCORDION FLEX SYSTEM
    ============================================================ */
 
-#proficiency {
-    border-top: 1px solid var(--bg-border);
-    border-bottom: 1px solid var(--bg-border);
-    /* background removed - now matches page background */
-}
-/* Light theme adjustments */
-:root:not(.dark) #proficiency {
-    background: var(--bg-base);
-}
-
-/* Proficiency Item */
-.proficiency-item {
-    width: 100%;
-}
-
-.proficiency-item .font-mono {
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.proficiency-item .proficiency-label {
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.03em;
-    opacity: 0.8;
-}
-
-/* Progress Track */
-.proficiency-track {
-    width: 100%;
-    height: 4px;
-    background: var(--bg-border);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Progress Fill - Starts at 0% width */
-.proficiency-fill {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #ef4444, #dc2626);
-    border-radius: 2px;
-    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: width;
-}
-
-/* When section is visible, animate to target width */
-#proficiency-container.is-visible .proficiency-fill {
-    width: var(--target-width);
-}
-
-/* Light theme track */
-:root:not(.dark) .proficiency-track {
-    background: #e0d8d0;
-}
-
-:root:not(.dark) .proficiency-fill {
-    background: linear-gradient(90deg, #dc2626, #b91c1c);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    #proficiency {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+/* On Desktop: Use dynamic Flex-Grow for smooth expansion */
+@media (min-width: 1024px) {
+    .bento-accordion-container {
+        display: flex;
+        width: 100%;
     }
-    
-    .proficiency-item .font-mono {
-        font-size: 0.8rem;
+
+    .bento-card {
+        flex: 1 1 0px;
+        min-width: 0; /* Crucial: stops children from forcing horizontal scroll */
+        transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.3s ease,
+                    box-shadow 0.3s ease;
     }
-    
-    .proficiency-item .proficiency-label {
-        font-size: 0.65rem;
+
+    .bento-accordion-container:hover .bento-card {
+        flex: 0.8 1 0px;
+    }
+
+    .bento-accordion-container .bento-card:hover {
+        flex: 1.8 1 0px;
+    }
+
+    /* Collapse non-essential text smoothy when shrunk */
+    .bento-card .bento-desc {
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    .bento-card:hover .bento-desc {
+        opacity: 1;
     }
 }
 
-/* ============================================================
-   MICRO-INTERACTIONS & SCROLL TYPOGRAPHY FX
-   ============================================================ */
-
-/* ============================================================
-   1. TYPOGRAPHY SCROLL REVEAL
-   ============================================================ */
-
-/* Base state - hidden */
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
-}
-
-/* Visible state - triggered by IntersectionObserver */
-.scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger delays for multiple elements */
-.scroll-reveal-delay-1 { transition-delay: 0.05s; }
-.scroll-reveal-delay-2 { transition-delay: 0.1s; }
-.scroll-reveal-delay-3 { transition-delay: 0.15s; }
-.scroll-reveal-delay-4 { transition-delay: 0.2s; }
-.scroll-reveal-delay-5 { transition-delay: 0.25s; }
-.scroll-reveal-delay-6 { transition-delay: 0.3s; }
-
-/* Reduced motion - disable all scroll reveals */
-@media (prefers-reduced-motion: reduce) {
-    .scroll-reveal {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: none !important;
+/* Mobile fallback: normal stack */
+@media (max-width: 1023px) {
+    .bento-card {
+        width: 100%;
     }
 }
 
-/* ============================================================
-   2. INTERACTIVE HOVER STATES
-   ============================================================ */
 
-/* Section Headers - Color switch on hover */
-.section-header {
-    transition: color 0.3s ease;
-}
-
-.section-header:hover {
-    color: #ef4444;
-}
-
-/* Heading hover in dark/light themes */
-:root.dark .section-header:hover {
-    color: #ef4444;
-}
-
-:root:not(.dark) .section-header:hover {
-    color: #dc2626;
-}
-
-/* ============================================================
-   PROJECT / CAPABILITY CARDS - Lift & Border Glow
-   ============================================================ */
-
-/* Card hover effect - translateY lift + border glow */
-.card-interactive {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-    will-change: transform;
-}
-
-.card-interactive:hover {
-    transform: translateY(-4px);
-    border-color: #ef4444;
-    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.08);
-}
-
-/* Dark theme card hover */
-:root.dark .card-interactive:hover {
-    box-shadow: 0 8px 40px rgba(239, 68, 68, 0.12);
-}
-
-/* Light theme card hover */
-:root:not(.dark) .card-interactive:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-}
-
-/* Reduced motion - disable card hover effects */
-@media (prefers-reduced-motion: reduce) {
-    .card-interactive {
-        transform: none !important;
-        transition: none !important;
-    }
-    .card-interactive:hover {
-        transform: none !important;
-    }
-}
-
-/* ============================================================
-   3. MAGNETIC BORDER ILLUMINATE (Alternative subtle effect)
-   ============================================================ */
-
-/* Border illuminate on hover */
-.card-border-glow {
-    position: relative;
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.card-border-glow::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, transparent 40%, rgba(239, 68, 68, 0.15) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.card-border-glow:hover::after {
-    opacity: 1;
-}
-
-.card-border-glow:hover {
-    border-color: rgba(239, 68, 68, 0.3);
-}
-
-/* ============================================================
-   4. GLOBAL REDUCED MOTION SUPPORT
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}

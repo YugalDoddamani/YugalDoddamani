@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Yugal Doddamani — Design, Tech & Craft</title>
+    <meta name="description" content="Yugal Doddamani builds things — websites, dental prosthetics, video edits. Based in India. Available for work." />
+    <meta name="keywords" content="Yugal Doddamani, web design, dental CAD, video editing, graphic design, India" />
+    
+    <meta name="author" content="Yugal Doddamani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yugaldoddamani.github.io/YugalDoddamani/" />
+    
+    <meta property="og:title" content="Yugal Doddamani — Design, Tech & Craft" />
+    <meta property="og:description" content="Yugal Doddamani builds things — websites, dental prosthetics, video edits." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yugaldoddamani.github.io/YugalDoddamani/" />
+    <meta property="og:image" content="https://yugaldoddamani.github.io/YugalDoddamani/assets/og-image.jpg" />
+    <meta property="og:site_name" content="Yugal Doddamani" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yugal Doddamani — Design, Tech & Craft" />
+    <meta name="twitter:description" content="Yugal Doddamani builds things — websites, dental prosthetics, video edits." />
+    
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <link rel="me" href="https://linkedin.com/in/yugaldoddamani" />
+    <link rel="me" href="https://instagram.com/yugaldoddamani" />
+    
+    <meta name="theme-color" content="#0e0a08" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f0ec" media="(prefers-color-scheme: light)" />
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yugal Doddamani",
+        "url": "https://yugaldoddamani.github.io/YugalDoddamani/",
+        "description": "Designer, technologist, and craftsman based in India.",
+        "jobTitle": "Designer & Technologist",
+        "address": { "@type": "PostalAddress", "addressCountry": "India" },
+        "sameAs": [
+            "https://linkedin.com/in/yugaldoddamani",
+            "https://instagram.com/yugaldoddamani"
+        ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            400: '#c4725a',
+                            500: '#b56047',
+                            600: '#a05039',
+                            700: '#8a4430',
+                            900: '#5c2c1e',
+                            950: '#3d1c13',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        hand: ['Caveat', 'cursive'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Y</text></svg>" />
+</head>
+<body>
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-sm">
+        Skip to main content
+    </a>
+
+    <div id="page-transition"></div>
+
+    <div id="loading-screen" role="status" aria-label="Loading">
+        <div class="loading-content">
+            <div class="loading-icon" id="loading-icon">
+                <img src="assets/tooth-svgrepo-com.svg" alt="" id="loading-icon-img" />
+            </div>
+            <div class="loading-bar">
+                <div class="loading-fill" id="loading-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+       <!-- ============================================================
+    HEADER - Fixed padding and spacing
+    ============================================================ -->
+    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300" role="banner">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-[68px]">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group shrink-0" aria-label="Yugal Doddamani - Home">
+                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-sans text-brand-400 font-semibold text-sm group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
+                    <div class="hidden sm:block">
+                        <span class="font-sans tracking-tight text-sm font-medium uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Yugal Doddamani</span>
+                        <span class="text-[9px] font-mono tracking-[0.15em] text-[var(--text-muted)] uppercase block leading-none mt-0.5">Design &amp; Technology</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-0.5 bg-[var(--bg-card)] p-1 rounded-full border border-[var(--bg-border)] text-xs font-mono tracking-wider shadow-sm" role="navigation" aria-label="Main Navigation">
+                    <a href="index.html" class="px-3.5 py-1.5 rounded-full text-brand-400 bg-[var(--bg-elevated)] font-medium transition-all" aria-current="page">Home</a>
+
+                    <div class="dropdown-container" id="services-dropdown">
+                        <button class="dropdown-trigger px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all flex items-center gap-1" onclick="toggleDropdown(event)" aria-haspopup="true">
+                            <span>Work</span>
+                            <span class="arrow text-[8px]" aria-hidden="true">▾</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="dental-design.html" role="menuitem">Dental</a>
+                            <a href="video-editing.html" role="menuitem">Video</a>
+                            <a href="graphic-design.html" role="menuitem">Design</a>
+                            <div class="divider" role="separator"></div>
+                            <a href="web-design.html" role="menuitem">Web</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#work" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">Projects</a>
+                    <a href="index.html#about" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">About</a>
+                </nav>
+
+                <!-- Right Controls -->
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- Connect Button -->
+                    <a href="index.html#contact" class="hidden sm:inline-block px-4 py-1.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[10px] font-medium uppercase tracking-wider transition-all shadow-sm">
+                        Connect
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--bg-border)] focus:outline-none" aria-label="Toggle mobile menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-[var(--bg-border)] px-6 py-4 space-y-3 font-mono text-xs tracking-wider" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block text-brand-400 font-medium py-1.5 border-b border-[var(--bg-border)]">Home</a>
+            <div class="py-1.5 border-b border-[var(--bg-border)] space-y-2">
+                <div class="text-[var(--text-muted)] text-[9px] tracking-widest">WORK</div>
+                <a href="dental-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Dental</a>
+                <a href="video-editing.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Video</a>
+                <a href="graphic-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Design</a>
+                <a href="web-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Web</a>
+            </div>
+            <a href="index.html#work" class="block text-[var(--text-muted)] hover:text-brand-400 py-1.5 border-b border-[var(--bg-border)]">Projects</a>
+            <a href="index.html#about" class="block text-[var(--text-muted)] hover:text-brand-400 py-1.5 border-b border-[var(--bg-border)]">About</a>
+            <a href="index.html#contact" class="block text-brand-400 font-medium py-1.5">Contact</a>
+        </div>
+    </header>
+
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main class="relative z-10" id="main-content" role="main">
+
+             <!-- ============================================================
+             HERO SECTION
+             ============================================================ -->
+        <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28" aria-labelledby="hero-title">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- "Hello, I'm" - Clean Industrial Style -->
+                        <div class="reveal reveal-delay-1 flex items-center gap-2">
+                            <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                            <span class="font-mono text-xs uppercase tracking-widest text-brand-400 font-medium">Hello, I'm</span>
+                        </div>
+                        
+                        <h1 id="hero-title" class="reveal reveal-delay-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.02]">
+                            Yugal<br />Doddamani
+                        </h1>
+                        
+                        <p class="reveal reveal-delay-3 text-base sm:text-lg text-[var(--text-muted)] max-w-lg leading-relaxed">
+                            Designer, video editor, web builder, and qualified dental technologist.
+                        </p>
+
+                        <!-- Functional Redirect Pills -->
+                        <div class="reveal reveal-delay-4 flex flex-wrap gap-2 pt-1">
+                            <a href="graphic-design.html" class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-400 hover:text-brand-400 transition-all">Design</a>
+                            <a href="web-design.html" class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-400 hover:text-brand-400 transition-all">Web</a>
+                            <a href="dental-design.html" class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-400 hover:text-brand-400 transition-all">Dental</a>
+                            <a href="video-editing.html" class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-400 hover:text-brand-400 transition-all">Video</a>
+                        </div>
+
+                        <!-- CTA (Single primary link to projects) -->
+                        <div class="reveal reveal-delay-5 pt-2 flex items-center gap-3">
+                            <a href="#projects" class="px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-mono uppercase tracking-wider font-semibold transition-all shadow-sm">
+                                See my work →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Portrait Frame -->
+                    <div class="reveal reveal-delay-3 lg:col-span-5 flex justify-center">
+                        <div class="portrait-frame w-full max-w-sm sm:max-w-md shadow-lg group">
+                            <div class="portrait-inner relative aspect-[4/5] bg-[var(--bg-card)] overflow-hidden rounded-2xl border border-[var(--bg-border)]">
+                                <img src="assets/m2.png" alt="Yugal Doddamani" class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" aria-hidden="true"></div>
+                                
+                                <div class="absolute bottom-6 left-6 right-6 z-20 space-y-1 bg-black/60 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
+                                    <div class="flex items-center justify-between text-xs font-mono">
+                                        <span class="text-white/50">Location</span>
+                                        <span class="text-white/90 font-medium">India</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-[10px] font-mono">
+                                        <span class="text-white/50">Status</span>
+                                        <span class="text-emerald-400 font-medium">Available</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Domain Stats -->
+                <div class="reveal reveal-delay-1 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 pt-8 border-t border-[var(--bg-border)]">
+                    <div>
+                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Design &amp; brand</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">Visual identity, print, digital</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Web &amp; code</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">HTML, CSS, JavaScript, static sites</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Dental &amp; prosthetics</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">CAD, ceramics, orthodontic appliances</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             ABOUT SECTION (Fixed Typography & Layout)
+             ============================================================ -->
+        <section id="about" class="py-20 border-t border-[var(--bg-border)]" aria-labelledby="about-headline">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="reveal reveal-delay-1 space-y-2">
+                    <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                        A bit about me
+                    </span>
+                    <h2 id="about-headline" class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)]">
+                        Video editing, design, web work, and dental technology.
+                    </h2>
+                </div>
+
+                <div class="reveal reveal-delay-2 mt-8 space-y-6 text-sm text-[var(--text-muted)] leading-relaxed">
+                    <p>
+                        I started with video editing, then moved into graphic design, web development, and Google Business Profile management for local clients. Each of those taught me something different about visual communication and how digital systems actually work.
+                    </p>
+                    <p>
+                        Alongside that, I trained and qualified as a dental technologist, specializing in prosthetics and orthodontic appliance fabrication. It's some of the most precise work there is — a crown margin off by 30 micrometers simply fails. That standard is what I bring to everything else I build.
+                    </p>
+                    <p>
+                        Today I split my time between the technical and digital side of <span class="text-[var(--text-primary)] font-medium">Carnix Smile Studio</span>, the dental lab I co-run, and design, video, and web projects for outside clients. The work looks different case to case, but the approach doesn't change: understand the problem first, then execute carefully.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+        PROJECTS / SELECTED WORK - Bento Accordion (Fixed Aesthetics)
+        ============================================================ -->
+        <section id="projects" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            
+            <!-- Section Header -->
+            <div class="reveal reveal-delay-1 mb-8">
+                <span class="font-mono text-xs text-brand-400 uppercase tracking-widest">Selected Works</span>
+                <h2 class="font-display text-3xl font-bold text-[var(--text-primary)] mt-1">Things I've Made</h2>
+            </div>
+
+            <!-- BENTO ACCORDION CONTAINER -->
+            <div class="bento-accordion-container flex flex-col lg:flex-row gap-5 w-full h-auto lg:h-[460px]">
+
+                <!-- CARD 1: FLAGSHIP - Food & Restaurant Brand System -->
+                <article class="bento-card reveal reveal-delay-1 group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-6 transition-all duration-300 hover:border-brand-400/50 hover:shadow-xl hover:-translate-y-1">
+                    <div class="z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <!-- Metadata Header -->
+                            <div class="flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-brand-400">
+                                <span class="flex items-center gap-2 shrink-0">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                                    Featured Project
+                                </span>
+                                <span class="text-[var(--text-muted)] truncate">Brand Identity × Restaurant</span>
+                            </div>
+
+                            <!-- Title & Subtitle -->
+                            <h3 class="mt-3 font-display text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-brand-400 transition-colors truncate">
+                                Food & Restaurant Brand System
+                            </h3>
+                            <p class="bento-desc mt-2 text-xs leading-relaxed text-[var(--text-muted)] line-clamp-2">
+                                Complete brand positioning, visual identity, packaging textures, and online digital touchpoints for a local food establishment.
+                            </p>
+                        </div>
+
+                        <!-- Visual Viewport Area - Clean, no glow -->
+                        <div class="bento-viewport relative my-4 h-36 w-full overflow-hidden rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] p-3 flex flex-col justify-between transition-all">
+                            <!-- Subtle grid pattern only -->
+                            <div class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#c4725a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)]">
+                                <span>SCOPE: BRANDING & UI</span>
+                                <span class="text-emerald-400">COMPLETE</span>
+                            </div>
+                            <div class="relative z-10 my-auto flex items-center justify-center">
+                                <div class="flex items-baseline gap-2 font-mono">
+                                    <span class="text-xl font-bold text-[var(--text-primary)]">Identity Design</span>
+                                </div>
+                            </div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)] border-t border-[var(--bg-border)] pt-1">
+                                <span>ASSETS: PACKAGING & WEB</span>
+                                <span class="text-emerald-400">PUBLISHED</span>
+                            </div>
+                        </div>
+
+                        <!-- Footer Action -->
+                        <div class="flex items-center justify-between border-t border-[var(--bg-border)] pt-3 text-[11px] font-mono">
+                            <div class="flex gap-1.5 bento-tags overflow-hidden">
+                                <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] text-[var(--text-muted)]">Branding</span>
+                                <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] text-[var(--text-muted)]">Identity</span>
+                            </div>
+                            <a href="#projects" class="text-brand-400 hover:underline flex items-center gap-1 ml-auto whitespace-nowrap shrink-0 text-[11px]">
+                                View Design Works →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 2: WEB ENGINEERING - Static Performance Portfolio -->
+                <article class="bento-card reveal reveal-delay-2 group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-6 transition-all duration-300 hover:border-brand-400/50 hover:shadow-xl hover:-translate-y-1">
+                    <div class="z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                                <span class="truncate">Web Engineering</span>
+                                <span class="shrink-0 text-brand-400">Zero-JS</span>
+                            </div>
+
+                            <h3 class="mt-3 font-display text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-brand-400 transition-colors truncate">
+                                Static Performance Portfolio
+                            </h3>
+                            <p class="bento-desc mt-2 text-xs leading-relaxed text-[var(--text-muted)] line-clamp-2">
+                                Custom static asset delivery pipeline built with zero heavy client framework dependencies.
+                            </p>
+                        </div>
+
+                        <!-- Visual Viewport Area -->
+                        <div class="bento-viewport relative my-4 h-36 w-full overflow-hidden rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] p-3 flex flex-col justify-between transition-all">
+                            <div class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#c4725a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)]">
+                                <span>LIGHTHOUSE AUDIT</span>
+                                <span class="text-emerald-400">PASSED</span>
+                            </div>
+                            <div class="relative z-10 my-auto flex items-center justify-center">
+                                <div class="flex items-baseline gap-1 font-mono">
+                                    <span class="text-3xl font-bold text-emerald-400">100</span>
+                                    <span class="text-xs text-[var(--text-muted)]">/ 100</span>
+                                </div>
+                            </div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)] border-t border-[var(--bg-border)] pt-1">
+                                <span>HOSTING: $0 RECURRING</span>
+                                <span class="text-emerald-400">OPTIMIZED</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-[var(--bg-border)] pt-3 text-[11px] font-mono">
+                            <span class="text-emerald-400 flex items-center gap-1 text-[10px] shrink-0">
+                                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> 100 Perf
+                            </span>
+                            <button onclick="openCaseStudy('case-2')" class="text-brand-400 hover:underline flex items-center gap-1 whitespace-nowrap shrink-0">
+                                Details →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 3: LOCAL SEO - Gym Profile Optimization -->
+                <article class="bento-card reveal reveal-delay-3 group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-6 transition-all duration-300 hover:border-brand-400/50 hover:shadow-xl hover:-translate-y-1">
+                    <div class="z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                                <span class="truncate">Local SEO & Growth</span>
+                                <span class="shrink-0 text-brand-400">Organic</span>
+                            </div>
+
+                            <h3 class="mt-3 font-display text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-brand-400 transition-colors truncate">
+                                Gym Profile Optimization
+                            </h3>
+                            <p class="bento-desc mt-2 text-xs leading-relaxed text-[var(--text-muted)] line-clamp-2">
+                                Structured Google Business Profile strategy for a fitness studio, pushing local search placement to #2 organically with $0 ad spend.
+                            </p>
+                        </div>
+
+                        <!-- Visual Viewport Area -->
+                        <div class="bento-viewport relative my-4 h-36 w-full overflow-hidden rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] p-3 flex flex-col justify-between transition-all">
+                            <div class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#c4725a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)]">
+                                <span>LOCAL RANKING</span>
+                                <span class="text-emerald-400 font-bold">ORGANIC</span>
+                            </div>
+                            <div class="relative z-10 my-auto flex items-center justify-center">
+                                <div class="flex items-baseline gap-1.5 font-mono">
+                                    <span class="text-xs text-[var(--text-muted)]">RANK</span>
+                                    <span class="text-3xl font-bold text-emerald-400">#2</span>
+                                    <span class="text-[10px] text-brand-400">in Locality</span>
+                                </div>
+                            </div>
+                            <div class="relative z-10 flex justify-between items-center text-[9px] font-mono text-[var(--text-muted)] border-t border-[var(--bg-border)] pt-1">
+                                <span>AD SPEND: $0</span>
+                                <span class="text-emerald-400">100% ORGANIC</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-[var(--bg-border)] pt-3 text-[11px] font-mono">
+                            <span class="text-emerald-400 text-[10px] shrink-0">GBP Optimization</span>
+                            <button onclick="openCaseStudy('case-3')" class="text-brand-400 hover:underline flex items-center gap-1 whitespace-nowrap shrink-0">
+                                Details →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+   <!-- ============================================================
+     UNIFIED STACK & CAPABILITIES SECTION
+     ============================================================ -->
+<section id="tools" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    
+    <!-- Header -->
+    <div class="reveal reveal-delay-1 flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+            <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                Stack & Capabilities
+            </span>
+            <h2 class="font-display text-3xl font-bold text-[var(--text-primary)] mt-1">Tools & Workflows</h2>
+        </div>
+        <p class="text-xs font-mono text-[var(--text-muted)] max-w-xs leading-relaxed">
+            Multidisciplinary execution spanning digital prosthetics, web architecture, local SEO, and media post-production.
+        </p>
+    </div>
+
+    <!-- 4-Column Balanced Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- 1. DENTAL CAD/CAM -->
+        <div class="reveal reveal-delay-1 group relative flex flex-col justify-between rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-5 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
+            <div>
+                <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-brand-400 pb-2 mb-3 border-b border-[var(--bg-border)]">
+                    <span>PROSTHETICS</span>
+                    <span>&lt;20μm Precision</span>
+                </div>
+                <h3 class="font-display font-bold text-base text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                    Digital Dental CAD
+                </h3>
+                <p class="mt-2 text-xs text-[var(--text-muted)] leading-relaxed">
+                    Crown & bridge restorations, anatomical morphing, margin snap verification, and mesh editing.
+                </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-[var(--bg-border)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                <span>STACK</span>
+                <span class="text-[var(--text-primary)] font-medium">exocad • 3Shape • Blender</span>
+            </div>
+        </div>
+
+        <!-- 2. WEB SYSTEMS -->
+        <div class="reveal reveal-delay-2 group relative flex flex-col justify-between rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-5 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
+            <div>
+                <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-brand-400 pb-2 mb-3 border-b border-[var(--bg-border)]">
+                    <span>ENGINEERING</span>
+                    <span>100/100 Perf</span>
+                </div>
+                <h3 class="font-display font-bold text-base text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                    Web Systems & SEO
+                </h3>
+                <p class="mt-2 text-xs text-[var(--text-muted)] leading-relaxed">
+                    Zero-overhead static architecture, clean semantic DOM layouts, and Google Business Profile optimization.
+                </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-[var(--bg-border)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                <span>STACK</span>
+                <span class="text-[var(--text-primary)] font-medium">HTML • Tailwind • JS • GBP</span>
+            </div>
+        </div>
+
+        <!-- 3. VISUAL & MOTION -->
+        <div class="reveal reveal-delay-3 group relative flex flex-col justify-between rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-5 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
+            <div>
+                <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-brand-400 pb-2 mb-3 border-b border-[var(--bg-border)]">
+                    <span>POST-PRODUCTION</span>
+                    <span>4K Motion</span>
+                </div>
+                <h3 class="font-display font-bold text-base text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                    Video & Post-Production
+                </h3>
+                <p class="mt-2 text-xs text-[var(--text-muted)] leading-relaxed">
+                    Advanced photo manipulation, dynamic motion graphics, and high-pacing video editing for short-form media.
+                </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-[var(--bg-border)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                <span>STACK</span>
+                <span class="text-[var(--text-primary)] font-medium">Premiere • Ae • Photoshop</span>
+            </div>
+        </div>
+
+        <!-- 4. OPERATIONS & DASHBOARDS -->
+        <div class="reveal reveal-delay-4 group relative flex flex-col justify-between rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] p-5 transition-all duration-300 hover:border-brand-400 hover:shadow-lg">
+            <div>
+                <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-brand-400 pb-2 mb-3 border-b border-[var(--bg-border)]">
+                    <span>OPERATIONS</span>
+                    <span>Data Systems</span>
+                </div>
+                <h3 class="font-display font-bold text-base text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                    Dashboards & Workflows
+                </h3>
+                <p class="mt-2 text-xs text-[var(--text-muted)] leading-relaxed">
+                    Custom spreadsheet dashboards, QUERY data pipelines, tracking systems, and automated lab processing.
+                </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-[var(--bg-border)] flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
+                <span>STACK</span>
+                <span class="text-[var(--text-primary)] font-medium">Google Workspace • Sheets</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT & GET IN TOUCH (Aesthetic Upgrade)
+     ============================================================ -->
+<section id="contact" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="reveal reveal-delay-1 relative rounded-2xl border border-[var(--bg-border)] bg-[var(--bg-card)]/60 backdrop-blur-sm p-8 sm:p-12 overflow-hidden text-center">
+        
+        <!-- Ambient Radial Background Highlight -->
+        <div class="absolute inset-0 bg-radial-gradient from-brand-400/5 to-transparent pointer-events-none"></div>
+
+        <!-- Heading Tag -->
+        <span class="font-mono text-xs text-brand-400 tracking-widest uppercase italic block mb-2">Let's talk</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-[var(--text-primary)] tracking-tight">Get in touch</h2>
+        <p class="mt-3 text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
+            I'm open to collaborations, projects, or just a conversation.
+        </p>
+
+        <!-- Tactical Contact Action Grid -->
+        <div class="reveal reveal-delay-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto">
+            
+            <!-- Email Box -->
+            <a href="mailto:yugal.work@proton.me" class="group relative flex flex-col justify-between p-4 rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] transition-all duration-300 hover:border-brand-400 hover:bg-[var(--bg-card)]">
+                <span class="font-mono text-[9px] uppercase tracking-wider text-[var(--text-muted)] group-hover:text-brand-400 transition-colors text-left">DIRECT EMAIL</span>
+                <div class="my-3 text-left">
+                    <span class="block font-display font-bold text-sm text-[var(--text-primary)]">Email</span>
+                    <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-0.5">yugal.work@proton.me</span>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-[var(--bg-border)] font-mono text-[9px] text-brand-400">
+                    <span>SEND MESSAGE</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- WhatsApp Box -->
+            <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col justify-between p-4 rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] transition-all duration-300 hover:border-brand-400 hover:bg-[var(--bg-card)]">
+                <span class="font-mono text-[9px] uppercase tracking-wider text-[var(--text-muted)] group-hover:text-brand-400 transition-colors text-left">QUICK CHAT</span>
+                <div class="my-3 text-left">
+                    <span class="block font-display font-bold text-sm text-[var(--text-primary)]">WhatsApp</span>
+                    <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-0.5">+91 9552232349</span>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-[var(--bg-border)] font-mono text-[9px] text-brand-400">
+                    <span>OPEN CHAT</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- Instagram Box -->
+            <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col justify-between p-4 rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] transition-all duration-300 hover:border-brand-400 hover:bg-[var(--bg-card)]">
+                <span class="font-mono text-[9px] uppercase tracking-wider text-[var(--text-muted)] group-hover:text-brand-400 transition-colors text-left">SOCIAL</span>
+                <div class="my-3 text-left">
+                    <span class="block font-display font-bold text-sm text-[var(--text-primary)]">Instagram</span>
+                    <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-0.5">@yugaldoddamani</span>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-[var(--bg-border)] font-mono text-[9px] text-brand-400">
+                    <span>VIEW PROFILE</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- LinkedIn Box -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col justify-between p-4 rounded-xl border border-[var(--bg-border)] bg-[var(--bg-elevated)] transition-all duration-300 hover:border-brand-400 hover:bg-[var(--bg-card)]">
+                <span class="font-mono text-[9px] uppercase tracking-wider text-[var(--text-muted)] group-hover:text-brand-400 transition-colors text-left">NETWORK</span>
+                <div class="my-3 text-left">
+                    <span class="block font-display font-bold text-sm text-[var(--text-primary)]">LinkedIn</span>
+                    <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-0.5">Connect</span>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-[var(--bg-border)] font-mono text-[9px] text-brand-400">
+                    <span>CONNECT</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="mt-8 font-mono text-[10px] text-[var(--text-muted)] tracking-widest uppercase">
+            @carnixsmilestudio — brand
+        </div>
+    </div>
+</section>
+  
+
+      <!-- ============================================================
+    FOOTER - With Social Icons
+    ============================================================ -->
+    <footer class="border-t border-[var(--bg-border)] py-8 bg-[var(--bg-base)]" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+                <!-- Copyright -->
+                <div class="text-xs font-mono text-[var(--text-muted)] text-center md:text-left">
+                    &copy; 2026 <span itemprop="name">Yugal Doddamani</span>
+                </div>
+
+                <!-- Social Links with Icons -->
+                <div class="flex items-center gap-4">
+                    <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="LinkedIn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="Instagram">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://instagram.com/carnixsmilestudio" target="_blank" rel="noopener noreferrer" 
+                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="Brand Instagram">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <span class="w-px h-5 bg-[var(--bg-border)]"></span>
+                    <a href="mailto:yugal.work@proton.me" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">Email</a>
+                    <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">WhatsApp</a>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="flex items-center gap-4 text-[10px] font-mono text-[var(--text-muted)]">
+                    <a href="index.html#work" class="hover:text-brand-400 transition-colors">Work</a>
+                    <a href="index.html#about" class="hover:text-brand-400 transition-colors">About</a>
+                    <a href="index.html#contact" class="hover:text-brand-400 transition-colors">Contact</a>
+                    <span class="text-[var(--bg-border)]">|</span>
+                    <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+    MODAL
+    ============================================================ -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] w-full max-w-2xl rounded-xl p-6 md:p-8 max-h-[90vh] overflow-y-auto shadow-xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
