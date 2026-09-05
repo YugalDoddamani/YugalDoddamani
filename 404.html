@@ -8,7 +8,7 @@
     <meta name="description" content="Page not found. The page you're looking for doesn't exist or has been moved." />
     <meta name="robots" content="noindex, follow" />
     
-    <meta name="theme-color" content="#0e0a08" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0a0706" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f5f0ec" media="(prefers-color-scheme: light)" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,17 +19,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            400: '#c4725a',
-                            500: '#b56047',
-                            600: '#a05039',
-                            700: '#8a4430',
-                            900: '#5c2c1e',
-                            950: '#3d1c13',
+                            400: '#d97757',
+                            500: '#c46343',
+                            600: '#ab4d2f',
+                            700: '#8c3a21',
+                            900: '#4a1e12',
+                            950: '#2a0f08',
                         },
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                 },
@@ -37,200 +37,70 @@
         };
     </script>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <style>
-        /* ============================================================
-           THEME VARIABLES
-           ============================================================ */
-        :root {
-            --bg-base: #0e0a08;
-            --bg-card: #16100d;
-            --bg-elevated: #1f1713;
-            --bg-border: #2d201a;
-            --text-primary: #ede6e2;
-            --text-muted: #a8948a;
-            --header-bg: rgba(14, 10, 8, 0.92);
-            --mobile-bg: rgba(14, 10, 8, 0.98);
-            --accent: #c4725a;
-            --accent-dim: rgba(196, 114, 90, 0.15);
-        }
-
-        html:not(.dark) {
-            --bg-base: #f5f0ec;
-            --bg-card: #ffffff;
-            --bg-elevated: #f0eae6;
-            --bg-border: #e0d5ce;
-            --text-primary: #1e1613;
-            --text-muted: #7a6b63;
-            --header-bg: rgba(245, 240, 236, 0.92);
-            --mobile-bg: rgba(245, 240, 236, 0.98);
-            --accent: #b56047;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 350;
-            overflow-x: hidden;
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .glass-header {
-            background: var(--header-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .font-hand {
-            font-family: 'Caveat', cursive;
-            font-weight: 600;
-        }
-
-        /* ============================================================
-           CURSOR
-           ============================================================ */
-        @media (pointer: fine) {
-            body { cursor: none; }
-        }
-
-        #cursor-dot {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.15s ease, opacity 0.2s ease;
-            opacity: 0.6;
-        }
-
-        #cursor-ring {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            z-index: 99998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        border-color 0.2s ease,
-                        width 0.2s ease,
-                        height 0.2s ease,
-                        opacity 0.2s ease;
-            opacity: 0.4;
-        }
-
-        #cursor-ring.hover {
-            width: 48px;
-            height: 48px;
-            border-color: var(--accent);
-            border-width: 1.5px;
-            opacity: 1;
-        }
-
-        #cursor-dot.hover {
-            transform: translate(-50%, -50%) scale(1.6);
-        }
-
-        @media (max-width: 768px) {
-            #cursor-dot, #cursor-ring { display: none !important; }
-            body { cursor: auto; }
-        }
-
-        /* ============================================================
-           404 SPECIFIC
-           ============================================================ */
-        .error-number {
-            font-size: clamp(8rem, 25vw, 16rem);
-            font-weight: 700;
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-            background: linear-gradient(135deg, var(--accent), var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0.6;
-        }
-
-        .error-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-            opacity: 0.4;
-        }
-
-        .glow-ring {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-dim), transparent 70%);
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .glow-ring-2 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--accent-dim), transparent 70%);
-            opacity: 0.15;
-        }
-
-        /* ============================================================
-           RESPONSIVE
-           ============================================================ */
-        @media (max-width: 768px) {
-            .error-number {
-                font-size: clamp(5rem, 20vw, 8rem);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Y</text></svg>" />
 </head>
-<body>
+<body class="bg-[#0a0706] text-[#f5ede6] antialiased selection:bg-brand-500 selection:text-black">
 
-    <!-- Custom Cursor -->
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-xs">
+        Skip to main content
+    </a>
+
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
+
+    <!-- Cinematic Vignette -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+
+    <!-- Dynamic Canvas Particle Field -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Interactive Cursor Elements -->
     <div id="cursor-dot" aria-hidden="true"></div>
     <div id="cursor-ring" aria-hidden="true"></div>
 
     <!-- ============================================================
-    HEADER
+    HEADER / NAVIGATION
     ============================================================ -->
-    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300" role="banner">
+    <header class="sticky top-0 z-50 glass-header border-b border-white/5 transition-colors duration-300" role="banner">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16 md:h-[68px]">
+            <div class="flex items-center justify-between h-16 md:h-[72px]">
 
-                <a href="index.html" class="flex items-center gap-3 group shrink-0" aria-label="Yugal Doddamani - Home">
-                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-sans text-brand-400 font-semibold text-sm group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
-                    <div class="hidden sm:block">
-                        <span class="font-sans tracking-tight text-sm font-medium uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Yugal Doddamani</span>
-                        <span class="text-[9px] font-mono tracking-[0.15em] text-[var(--text-muted)] uppercase block leading-none mt-0.5">Design &amp; Technology</span>
+                <!-- Brand Monogram -->
+                <a href="index.html" class="flex items-center gap-3.5 group shrink-0" aria-label="Yugal Doddamani">
+                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 font-semibold text-base group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
+                    <div>
+                        <span class="font-sans tracking-tight text-xs font-semibold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors block leading-tight">YD // 2026</span>
+                        <span class="text-[9px] font-mono tracking-[0.2em] text-[var(--text-muted)] uppercase block leading-none mt-1.5">Chennai, IND</span>
                     </div>
                 </a>
 
-                <nav class="hidden md:flex items-center gap-0.5 bg-[var(--bg-card)] p-1 rounded-full border border-[var(--bg-border)] text-xs font-mono tracking-wider shadow-sm" role="navigation" aria-label="Main Navigation">
-                    <a href="index.html" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">Home</a>
-                    <a href="index.html#work" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">Projects</a>
-                    <a href="index.html#about" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">About</a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-1 bg-black/40 backdrop-blur-xl px-2 py-1.5 rounded-full border border-white/10 text-xs font-mono tracking-wider shadow-2xl" role="navigation" aria-label="Main Navigation">
+                    <a href="index.html" class="px-4 py-1.5 rounded-full text-brand-400 bg-white/5 font-medium transition-all">Home</a>
+                    <a href="index.html#projects" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Work</a>
+                    <a href="index.html#about" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">About</a>
+                    <a href="index.html#contact" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Contact</a>
                 </nav>
 
-                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <a href="index.html#contact" class="px-4 py-1.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[10px] font-medium uppercase tracking-wider transition-all shadow-sm">Connect</a>
+                <!-- Right Utility Bar -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-white/[0.03] border border-white/10 hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- Direct Connect -->
+                    <a href="index.html#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[11px] font-medium tracking-wider uppercase transition-all shadow-lg hover:shadow-brand-500/20">
+                        Contact
+                    </a>
                 </div>
             </div>
         </div>
@@ -239,52 +109,54 @@
     <!-- ============================================================
     404 CONTENT
     ============================================================ -->
-    <main class="flex-1 flex items-center justify-center px-6 py-12">
+    <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-20" id="main-content">
         <div class="max-w-2xl w-full text-center relative">
 
             <!-- Ambient Glow -->
-            <div class="glow-ring -top-20 -left-20"></div>
-            <div class="glow-ring-2 -bottom-10 -right-10"></div>
+            <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-brand-500/10 blur-[80px] pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-brand-500/5 blur-[60px] pointer-events-none" aria-hidden="true"></div>
 
             <div class="relative z-10">
                 <!-- Error Number -->
-                <div class="error-number">404</div>
+                <div class="text-[clamp(6rem,20vw,14rem)] font-light tracking-tight text-[var(--text-primary)] leading-[0.9]">
+                    4<span class="font-editorial italic text-brand-400">0</span>4
+                </div>
 
                 <!-- Divider -->
-                <div class="error-divider mx-auto my-6"></div>
+                <div class="w-12 h-px bg-brand-400/40 mx-auto my-6"></div>
 
                 <!-- Message -->
-                <h1 class="font-display text-3xl sm:text-4xl font-bold text-[var(--text-primary)] tracking-tight mt-4">
-                    Page not found
+                <h1 class="text-2xl sm:text-3xl font-light text-[var(--text-primary)] tracking-tight">
+                    Page not <span class="font-editorial italic text-brand-400">found</span>
                 </h1>
-                <p class="text-sm text-[var(--text-muted)] max-w-sm mx-auto mt-3 leading-relaxed">
+                <p class="text-sm text-[var(--text-muted)] max-w-sm mx-auto mt-3 leading-relaxed font-light">
                     The page you're looking for doesn't exist or has been moved.
                 </p>
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
-                    <a href="index.html" class="px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-mono uppercase tracking-wider font-semibold transition-all shadow-sm flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-                        Back to Home
+                    <a href="index.html" class="px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-mono uppercase tracking-wider font-medium transition-all shadow-lg hover:shadow-brand-500/20 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Back Home
                     </a>
-                    <a href="index.html#work" class="px-6 py-3 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 text-[var(--text-primary)] text-xs font-mono uppercase tracking-wider font-semibold transition-all">
+                    <a href="index.html#projects" class="px-7 py-3.5 rounded-full border border-white/10 text-[var(--text-muted)] hover:text-white hover:border-brand-400 text-xs font-mono uppercase tracking-wider font-medium transition-all">
                         View Work
                     </a>
                 </div>
 
                 <!-- Quick Links -->
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-[11px] font-mono text-[var(--text-muted)]">
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-[11px] font-mono text-[var(--text-muted)]">
                     <a href="dental-design.html" class="hover:text-brand-400 transition-colors">Dental</a>
-                    <span class="text-[var(--bg-border)]">|</span>
+                    <span class="text-white/10">|</span>
                     <a href="video-editing.html" class="hover:text-brand-400 transition-colors">Video</a>
-                    <span class="text-[var(--bg-border)]">|</span>
+                    <span class="text-white/10">|</span>
                     <a href="graphic-design.html" class="hover:text-brand-400 transition-colors">Design</a>
-                    <span class="text-[var(--bg-border)]">|</span>
+                    <span class="text-white/10">|</span>
                     <a href="web-design.html" class="hover:text-brand-400 transition-colors">Web</a>
                 </div>
 
                 <!-- Handwritten note -->
-                <p class="mt-8 text-sm font-hand text-brand-400 opacity-60">
+                <p class="mt-10 text-sm font-editorial italic text-brand-400/40">
                     "Even the best craftsmen lose their way sometimes."
                 </p>
             </div>
@@ -295,96 +167,52 @@
     <!-- ============================================================
     FOOTER
     ============================================================ -->
-    <footer class="border-t border-[var(--bg-border)] py-8 bg-[var(--bg-base)]" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="text-xs font-mono text-[var(--text-muted)] text-center md:text-left">
-                    &copy; 2026 <span itemprop="name">Yugal Doddamani</span>
+    <footer class="border-t border-white/5 bg-black/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-md bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 text-sm">Y</div>
+                        <span class="font-sans font-semibold text-xs tracking-wider uppercase text-white">YD // 2026</span>
+                    </div>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed font-light">
+                        Dental technology student and digital systems builder operating at the intersection of CAD workflows and modern web architecture.
+                    </p>
                 </div>
-
-                <div class="flex items-center gap-4">
-                    <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="LinkedIn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="Instagram">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <span class="w-px h-5 bg-[var(--bg-border)]"></span>
-                    <a href="mailto:yugal.work@proton.me" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">Email</a>
-                    <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">WhatsApp</a>
+                
+                <!-- Navigation -->
+                <nav class="font-mono text-xs space-y-2.5" aria-label="Footer Navigation">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Navigation</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div><a href="index.html" class="text-white hover:text-brand-400 transition-colors">Home</a></div>
+                        <div><a href="index.html#projects" class="text-white hover:text-brand-400 transition-colors">Work</a></div>
+                        <div><a href="index.html#about" class="text-white hover:text-brand-400 transition-colors">About</a></div>
+                        <div><a href="index.html#contact" class="text-white hover:text-brand-400 transition-colors">Contact</a></div>
+                    </div>
+                </nav>
+                
+                <!-- Colophon -->
+                <div class="space-y-2 font-mono text-xs text-[var(--text-muted)]">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Colophon</h3>
+                    <p class="text-[11px] leading-relaxed">
+                        Built with semantic HTML, Tailwind CSS, and vanilla JavaScript. Set in Playfair Display &amp; JetBrains Mono.
+                    </p>
                 </div>
-
-                <div class="flex items-center gap-4 text-[10px] font-mono text-[var(--text-muted)]">
-                    <a href="index.html#work" class="hover:text-brand-400 transition-colors">Work</a>
-                    <a href="index.html#about" class="hover:text-brand-400 transition-colors">About</a>
-                    <a href="index.html#contact" class="hover:text-brand-400 transition-colors">Contact</a>
-                    <span class="text-[var(--bg-border)]">|</span>
-                    <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap</a>
+            </div>
+            
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-muted)]">
+                <span>&copy; 2026 Yugal Doddamani. All rights reserved.</span>
+                <div class="flex gap-4">
+                    <a href="llms.txt" class="hover:text-brand-400 transition-colors">llms.txt</a>
+                    <a href="robots.txt" class="hover:text-brand-400 transition-colors">robots.txt</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        /* ============================================================
-           CUSTOM CURSOR
-           ============================================================ */
-        (function initCursor() {
-            var dot = document.getElementById('cursor-dot');
-            var ring = document.getElementById('cursor-ring');
-            if (!dot || !ring) return;
-
-            var isDesktop = window.matchMedia('(pointer: fine)').matches;
-            if (!isDesktop) return;
-
-            var mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-            var ringX = mouseX, ringY = mouseY;
-
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            document.addEventListener('mouseleave', function() {
-                dot.style.opacity = '0';
-                ring.style.opacity = '0';
-            });
-
-            document.addEventListener('mouseenter', function() {
-                dot.style.opacity = '0.6';
-                ring.style.opacity = '0.4';
-            });
-
-            var interactiveSelectors = 'a, button, article, .group, [onclick]';
-            document.addEventListener('mouseover', function(e) {
-                if (e.target.closest(interactiveSelectors)) {
-                    dot.classList.add('hover');
-                    ring.classList.add('hover');
-                }
-            });
-
-            document.addEventListener('mouseout', function(e) {
-                if (e.target.closest(interactiveSelectors)) {
-                    dot.classList.remove('hover');
-                    ring.classList.remove('hover');
-                }
-            });
-
-            function animate() {
-                ringX += (mouseX - ringX) * 0.15;
-                ringY += (mouseY - ringY) * 0.15;
-                dot.style.left = mouseX + 'px';
-                dot.style.top = mouseY + 'px';
-                ring.style.left = ringX + 'px';
-                ring.style.top = ringY + 'px';
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        })();
-    </script>
+    <!-- Atelier JavaScript Core -->
+    <script src="js/main.js"></script>
 
 </body>
 </html>

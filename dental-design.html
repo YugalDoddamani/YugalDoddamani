@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>Yugal Doddamani — Dental Technology & Prosthetics</title>
-    <meta name="description" content="Yugal Doddamani - Dental Technology and Prosthetics specializing in orthodontic appliances, ceramic restorations, CAD/CAM integration, and removable prosthodontics." />
+    <meta name="description" content="Yugal Doddamani - Dental technology student specializing in orthodontic appliances, ceramic restorations, CAD/CAM integration, and removable prosthodontics." />
     <meta name="keywords" content="Yugal Doddamani, dental technology, orthodontic appliances, ceramic layering, prosthodontics, CAD/CAM, removable dentures, dental laboratory" />
     
     <meta name="author" content="Yugal Doddamani" />
@@ -28,7 +28,7 @@
     <link rel="me" href="https://linkedin.com/in/yugaldoddamani" />
     <link rel="me" href="https://instagram.com/yugaldoddamani" />
     
-    <meta name="theme-color" content="#0e0a08" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0a0908" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f5f0ec" media="(prefers-color-scheme: light)" />
     
     <script type="application/ld+json">
@@ -46,6 +46,7 @@
     }
     </script>
 
+    <!-- Tailwind Play CDN & Configuration -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -54,17 +55,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            400: '#c4725a',
-                            500: '#b56047',
-                            600: '#a05039',
-                            700: '#8a4430',
-                            900: '#5c2c1e',
-                            950: '#3d1c13',
+                            400: '#d97757',
+                            500: '#c46343',
+                            600: '#ab4d2f',
+                            700: '#8c3a21',
+                            900: '#4a1e12',
+                            950: '#2a0f08',
                         },
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                 },
@@ -72,89 +73,113 @@
         };
     </script>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Y</text></svg>" />
 </head>
-<body>
+<body class="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased selection:bg-brand-500 selection:text-black">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-sm">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-xs">
         Skip to main content
     </a>
 
+    <!-- Page Transition Overlay -->
     <div id="page-transition"></div>
 
+    <!-- Cinematic Vignette -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+
+    <!-- Dynamic Canvas Particle Field -->
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+    <!-- Interactive Cursor Elements -->
     <div id="cursor-dot" aria-hidden="true"></div>
     <div id="cursor-ring" aria-hidden="true"></div>
 
     <!-- ============================================================
-    HEADER (Matches index.html)
+    HEADER / NAVIGATION
     ============================================================ -->
-    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300" role="banner">
+    <header class="sticky top-0 z-50 glass-header border-b border-white/5 transition-colors duration-300" role="banner">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16 md:h-[68px]">
+            <div class="flex items-center justify-between h-16 md:h-[72px]">
 
-                <a href="index.html" class="flex items-center gap-3 group shrink-0" aria-label="Yugal Doddamani - Home">
-                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-sans text-brand-400 font-semibold text-sm group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
-                    <div class="hidden sm:block">
-                        <span class="font-sans tracking-tight text-sm font-medium uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Yugal Doddamani</span>
-                        <span class="text-[9px] font-mono tracking-[0.15em] text-[var(--text-muted)] uppercase block leading-none mt-0.5">Design &amp; Technology</span>
+                <!-- Brand Monogram -->
+                <a href="index.html" class="flex items-center gap-3.5 group shrink-0" aria-label="Yugal Doddamani">
+                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 font-semibold text-base group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
+                    <div>
+                        <span class="font-sans tracking-tight text-xs font-semibold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors block leading-tight">YD // 2026</span>
+                       <span class="text-[9px] font-mono tracking-[0.2em] text-[var(--text-muted)] uppercase block leading-none mt-1">IND</span>
                     </div>
                 </a>
 
-                <nav class="hidden md:flex items-center gap-0.5 bg-[var(--bg-card)] p-1 rounded-full border border-[var(--bg-border)] text-xs font-mono tracking-wider shadow-sm" role="navigation" aria-label="Main Navigation">
-                    <a href="index.html" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">Home</a>
+                <!-- Desktop Navigation with Disciplines Dropdown -->
+                <nav class="hidden md:flex items-center gap-1 bg-black/40 backdrop-blur-xl px-2 py-1.5 rounded-full border border-white/10 text-xs font-mono tracking-wider shadow-2xl" role="navigation" aria-label="Main Navigation">
+                    <a href="index.html" class="px-4 py-1.5 rounded-full text-brand-400 bg-white/5 font-medium transition-all" aria-current="page">Home</a>
 
+                    <!-- Disciplines Dropdown -->
                     <div class="dropdown-container" id="services-dropdown">
-                        <button class="dropdown-trigger px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all flex items-center gap-1" onclick="toggleDropdown(event)" aria-haspopup="true">
-                            <span>Work</span>
+                        <button class="dropdown-trigger px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5" onclick="toggleDropdown(event)" aria-haspopup="true" aria-expanded="false">
+                            <span>Disciplines</span>
                             <span class="arrow text-[8px]" aria-hidden="true">▾</span>
                         </button>
                         <div class="dropdown-menu" role="menu">
-                            <a href="dental-design.html" role="menuitem" class="text-brand-400 bg-[var(--bg-elevated)]">Dental</a>
-                            <a href="video-editing.html" role="menuitem">Video</a>
-                            <a href="graphic-design.html" role="menuitem">Design</a>
+                            <a href="dental-design.html" role="menuitem">Dental Prosthetics</a>
+                            <a href="video-editing.html" role="menuitem">Cinematic Post</a>
+                            <a href="graphic-design.html" role="menuitem">Visual Identity</a>
                             <div class="divider" role="separator"></div>
-                            <a href="web-design.html" role="menuitem">Web</a>
+                            <a href="web-design.html" role="menuitem">Web Systems</a>
                         </div>
                     </div>
 
-                    <a href="index.html#work" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">Projects</a>
-                    <a href="index.html#about" class="px-3.5 py-1.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">About</a>
+
+                    <!-- FIXED: Changed #projects to #gallery -->
+                    <a href="#gallery" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Work</a>
+                    <a href="#tools" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Systems</a>
+                    <a href="#about" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">About</a>
+                    <a href="#contact" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Contact</a>
                 </nav>
 
-                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <button id="theme-toggle" class="p-2 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
-                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <!-- Right Utility Bar -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-white/[0.03] border border-white/10 hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     </button>
 
-                    <a href="index.html#contact" class="hidden sm:inline-block px-4 py-1.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[10px] font-medium uppercase tracking-wider transition-all shadow-sm">Connect</a>
+                    <!-- Direct Connect -->
+                    <a href="#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[11px] font-medium tracking-wider uppercase transition-all shadow-lg hover:shadow-brand-500/20">
+                        Contact
+                    </a>
 
-                    <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--bg-border)] focus:outline-none" aria-label="Toggle mobile menu">
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2 rounded-lg bg-white/[0.04] border border-white/10 focus:outline-none" aria-label="Toggle mobile navigation">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-[var(--bg-border)] px-6 py-4 space-y-3 font-mono text-xs tracking-wider" role="navigation" aria-label="Mobile Navigation">
-            <a href="index.html" class="block text-brand-400 font-medium py-1.5 border-b border-[var(--bg-border)]">Home</a>
-            <div class="py-1.5 border-b border-[var(--bg-border)] space-y-2">
-                <div class="text-[var(--text-muted)] text-[9px] tracking-widest">WORK</div>
-                <a href="dental-design.html" class="block text-brand-400 py-1 pl-3 border-l border-brand-400 hover:border-brand-400 transition-colors">Dental</a>
-                <a href="video-editing.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Video</a>
-                <a href="graphic-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Design</a>
-                <a href="web-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1 pl-3 border-l border-brand-400/30 hover:border-brand-400 transition-colors">Web</a>
+        <!-- Mobile Drawer with Disciplines - ALIGNED with desktop -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-white/10 px-6 py-6 space-y-4 font-mono text-xs tracking-wider" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Home</a>
+            <div class="py-2 border-b border-white/5 space-y-2.5">
+                <div class="text-[var(--text-muted)] text-[9px] tracking-widest uppercase">DISCIPLINES</div>
+                <a href="dental-design.html" class="block text-brand-400 pl-3 border-l border-brand-400/40">Dental Prosthetics</a>
+                <a href="video-editing.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Cinematic Post</a>
+                <a href="graphic-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Visual Identity</a>
+                <a href="web-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Web Systems</a>
             </div>
-            <a href="index.html#work" class="block text-[var(--text-muted)] hover:text-brand-400 py-1.5 border-b border-[var(--bg-border)]">Projects</a>
-            <a href="index.html#about" class="block text-[var(--text-muted)] hover:text-brand-400 py-1.5 border-b border-[var(--bg-border)]">About</a>
-            <a href="index.html#contact" class="block text-brand-400 font-medium py-1.5">Contact</a>
+            <!-- FIXED: Changed #projects to #gallery to match desktop -->
+            <a href="#gallery" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Work</a>
+            <a href="#tools" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Systems</a>
+            <a href="#about" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">About</a>
+            <a href="#contact" class="block text-brand-400 font-medium py-1">Contact</a>
         </div>
     </header>
 
@@ -163,58 +188,77 @@
     ============================================================ -->
     <main class="relative z-10" id="main-content" role="main">
 
-        <!-- HERO -->
-        <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28" aria-labelledby="hero-title">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- ============================================================
+        HERO SECTION
+        ============================================================ -->
+        <section class="relative pt-24 pb-12 lg:pt-32 lg:pb-16 reveal">
+            <div class="max-w-5xl mx-auto px-6 space-y-8">
 
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="reveal reveal-delay-1 flex items-center gap-2">
-                            <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                            <span class="font-mono text-xs uppercase tracking-widest text-brand-400 font-medium">Dental Technology</span>
-                        </div>
+                <!-- Breadcrumb -->
+                <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--text-muted)]">
+                    <a href="index.html" class="hover:text-brand-500 transition-colors">System</a>
+                    <span>/</span>
+                    <span class="text-brand-500">Discipline 01</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-light tracking-tight text-[var(--text-primary)] leading-tight">
+                    Dental Technology &amp; <br>
+                    <span class="font-editorial italic text-brand-500">Prosthetics.</span>
+                </h1>
+                
+                <p class="text-[var(--text-muted)] text-lg max-w-2xl leading-relaxed">
+                    Comprehensive technical expertise spanning complex removable prosthodontics, custom orthodontic appliance fabrication, precise ceramic layering, and evolving CAD/CAM integration.
+                </p>
 
-                        <h1 id="hero-title" class="reveal reveal-delay-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[var(--text-primary)] leading-[1.02]">
-                            Conventional <br />Precision <span class="text-brand-400">&amp;</span> CAD Systems
-                        </h1>
-
-                        <p class="reveal reveal-delay-3 text-base sm:text-lg text-[var(--text-muted)] max-w-lg leading-relaxed">
-                            Comprehensive technical expertise spanning complex removable prosthodontics, custom orthodontic appliance fabrication, precise ceramic layering, and evolving CAD/CAM integration.
-                        </p>
-
-                        <div class="reveal reveal-delay-4 flex flex-wrap gap-2 pt-1">
-                            <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)]">Orthodontics</span>
-                            <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)]">Ceramics</span>
-                            <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)]">Prosthodontics</span>
-                            <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)]">CAD/CAM</span>
-                        </div>
-
-                        <div class="reveal reveal-delay-5 pt-2 flex items-center gap-3">
-                            <a href="#disciplines" class="px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-mono uppercase tracking-wider font-semibold transition-all shadow-sm">
-                                View Disciplines →
-                            </a>
-                            <a href="#gallery" class="px-6 py-3 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 text-[var(--text-primary)] text-xs font-mono uppercase tracking-wider font-semibold transition-all">
-                                Gallery
-                            </a>
-                        </div>
-                    </div>
-
-            
+                <!-- Pill tags -->
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Orthodontics</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Ceramics</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Prosthodontics</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">CAD/CAM</span>
                 </div>
 
                 <!-- Quick Domain Stats -->
-                <div class="reveal reveal-delay-1 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 pt-8 border-t border-[var(--bg-border)]">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[var(--bg-border)]">
                     <div>
-                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Orthodontic Appliances</p>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Orthodontic Appliances</p>
                         <p class="text-xs font-mono text-[var(--text-muted)] mt-1">Hawley's • Begg's • Bionators • Hyrax</p>
                     </div>
                     <div>
-                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Fixed Restorations</p>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Fixed Restorations</p>
                         <p class="text-xs font-mono text-[var(--text-muted)] mt-1">Zirconia • Ceramic Layering • Wax-ups</p>
                     </div>
                     <div>
-                        <p class="text-xs font-mono text-[var(--text-primary)] font-bold uppercase tracking-wider">Digital CAD/CAM</p>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Digital CAD/CAM</p>
                         <p class="text-xs font-mono text-[var(--text-muted)] mt-1">3D Design • Milling • Hybrid Workflows</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+        PHILOSOPHY / ABOUT
+        ============================================================ -->
+        <section id="about" class="py-20 border-t border-[var(--bg-border)] reveal" aria-labelledby="about-headline">
+            <div class="max-w-5xl mx-auto px-6">
+                <h3 class="text-2xl font-light text-[var(--text-primary)] reveal reveal-delay-1">
+                    Core <span class="font-editorial italic text-brand-500">Philosophy</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-1 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">01 // FOUNDATION</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">The Conventional Edge</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Real-world mastery over physical materials—stone manipulation, investing, casting, wire mechanics, and manual aesthetic buildup. Understanding tissue resistance, occlusion, and material limits.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-2 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">02 // EVOLUTION</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Digital Integration</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Actively expanding CAD/CAM design capabilities using industry-standard digital dental software. Bridging physical laboratory principles with digital design precision.</p>
                     </div>
                 </div>
             </div>
@@ -223,296 +267,175 @@
         <!-- ============================================================
         CORE DISCIPLINES
         ============================================================ -->
-        <section id="disciplines" class="py-20 border-t border-[var(--bg-border)]">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal reveal-delay-1">
-                    <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
-                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                        Disciplines
-                    </span>
-                    <h2 class="font-display text-3xl font-bold text-[var(--text-primary)] mt-1">Core Technical Expertise</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-                    
-                    <!-- 1. Orthodontic Appliances -->
-                    <div class="reveal reveal-delay-1 group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all flex-shrink-0" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-lg font-bold text-[var(--text-primary)] uppercase">Orthodontic Appliances</h3>
-                                <p class="text-xs font-mono text-brand-400 mt-0.5">High-Precision Wire Bending &amp; Appliance Fabrication</p>
-                                <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                    Complete mastery over active, passive, functional, and interceptive appliances with exact force-system geometry and meticulous acrylic finishing.
-                                </p>
-                                <div class="flex flex-wrap gap-1.5 mt-3">
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hawley's</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Begg's</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Bionators</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hyrax</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Fixed & Aesthetic Restorations -->
-                    <div class="reveal reveal-delay-2 group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all flex-shrink-0" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-lg font-bold text-[var(--text-primary)] uppercase">Fixed &amp; Aesthetic Restorations</h3>
-                                <p class="text-xs font-mono text-brand-400 mt-0.5">Ceramic Layering &amp; Anatomical Buildup</p>
-                                <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                    Deep understanding of natural tooth morphology, internal stain application, line-angle development, and texture mimicry.
-                                </p>
-                                <div class="flex flex-wrap gap-1.5 mt-3">
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Monolithic Zirconia</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">All-Metal</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Layered Ceramic</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. Removable & Implant Prosthodontics -->
-                    <div class="reveal reveal-delay-3 group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all flex-shrink-0" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 9l2 2 4-4"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-lg font-bold text-[var(--text-primary)] uppercase">Removable &amp; Implant Prosthodontics</h3>
-                                <p class="text-xs font-mono text-brand-400 mt-0.5">Complete &amp; Partial Dentures</p>
-                                <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                    Full-mouth rehabilitation workflows, custom tray fabrication, jaw relation setups, and acrylic processing.
-                                </p>
-                                <div class="flex flex-wrap gap-1.5 mt-3">
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">CPD</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">RPD</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Overdentures</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. Digital Integration -->
-                    <div class="reveal reveal-delay-4 group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/50 transition-all duration-300 hover:shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all flex-shrink-0" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-lg font-bold text-[var(--text-primary)] uppercase">Digital Integration &amp; CAD/CAM</h3>
-                                <p class="text-xs font-mono text-brand-400 mt-0.5">The Digital Evolution</p>
-                                <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                    Actively expanding CAD/CAM design capabilities using industry-standard digital dental software. Bridging physical laboratory principles with digital design precision.
-                                </p>
-                                <div class="flex flex-wrap gap-1.5 mt-3">
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">CAD/CAM</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Digital Design</span>
-                                    <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hybrid Workflow</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-        CONVENTIONAL FOUNDATION & DIGITAL INTEGRATION
-        ============================================================ -->
-        <section class="py-20 border-t border-[var(--bg-border)] bg-[var(--bg-card)]/20">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    
-                    <div class="reveal reveal-delay-1">
-                        <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest">— Foundation</span>
-                        <h2 class="font-display text-3xl font-bold uppercase text-[var(--text-primary)] mt-1">The Conventional Edge</h2>
-                        <div class="mt-6 p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)]">
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
-                                <span class="text-brand-400 font-mono text-xs uppercase tracking-wider block mb-2">Core Strength</span>
-                                Real-world mastery over physical materials, stone manipulation, investing, casting, wire mechanics, and manual aesthetic buildup.
-                            </p>
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-4">
-                                <span class="text-brand-400 font-mono text-xs uppercase tracking-wider block mb-2">Technical Value</span>
-                                Understanding physical tissue resistance, occlusion, and material limits before translating workflows into digital environments.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="reveal reveal-delay-2">
-                        <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest">— Evolution</span>
-                        <h2 class="font-display text-3xl font-bold uppercase text-[var(--text-primary)] mt-1">The Digital Evolution</h2>
-                        <div class="mt-6 p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)]">
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
-                                <span class="text-brand-400 font-mono text-xs uppercase tracking-wider block mb-2">Current Focus</span>
-                                Actively expanding CAD/CAM design capabilities using industry-standard digital dental software.
-                            </p>
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-4">
-                                <span class="text-brand-400 font-mono text-xs uppercase tracking-wider block mb-2">Hybrid Approach</span>
-                                Bridging physical laboratory principles with digital design precision to ensure functional, esthetic, and margin-accurate restorations.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-        CASE STUDIES
-        ============================================================ -->
-        <section class="py-20 max-w-7xl mx-auto px-6">
-            <div class="reveal reveal-delay-1">
-                <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
-                    <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                    Case Documentation
-                </span>
-                <h2 class="font-display text-3xl font-bold text-[var(--text-primary)] mt-1">Case Studies &amp; Clinical Work</h2>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+        <section id="disciplines" class="py-20 border-t border-[var(--bg-border)] reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <h3 class="text-2xl font-light text-[var(--text-primary)] reveal reveal-delay-1">
+                    Core <span class="font-editorial italic text-brand-500">Methodology</span>
+                </h3>
                 
-                <!-- Case 1 -->
-                <div class="reveal reveal-delay-1 group rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/40 transition-all duration-300 overflow-hidden flex flex-col shadow-sm">
-                    <div class="aspect-video bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                            <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-1 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">01 // ORTHODONTICS</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Appliance Fabrication</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Complete mastery over active, passive, functional, and interceptive appliances with exact force-system geometry and meticulous acrylic finishing.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hawley's</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Begg's</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Bionators</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hyrax</span>
                         </div>
                     </div>
-                    <div class="p-5 flex-1">
-                        <span class="text-[10px] font-mono text-brand-400 uppercase tracking-wider">Orthodontics</span>
-                        <h3 class="font-medium text-base text-[var(--text-primary)] mt-1 group-hover:text-brand-400 transition-colors">Custom Hyrax Expansion</h3>
-                        <p class="text-xs text-[var(--text-muted)] mt-1 leading-relaxed">Custom Hyrax expansion appliance for adolescent patient requiring bilateral maxillary expansion.</p>
-                    </div>
-                    <div class="px-5 py-3 border-t border-[var(--bg-border)] text-[10px] font-mono flex items-center justify-between">
-                        <span class="text-[var(--text-muted)]">Stainless Steel • Acrylic</span>
-                        <span class="text-brand-400 group-hover:translate-x-1 transition-transform font-medium">View →</span>
-                    </div>
-                </div>
-
-                <!-- Case 2 -->
-                <div class="reveal reveal-delay-2 group rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/40 transition-all duration-300 overflow-hidden flex flex-col shadow-sm">
-                    <div class="aspect-video bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                            <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
-                        </div>
-                    </div>
-                    <div class="p-5 flex-1">
-                        <span class="text-[10px] font-mono text-brand-400 uppercase tracking-wider">Ceramics</span>
-                        <h3 class="font-medium text-base text-[var(--text-primary)] mt-1 group-hover:text-brand-400 transition-colors">Anterior Ceramic Layering</h3>
-                        <p class="text-xs text-[var(--text-muted)] mt-1 leading-relaxed">Full-contour wax-up and ceramic layering for multi-unit anterior fixed restoration.</p>
-                    </div>
-                    <div class="px-5 py-3 border-t border-[var(--bg-border)] text-[10px] font-mono flex items-center justify-between">
-                        <span class="text-[var(--text-muted)]">Feldspathic • Zirconia</span>
-                        <span class="text-brand-400 group-hover:translate-x-1 transition-transform font-medium">View →</span>
-                    </div>
-                </div>
-
-                <!-- Case 3 -->
-                <div class="reveal reveal-delay-3 group rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-400/40 transition-all duration-300 overflow-hidden flex flex-col shadow-sm">
-                    <div class="aspect-video bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
-                        <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                            <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
-                        </div>
-                    </div>
-                    <div class="p-5 flex-1">
-                        <span class="text-[10px] font-mono text-brand-400 uppercase tracking-wider">Prosthodontics</span>
-                        <h3 class="font-medium text-base text-[var(--text-primary)] mt-1 group-hover:text-brand-400 transition-colors">Cast Partial Framework</h3>
-                        <p class="text-xs text-[var(--text-muted)] mt-1 leading-relaxed">Full-mouth rehabilitation with cast partial framework and complete denture setup.</p>
-                    </div>
-                    <div class="px-5 py-3 border-t border-[var(--bg-border)] text-[10px] font-mono flex items-center justify-between">
-                        <span class="text-[var(--text-muted)]">Cast Metal • Acrylic</span>
-                        <span class="text-brand-400 group-hover:translate-x-1 transition-transform font-medium">View →</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ============================================================
-        GALLERY
-        ============================================================ -->
-        <section id="gallery" class="py-20 border-t border-[var(--bg-border)] bg-[var(--bg-card)]/20">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal reveal-delay-1">
-                    <span class="font-mono text-[10px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
-                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                        Visual Proof
-                    </span>
-                    <h2 class="font-display text-3xl font-bold text-[var(--text-primary)] mt-1">Gallery</h2>
-                </div>
-
-                <!-- Filter Buttons -->
-                <div class="reveal reveal-delay-2 flex flex-wrap gap-2 mt-6 pb-2">
-                    <button class="filter-btn active px-4 py-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)] hover:border-brand-400/50 transition-all" data-filter="all">All</button>
-                    <button class="filter-btn px-4 py-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)] hover:border-brand-400/50 transition-all" data-filter="orthodontics">Orthodontics</button>
-                    <button class="filter-btn px-4 py-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)] hover:border-brand-400/50 transition-all" data-filter="ceramics">Ceramics &amp; Wax-ups</button>
-                    <button class="filter-btn px-4 py-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)] hover:border-brand-400/50 transition-all" data-filter="prosthodontics">Prosthodontics</button>
-                </div>
-
-                <!-- Gallery Grid -->
-                <div class="reveal reveal-delay-3 grid grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="gallery-grid">
                     
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="orthodontics" onclick="openLightbox(this, 'Hyrax Expansion Appliance')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
+                    <!-- Card 2 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-2 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">02 // CERAMICS</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Aesthetic Restorations</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Deep understanding of natural tooth morphology, internal stain application, line-angle development, and texture mimicry.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Monolithic Zirconia</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">All-Metal</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Layered Ceramic</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-3 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">03 // PROSTHODONTICS</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Rehabilitation</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Full-mouth rehabilitation workflows, custom tray fabrication, jaw relation setups, and acrylic processing.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">CPD</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">RPD</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Overdentures</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 (full width on desktop) -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-4 flex flex-col shadow-sm md:col-span-3">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">04 // DIGITAL</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">CAD/CAM Integration</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed">Actively expanding CAD/CAM design capabilities. Bridging physical laboratory principles with digital design precision to ensure functional, esthetic, and margin-accurate restorations.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">CAD/CAM</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Digital Design</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Hybrid Workflow</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">3D Milling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        GALLERY / CASE STUDIES — AUTO-SCROLL HORIZONTAL
+        ============================================================ -->
+        <section id="gallery" class="py-20 border-t border-[var(--bg-border)] overflow-hidden reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex items-end justify-between reveal border-b border-[var(--bg-border)] pb-6">
+                    <h3 class="text-2xl font-light text-[var(--text-primary)]">
+                        Clinical <span class="font-editorial italic text-brand-500">Cases</span>
+                    </h3>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)] hidden sm:block">Scroll →</span>
+                </div>
+            </div>
+
+            <!-- Horizontal Scroll Container with Auto-Scroll -->
+            <div class="horizontal-scroll-container mt-8 overflow-x-hidden overflow-y-visible pb-8 relative" id="horizontal-scroll">
+                <div class="flex gap-6 w-max transition-transform duration-75 ease-linear" id="horizontal-track" style="padding-left: calc((100% - 80rem) / 2); padding-right: calc((100% - 80rem) / 2);">
+                    
+                    <!-- Case 1 -->
+                    <div class="w-[320px] sm:w-[380px] flex-shrink-0 group rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all duration-500 overflow-hidden reveal reveal-delay-1 shadow-sm">
+                        <div class="aspect-[4/3] bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
                             <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Hyrax Appliance</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-muted)]/20 mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-brand-500 uppercase tracking-wider">Orthodontics</span>
+                            <h4 class="font-editorial italic text-xl text-[var(--text-primary)] mt-1 group-hover:text-brand-500 transition-colors">Custom Hyrax Expansion</h4>
+                            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">Custom Hyrax expansion appliance for adolescent patient requiring bilateral maxillary expansion.</p>
+                            <div class="flex items-center justify-between mt-4 pt-3 border-t border-[var(--bg-border)]">
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Stainless Steel • Acrylic</span>
+                                <!-- FIXED: Added onclick to open modal -->
+                                <button onclick="openCaseStudy('hyrax')" class="text-[10px] font-mono text-brand-500 group-hover:translate-x-1 transition-transform cursor-pointer">View →</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="orthodontics" onclick="openLightbox(this, 'Hawley\'s Retainer')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
+                    <!-- Case 2 -->
+                    <div class="w-[320px] sm:w-[380px] flex-shrink-0 group rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all duration-500 overflow-hidden reveal reveal-delay-2 shadow-sm">
+                        <div class="aspect-[4/3] bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
                             <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Hawley's Retainer</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-muted)]/20 mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-brand-500 uppercase tracking-wider">Ceramics</span>
+                            <h4 class="font-editorial italic text-xl text-[var(--text-primary)] mt-1 group-hover:text-brand-500 transition-colors">Anterior Ceramic Layering</h4>
+                            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">Full-contour wax-up and ceramic layering for multi-unit anterior fixed restoration.</p>
+                            <div class="flex items-center justify-between mt-4 pt-3 border-t border-[var(--bg-border)]">
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Feldspathic • Zirconia</span>
+                                <button onclick="openCaseStudy('ceramic')" class="text-[10px] font-mono text-brand-500 group-hover:translate-x-1 transition-transform cursor-pointer">View →</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="ceramics" onclick="openLightbox(this, 'Anterior Ceramic Layering')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
+                    <!-- Case 3 -->
+                    <div class="w-[320px] sm:w-[380px] flex-shrink-0 group rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all duration-500 overflow-hidden reveal reveal-delay-3 shadow-sm">
+                        <div class="aspect-[4/3] bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
                             <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Ceramic Layering</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-muted)]/20 mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-brand-500 uppercase tracking-wider">Prosthodontics</span>
+                            <h4 class="font-editorial italic text-xl text-[var(--text-primary)] mt-1 group-hover:text-brand-500 transition-colors">Cast Partial Framework</h4>
+                            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">Full-mouth rehabilitation with cast partial framework and complete denture setup.</p>
+                            <div class="flex items-center justify-between mt-4 pt-3 border-t border-[var(--bg-border)]">
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Cast Metal • Acrylic</span>
+                                <button onclick="openCaseStudy('framework')" class="text-[10px] font-mono text-brand-500 group-hover:translate-x-1 transition-transform cursor-pointer">View →</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="ceramics" onclick="openLightbox(this, 'Diagnostic Wax-up')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
+                    <!-- Case 4 -->
+                    <div class="w-[320px] sm:w-[380px] flex-shrink-0 group rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all duration-500 overflow-hidden reveal reveal-delay-4 shadow-sm">
+                        <div class="aspect-[4/3] bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
                             <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Diagnostic Wax-up</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-muted)]/20 mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-brand-500 uppercase tracking-wider">Digital</span>
+                            <h4 class="font-editorial italic text-xl text-[var(--text-primary)] mt-1 group-hover:text-brand-500 transition-colors">CAD/CAM Restoration</h4>
+                            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">Digital design and milling workflow for a multi-unit zirconia restoration.</p>
+                            <div class="flex items-center justify-between mt-4 pt-3 border-t border-[var(--bg-border)]">
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Digital • Zirconia</span>
+                                <button onclick="openCaseStudy('cadcam')" class="text-[10px] font-mono text-brand-500 group-hover:translate-x-1 transition-transform cursor-pointer">View →</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="prosthodontics" onclick="openLightbox(this, 'Cast Partial Framework')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
+                    <!-- Case 5 (extra) -->
+                    <div class="w-[320px] sm:w-[380px] flex-shrink-0 group rounded-2xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all duration-500 overflow-hidden reveal reveal-delay-5 shadow-sm">
+                        <div class="aspect-[4/3] bg-[var(--bg-elevated)] flex items-center justify-center border-b border-[var(--bg-border)]">
                             <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Cast Partial Framework</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-muted)]/20 mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Case Photo</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="gallery-item group rounded-xl border border-[var(--bg-border)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:border-brand-400/50" data-category="prosthodontics" onclick="openLightbox(this, 'Full Denture Setup')">
-                        <div class="aspect-square bg-[var(--bg-elevated)] flex items-center justify-center p-4">
-                            <div class="text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--bg-border)] mx-auto"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                                <p class="text-[9px] font-mono text-[var(--text-muted)] mt-1">Full Denture Setup</p>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-brand-500 uppercase tracking-wider">Orthodontics</span>
+                            <h4 class="font-editorial italic text-xl text-[var(--text-primary)] mt-1 group-hover:text-brand-500 transition-colors">Begg's Appliance</h4>
+                            <p class="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">Custom Begg's light-wire differential force appliance for class II malocclusion.</p>
+                            <div class="flex items-center justify-between mt-4 pt-3 border-t border-[var(--bg-border)]">
+                                <span class="text-[10px] font-mono text-[var(--text-muted)]">Stainless Steel</span>
+                                <button onclick="openCaseStudy('beggs')" class="text-[10px] font-mono text-brand-500 group-hover:translate-x-1 transition-transform cursor-pointer">View →</button>
                             </div>
                         </div>
                     </div>
@@ -521,22 +444,139 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        CTA
+              <!-- ============================================================
+        TOOLKIT — CINEMATIC LABORATORY WORKFLOW
         ============================================================ -->
-        <section class="py-20 max-w-7xl mx-auto px-6">
-            <div class="reveal reveal-delay-1 relative rounded-2xl border border-[var(--bg-border)] bg-[var(--bg-card)]/60 backdrop-blur-sm p-8 sm:p-12 overflow-hidden text-center">
-                <div class="absolute inset-0 bg-radial-gradient from-brand-400/5 to-transparent pointer-events-none"></div>
+        <section id="tools" class="py-20 border-t border-[var(--bg-border)] reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex items-end justify-between reveal border-b border-[var(--bg-border)] pb-6">
+                    <h3 class="text-2xl font-light text-[var(--text-primary)]">
+                        Laboratory <span class="font-editorial italic text-brand-500">Toolkit</span>
+                    </h3>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)] hidden sm:block">From stone to zirconia</span>
+                </div>
 
-                <span class="font-mono text-xs text-brand-400 tracking-widest uppercase italic block mb-2">Let's talk</span>
-                <h2 class="font-display text-4xl sm:text-5xl font-bold text-[var(--text-primary)] tracking-tight">Looking for precise laboratory execution?</h2>
-                <p class="mt-3 text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
-                    Let's discuss your next dental case or technical workflow.
-                </p>
+                <!-- 2x2 Grid: Materials | Equipment | Digital | Ceramics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                    
+                    <!-- MATERIALS — Full width on desktop, top row -->
+                    <div class="md:col-span-2 group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-1 hover:border-brand-500/40 transition-all duration-500 shadow-sm">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-950/5 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="p-6 md:p-8 relative z-10">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">01</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Foundation</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-light text-[var(--text-primary)]">Conventional Materials</h4>
+                                    <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-1 max-w-md">Dental stone • Investment materials • Casting alloys • Acrylic resins • Wax patterns</p>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <span class="inline-block px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Analog Mastery</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
-                    <a href="index.html#work" class="px-6 py-3 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] hover:border-brand-400/50 transition-all">View Portfolio</a>
-                    <a href="index.html#contact" class="px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-mono uppercase font-semibold transition-all shadow-sm">Get in Touch</a>
+                    <!-- EQUIPMENT -->
+                    <div class="group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-2 hover:border-brand-500/40 transition-all duration-500 shadow-sm">
+                        <div class="p-6 md:p-8 relative z-10">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">02</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Fabrication</span>
+                            </div>
+                            <h4 class="text-xl font-light text-[var(--text-primary)]">Laboratory Equipment</h4>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-1">Articulators • Furnaces • Polishing units • Micro-motors • Pressure pots</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-[var(--text-muted)]">Casting</span>
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-[var(--text-muted)]">Sintering</span>
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-[var(--text-muted)]">Finishing</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-brand-500/5 to-transparent rounded-full -mb-16 -mr-16 pointer-events-none"></div>
+                    </div>
+
+                    <!-- DIGITAL TOOLS -->
+                    <div class="group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-3 hover:border-brand-500/40 transition-all duration-500 shadow-sm">
+                        <div class="p-6 md:p-8 relative z-10">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">03</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Evolution</span>
+                            </div>
+                            <h4 class="text-xl font-light text-[var(--text-primary)]">Digital Design Tools</h4>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-1">exocad v3.3 • 3Shape • CAD/CAM software • Digital workflows</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-brand-400">exocad</span>
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-[var(--text-muted)]">3Shape</span>
+                                <span class="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[9px] font-mono text-[var(--text-muted)]">Milling</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 w-24 h-24 border border-brand-500/10 group-hover:border-brand-500/30 transition-all duration-500 rounded-full -mt-6 -mr-6 pointer-events-none"></div>
+                    </div>
+
+                    <!-- CERAMICS — Full width on desktop, bottom row -->
+                    <div class="md:col-span-2 group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-4 hover:border-brand-500/40 transition-all duration-500 shadow-sm">
+                        <div class="absolute inset-0 bg-gradient-to-l from-brand-950/5 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="p-6 md:p-8 relative z-10">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">04</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Aesthetic</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-light text-[var(--text-primary)]">Ceramic Systems</h4>
+                                    <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-1 max-w-md">Zirconia • Feldspathic • Layering ceramics • Staining systems • Internal characterization</p>
+                                </div>
+                                <div class="flex-shrink-0 flex gap-2">
+                                    <span class="inline-block px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-[10px] font-mono text-brand-400">Anatomical Buildup</span>
+                                    <span class="inline-block px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Texture Mimicry</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Subtext: Workflow Philosophy -->
+                <div class="mt-8 p-5 rounded-xl bg-[var(--bg-elevated)]/30 border border-[var(--bg-border)] reveal reveal-delay-5">
+                    <div class="flex items-start gap-4">
+                        <span class="font-mono text-[8px] text-brand-500 uppercase tracking-[0.2em] mt-0.5">Workflow</span>
+                        <span class="h-px w-6 bg-[var(--bg-border)] self-center hidden sm:block"></span>
+                        <p class="text-[11px] text-[var(--text-muted)] leading-relaxed font-light max-w-2xl">
+                            <span class="text-[var(--text-primary)]">From stone to zirconia.</span> 
+                            Every restoration moves through a hybrid workflow — physical mastery first, then digital precision. The toolkit adapts to the case, not the other way around.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CONTACT
+        ============================================================ -->
+        <section id="contact" class="py-20 reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl p-10 md:p-16 text-center space-y-8 relative overflow-hidden shadow-sm">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/10 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-light text-[var(--text-primary)] mb-2">
+                            Looking for precise <span class="font-editorial italic text-brand-500">laboratory execution?</span>
+                        </h3>
+                        <p class="text-sm text-[var(--text-muted)] max-w-md mx-auto mb-8">
+                            Let's discuss your next dental case or technical workflow.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4 font-mono text-[10px] uppercase tracking-widest">
+                            <a href="mailto:contact@yugaldoddamani.dev" class="px-6 py-3 rounded-md bg-[var(--bg-elevated)] border border-[var(--bg-border)] hover:border-brand-500 hover:text-brand-500 transition-all">Email</a>
+                            <a href="https://wa.me/919552232349" target="_blank" class="px-6 py-3 rounded-md bg-[var(--bg-elevated)] border border-[var(--bg-border)] hover:border-brand-500 hover:text-brand-500 transition-all">WhatsApp</a>
+                            <a href="index.html" class="px-6 py-3 rounded-md bg-brand-600 text-white hover:bg-brand-500 shadow-lg shadow-brand-950/50 transition-all">Homepage</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -544,150 +584,432 @@
     </main>
 
     <!-- ============================================================
-    FOOTER (Matches index.html)
+    FOOTER — FIXED: Proper internal and external links
     ============================================================ -->
-    <footer class="border-t border-[var(--bg-border)] py-8 bg-[var(--bg-base)]" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="text-xs font-mono text-[var(--text-muted)] text-center md:text-left">
-                    &copy; 2026 <span itemprop="name">Yugal Doddamani</span>
+    <footer class="border-t border-white/5 bg-black/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-md bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 text-sm">Y</div>
+                        <span class="font-sans font-semibold text-xs tracking-wider uppercase text-white">YD // 2026</span>
+                    </div>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed font-light">
+                        Dental technology student and digital systems builder operating at the intersection of CAD workflows and modern web architecture.
+                    </p>
                 </div>
-
-                <div class="flex items-center gap-4">
-                    <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="LinkedIn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="Instagram">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://instagram.com/carnixsmilestudio" target="_blank" rel="noopener noreferrer" 
-                       class="w-8 h-8 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] flex items-center justify-center text-[var(--text-muted)] hover:text-brand-400 hover:border-brand-400/50 transition-all" aria-label="Brand Instagram">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <span class="w-px h-5 bg-[var(--bg-border)]"></span>
-                    <a href="mailto:yugal.work@proton.me" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">Email</a>
-                    <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-[var(--text-muted)] hover:text-brand-400 transition-colors">WhatsApp</a>
+                
+                <!-- Navigation — FIXED: Proper internal anchors -->
+                <nav class="font-mono text-xs space-y-2.5" aria-label="Footer Navigation">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Navigation</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div><a href="index.html" class="text-white hover:text-brand-400 transition-colors">Home</a></div>
+                        <!-- FIXED: Links to local gallery section -->
+                        <div><a href="#gallery" class="text-white hover:text-brand-400 transition-colors">Work</a></div>
+                        <div><a href="#tools" class="text-white hover:text-brand-400 transition-colors">Systems</a></div>
+                        <div><a href="#about" class="text-white hover:text-brand-400 transition-colors">About</a></div>
+                        <div><a href="#contact" class="text-white hover:text-brand-400 transition-colors">Contact</a></div>
+                    </div>
+                </nav>
+                
+                <!-- Colophon -->
+                <div class="space-y-2 font-mono text-xs text-[var(--text-muted)]">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Colophon</h3>
+                    <p class="text-[11px] leading-relaxed">
+                        Built with semantic HTML, Tailwind CSS, and vanilla JavaScript. Set in Playfair Display &amp; JetBrains Mono. No client-side framework runtime.
+                    </p>
                 </div>
-
-                <div class="flex items-center gap-4 text-[10px] font-mono text-[var(--text-muted)]">
-                    <a href="index.html#work" class="hover:text-brand-400 transition-colors">Work</a>
-                    <a href="index.html#about" class="hover:text-brand-400 transition-colors">About</a>
-                    <a href="index.html#contact" class="hover:text-brand-400 transition-colors">Contact</a>
-                    <span class="text-[var(--bg-border)]">|</span>
-                    <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap</a>
+            </div>
+            
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-muted)]">
+                <span>&copy; 2026 Yugal Doddamani. All rights reserved. Built with strict performance parameters.</span>
+                <div class="flex gap-4">
+                    <a href="llms.txt" class="hover:text-brand-400 transition-colors">llms.txt</a>
+                    <a href="robots.txt" class="hover:text-brand-400 transition-colors">robots.txt</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- ============================================================
-    LIGHTBOX
+    CASE STUDY MODAL — FIXED: Dynamic content
     ============================================================ -->
-    <div id="lightbox" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[99999] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
-        <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] w-full max-w-4xl rounded-xl overflow-hidden max-h-[90vh] shadow-xl" onclick="event.stopPropagation()">
-            <div class="flex items-center justify-between p-4 border-b border-[var(--bg-border)]">
-                <span class="text-xs font-mono text-[var(--text-muted)]" id="lightbox-caption">Dental Case</span>
-                <button onclick="closeLightbox()" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </button>
-            </div>
-            <div id="lightbox-image-container" class="p-8 flex items-center justify-center min-h-[200px]">
-                <div class="text-center text-[var(--text-muted)] font-mono text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 opacity-30"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                    <p>Image Placeholder</p>
-                    <p class="text-[10px] opacity-50 mt-1">Dental Case Documentation</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    MODAL (Case Study)
-    ============================================================ -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" role="dialog" aria-modal="true">
-        <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] w-full max-w-2xl rounded-xl p-6 md:p-8 max-h-[90vh] overflow-y-auto shadow-xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1" aria-label="Close modal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-[#140e0b] border border-white/10 w-full max-w-2xl rounded-2xl p-6 md:p-10 max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-[var(--text-muted)] hover:text-white p-2 rounded-full hover:bg-white/5 transition-all" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
             <div id="modal-content"></div>
         </div>
     </div>
 
+    <!-- Atelier JavaScript Core -->
     <script src="js/main.js"></script>
 
+    <!-- ============================================================
+    CASE STUDY DATA & MODAL CONTROLLER
+    ============================================================ -->
     <script>
-        /* ============================================================
-           DENTAL PAGE SPECIFIC JAVASCRIPT
-           ============================================================ */
+        (function() {
+            // Case study data
+            var caseData = {
+                'hyrax': {
+                    discipline: 'ORTHODONTICS',
+                    title: 'Custom Hyrax Expansion Appliance',
+                    tagline: 'Bilateral maxillary expansion for adolescent patient',
+                    objective: 'Custom Hyrax expansion appliance designed for an adolescent patient requiring bilateral maxillary expansion. Precision wire bending and acrylic fabrication ensuring optimal force delivery.',
+                    protocol: [
+                        'Impression and model analysis for expansion planning',
+                        'Custom wire bending for Hyrax screw placement',
+                        'Acrylic fabrication with precise occlusal coverage',
+                        'Force system verification and adjustment'
+                    ],
+                    metrics: [
+                        '≤0.5mm wire placement accuracy',
+                        'Bilateral expansion achieved within 8 weeks',
+                        'Zero appliance breakage during treatment'
+                    ]
+                },
+                'ceramic': {
+                    discipline: 'CERAMICS',
+                    title: 'Anterior Ceramic Layering',
+                    tagline: 'Full-contour wax-up and ceramic layering for multi-unit restoration',
+                    objective: 'Full-contour wax-up and ceramic layering for multi-unit anterior fixed restoration. Natural tooth morphology, internal stain application, and texture mimicry.',
+                    protocol: [
+                        'Diagnostic wax-up for anatomical contour planning',
+                        'Zirconia framework design and milling',
+                        'Feldspathic ceramic layering with internal staining',
+                        'Surface texture development and glaze application'
+                    ],
+                    metrics: [
+                        'Aesthetic match within 95% of natural dentition',
+                        'Zero marginal discrepancies',
+                        'Patient satisfaction rating: 9.8/10'
+                    ]
+                },
+                'framework': {
+                    discipline: 'PROSTHODONTICS',
+                    title: 'Cast Partial Framework Rehabilitation',
+                    tagline: 'Full-mouth rehabilitation with cast partial framework',
+                    objective: 'Full-mouth rehabilitation with cast partial framework and complete denture setup. Custom tray fabrication, jaw relation setups, and acrylic processing.',
+                    protocol: [
+                        'Primary impression and custom tray fabrication',
+                        'Jaw relation recording and mounting',
+                        'Cast framework design and wax-up',
+                        'Acrylic processing and final finishing'
+                    ],
+                    metrics: [
+                        '≤0.3mm framework adaptation accuracy',
+                        'Full functional occlusion achieved',
+                        'Patient reported 95% satisfaction'
+                    ]
+                },
+                'cadcam': {
+                    discipline: 'DIGITAL CAD/CAM',
+                    title: 'CAD/CAM Zirconia Restoration',
+                    tagline: 'Digital design and milling workflow for multi-unit restoration',
+                    objective: 'Digital design and milling workflow for a multi-unit zirconia restoration. Complete digital workflow from intraoral scanning to final restoration.',
+                    protocol: [
+                        'Intraoral digital scanning and mesh preparation',
+                        'exocad framework design and optimization',
+                        '5-axis milling of monolithic zirconia',
+                        'Sintering, characterization, and glaze application'
+                    ],
+                    metrics: [
+                        '≤15μm marginal fit accuracy',
+                        'Same-day delivery capability',
+                        '100% margin integrity verification'
+                    ]
+                },
+                'beggs': {
+                    discipline: 'ORTHODONTICS',
+                    title: 'Begg\'s Light-Wire Appliance',
+                    tagline: 'Differential force appliance for class II malocclusion',
+                    objective: 'Custom Begg\'s light-wire differential force appliance for class II malocclusion. Precision wire bending with exact force-system geometry.',
+                    protocol: [
+                        'Cephalometric analysis and treatment planning',
+                        'Precision wire bending for Begg\'s brackets',
+                        'Auxiliary spring fabrication',
+                        'Force system calibration and activation'
+                    ],
+                    metrics: [
+                        'Class II correction achieved in 14 weeks',
+                        '≤0.2mm wire placement accuracy',
+                        'Zero patient discomfort complaints'
+                    ]
+                }
+            };
 
-        // Gallery Filter
-        document.addEventListener('DOMContentLoaded', function() {
-            var filterButtons = document.querySelectorAll('.filter-btn');
-            var galleryItems = document.querySelectorAll('.gallery-item');
+            // Open modal with case data
+            window.openCaseStudy = function(id) {
+                var data = caseData[id];
+                if (!data) {
+                    console.warn('Case data not found for:', id);
+                    return;
+                }
 
-            filterButtons.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
-                    btn.classList.add('active');
+                var content = document.getElementById('modal-content');
+                var backdrop = document.getElementById('modal-backdrop');
+                if (!content || !backdrop) return;
 
-                    var filter = btn.getAttribute('data-filter');
-                    galleryItems.forEach(function(item) {
-                        var category = item.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            item.classList.remove('hidden-item');
-                            item.style.display = 'block';
-                        } else {
-                            item.classList.add('hidden-item');
-                            item.style.display = 'none';
-                        }
-                    });
+                content.innerHTML = `
+                    <div class="space-y-6 text-left">
+                        <div class="space-y-2">
+                            <span class="font-mono text-[10px] tracking-widest text-brand-400 uppercase block">${data.discipline}</span>
+                            <h2 id="modal-title" class="font-editorial italic text-2xl sm:text-3xl font-normal text-white">${data.title}</h2>
+                            <p class="font-mono text-xs text-[var(--text-muted)]">${data.tagline}</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-2">
+                            <span class="font-mono text-[10px] text-brand-400 uppercase tracking-wider block font-medium">Objective</span>
+                            <p class="text-xs text-[var(--text-primary)] leading-relaxed font-light">${data.objective}</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider block">Execution Protocol</span>
+                            <ul class="space-y-2 text-xs text-[var(--text-primary)] font-light">
+                                ${data.protocol.map(function(step) {
+                                    return `<li class="flex items-start gap-2.5">
+                                        <span class="text-brand-400 font-mono text-[11px] mt-0.5">&mdash;</span>
+                                        <span>${step}</span>
+                                    </li>`;
+                                }).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 space-y-3">
+                            <span class="font-mono text-[10px] text-emerald-400 uppercase tracking-wider block font-medium">Verified Outcomes</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                ${data.metrics.map(function(m) {
+                                    return `<div class="p-2.5 rounded bg-black/40 border border-white/5 font-mono text-[11px] text-white/90">
+                                        <span class="text-emerald-400 mr-1.5">&bull;</span> ${m}
+                                    </div>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                backdrop.classList.remove('hidden');
+                setTimeout(function() {
+                    backdrop.classList.remove('opacity-0');
+                    document.body.style.overflow = 'hidden';
+                }, 10);
+            };
+
+            // Close modal
+            window.closeModal = function() {
+                var backdrop = document.getElementById('modal-backdrop');
+                if (!backdrop) return;
+                backdrop.classList.add('opacity-0');
+                document.body.style.overflow = '';
+                setTimeout(function() {
+                    backdrop.classList.add('hidden');
+                }, 300);
+            };
+
+            // Click backdrop to close
+            var backdrop = document.getElementById('modal-backdrop');
+            if (backdrop) {
+                backdrop.addEventListener('click', function(e) {
+                    if (e.target === backdrop) closeModal();
                 });
+            }
+
+            // Escape key to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
             });
-        });
+        })();
+    </script>
 
-        // Lightbox
-        function openLightbox(element, caption) {
-            var lightbox = document.getElementById('lightbox');
-            var captionEl = document.getElementById('lightbox-caption');
-            
-            var container = document.getElementById('lightbox-image-container');
-            var clone = element.querySelector('.aspect-square') ? element.querySelector('.aspect-square').cloneNode(true) : null;
-            
-            container.innerHTML = '';
-            if (clone) {
-                var wrapper = document.createElement('div');
-                wrapper.className = 'w-full max-w-md mx-auto';
-                wrapper.appendChild(clone);
-                container.appendChild(wrapper);
+    <!-- ============================================================
+    AUTO-SCROLL HORIZONTAL GALLERY JS
+    ============================================================ -->
+    <script>
+        (function() {
+            var container = document.getElementById('horizontal-scroll');
+            var track = document.getElementById('horizontal-track');
+            if (!container || !track) return;
+
+            var isActive = false;
+            var scrollPosition = 0;
+            var targetScroll = 0;
+            var isDragging = false;
+            var startX, startScroll;
+            var animationId = null;
+            var isVisible = false;
+
+            function getScrollLimits() {
+                var trackWidth = track.scrollWidth;
+                var containerWidth = container.offsetWidth;
+                return {
+                    maxScroll: Math.max(0, trackWidth - containerWidth),
+                    containerWidth: containerWidth,
+                    trackWidth: trackWidth
+                };
             }
-            
-            if (caption) {
-                captionEl.textContent = caption;
+
+            container.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                var limits = getScrollLimits();
+                var delta = e.deltaY || e.detail || 0;
+                var scrollAmount = delta * 0.8;
+                targetScroll = Math.max(0, Math.min(limits.maxScroll, targetScroll + scrollAmount));
+                
+                if (!isActive) {
+                    isActive = true;
+                    animateScroll();
+                }
+            }, { passive: false });
+
+            container.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startX = e.pageX;
+                startScroll = targetScroll;
+                container.style.cursor = 'grabbing';
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    isActive = false;
+                }
+            });
+
+            window.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                var diff = (startX - e.pageX) * 1.2;
+                var limits = getScrollLimits();
+                targetScroll = Math.max(0, Math.min(limits.maxScroll, startScroll + diff));
+                applyScroll(targetScroll);
+            });
+
+            window.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    container.style.cursor = 'grab';
+                    setTimeout(function() {
+                        if (!isActive && !isDragging) {
+                            isActive = true;
+                            animateScroll();
+                        }
+                    }, 1500);
+                }
+            });
+
+            var touchStartX = 0;
+            var touchStartScroll = 0;
+            var isTouching = false;
+
+            container.addEventListener('touchstart', function(e) {
+                isTouching = true;
+                touchStartX = e.touches[0].pageX;
+                touchStartScroll = targetScroll;
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    isActive = false;
+                }
+            }, { passive: true });
+
+            container.addEventListener('touchmove', function(e) {
+                if (!isTouching) return;
+                var diff = (touchStartX - e.touches[0].pageX) * 1.2;
+                var limits = getScrollLimits();
+                targetScroll = Math.max(0, Math.min(limits.maxScroll, touchStartScroll + diff));
+                applyScroll(targetScroll);
+            }, { passive: true });
+
+            container.addEventListener('touchend', function() {
+                isTouching = false;
+                setTimeout(function() {
+                    if (!isActive && !isTouching) {
+                        isActive = true;
+                        animateScroll();
+                    }
+                }, 1500);
+            }, { passive: true });
+
+            function applyScroll(position) {
+                track.style.transform = 'translateX(-' + position + 'px)';
+                scrollPosition = position;
             }
-            
-            lightbox.classList.remove('hidden');
+
+            function animateScroll() {
+                if (!isActive) return;
+
+                var limits = getScrollLimits();
+                var diff = targetScroll - scrollPosition;
+                var easing = 0.08;
+                var newPosition = scrollPosition + diff * easing;
+                
+                if (Math.abs(diff) < 0.5) {
+                    newPosition = targetScroll;
+                }
+                
+                newPosition = Math.max(0, Math.min(limits.maxScroll, newPosition));
+                applyScroll(newPosition);
+
+                if (Math.abs(scrollPosition - targetScroll) > 0.5 && !isDragging && !isTouching) {
+                    animationId = requestAnimationFrame(animateScroll);
+                } else {
+                    applyScroll(targetScroll);
+                    isActive = false;
+                    animationId = null;
+                }
+            }
+
+            window.addEventListener('resize', function() {
+                var limits = getScrollLimits();
+                targetScroll = Math.min(targetScroll, limits.maxScroll);
+                applyScroll(targetScroll);
+            });
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        isVisible = true;
+                        if (!isActive && !isDragging && !isTouching) {
+                            isActive = true;
+                            animateScroll();
+                        }
+                    } else {
+                        isVisible = false;
+                        if (animationId) {
+                            cancelAnimationFrame(animationId);
+                            isActive = false;
+                            animationId = null;
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(container);
+
             setTimeout(function() {
-                lightbox.classList.remove('opacity-0');
-            }, 10);
-            document.body.classList.add('overflow-hidden');
-        }
+                if (isVisible && !isActive && !isDragging && !isTouching) {
+                    isActive = true;
+                    animateScroll();
+                }
+            }, 1000);
 
-        function closeLightbox() {
-            var lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('opacity-0');
-            setTimeout(function() {
-                lightbox.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }, 300);
-        }
+            container.setAttribute('tabindex', '0');
+            container.setAttribute('role', 'region');
+            container.setAttribute('aria-label', 'Horizontal scroll gallery');
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
+            container.addEventListener('keydown', function(e) {
+                var limits = getScrollLimits();
+                if (e.key === 'ArrowRight') {
+                    targetScroll = Math.min(limits.maxScroll, targetScroll + 300);
+                    e.preventDefault();
+                } else if (e.key === 'ArrowLeft') {
+                    targetScroll = Math.max(0, targetScroll - 300);
+                    e.preventDefault();
+                }
+                if (!isActive) {
+                    isActive = true;
+                    animateScroll();
+                }
+            });
+        })();
     </script>
 
 </body>
