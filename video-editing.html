@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Yugal Doddamani — Video Editing & Post-Production</title>
+    <meta name="description" content="Yugal Doddamani - Video editing and post-production services including speed ramping, motion graphics, multi-cam assembly, and audio-visual sync." />
+    <meta name="keywords" content="Yugal Doddamani, video editing, post-production, motion graphics, speed ramping, audio sync, multi-cam editing, Adobe Premiere, After Effects" />
+    
+    <meta name="author" content="Yugal Doddamani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yugaldoddamani.github.io/YugalDoddamani/video-editing.html" />
+    
+    <meta property="og:title" content="Yugal Doddamani — Video Editing & Post-Production" />
+    <meta property="og:description" content="Professional video editing, motion graphics, audio sync, and post-production services." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yugaldoddamani.github.io/YugalDoddamani/video-editing.html" />
+    <meta property="og:image" content="https://yugaldoddamani.github.io/YugalDoddamani/assets/og-image.jpg" />
+    <meta property="og:site_name" content="Yugal Doddamani" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yugal Doddamani — Video Editing & Post-Production" />
+    <meta name="twitter:description" content="Professional video editing, motion graphics, audio sync, and post-production services." />
+    
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <link rel="me" href="https://linkedin.com/in/yugaldoddamani" />
+    <link rel="me" href="https://instagram.com/yugaldoddamani" />
+    
+    <meta name="theme-color" content="#0a0908" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f0ec" media="(prefers-color-scheme: light)" />
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Video Editing & Post-Production",
+        "description": "Professional video editing, motion graphics, audio sync, and post-production services.",
+        "url": "https://yugaldoddamani.github.io/YugalDoddamani/video-editing.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Yugal Doddamani Portfolio",
+            "url": "https://yugaldoddamani.github.io/YugalDoddamani/"
+        }
+    }
+    </script>
+
+    <!-- Tailwind Play CDN & Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            400: '#d97757',
+                            500: '#c46343',
+                            600: '#ab4d2f',
+                            700: '#8c3a21',
+                            900: '#4a1e12',
+                            950: '#2a0f08',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Y</text></svg>" />
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-xs">
+        Skip to main content
+    </a>
+
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
+
+    <!-- Cinematic Vignette -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+
+    <!-- Dynamic Canvas Particle Field -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Interactive Cursor Elements -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/5 transition-colors duration-300" role="banner">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-[72px]">
+
+                <!-- Brand Monogram -->
+                <a href="index.html" class="flex items-center gap-3.5 group shrink-0" aria-label="Yugal Doddamani">
+                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 font-semibold text-base group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
+                    <div>
+                        <span class="font-sans tracking-tight text-xs font-semibold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors block leading-tight">YD // 2026</span>
+                        <span class="text-[9px] font-mono tracking-[0.2em] text-[var(--text-muted)] uppercase block leading-none mt-1.5">Chennai, IND</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation with Disciplines Dropdown -->
+                <nav class="hidden md:flex items-center gap-1 bg-black/40 backdrop-blur-xl px-2 py-1.5 rounded-full border border-white/10 text-xs font-mono tracking-wider shadow-2xl" role="navigation" aria-label="Main Navigation">
+                    <a href="index.html" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Home</a>
+
+                    <!-- Disciplines Dropdown -->
+                    <div class="dropdown-container" id="services-dropdown">
+                        <button class="dropdown-trigger px-4 py-1.5 rounded-full text-brand-400 bg-white/5 font-medium transition-all flex items-center gap-1.5" onclick="toggleDropdown(event)" aria-haspopup="true" aria-expanded="false">
+                            <span>Disciplines</span>
+                            <span class="arrow text-[8px]" aria-hidden="true">▾</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="dental-design.html" role="menuitem">Dental Prosthetics</a>
+                            <a href="video-editing.html" role="menuitem" class="text-brand-400">Cinematic Post</a>
+                            <a href="graphic-design.html" role="menuitem">Visual Identity</a>
+                            <div class="divider" role="separator"></div>
+                            <a href="web-design.html" role="menuitem">Web Systems</a>
+                        </div>
+                    </div>
+
+                    <a href="#gallery" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Work</a>
+                    <a href="#tools" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Systems</a>
+                    <a href="#about" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">About</a>
+                    <a href="#contact" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Contact</a>
+                </nav>
+
+                <!-- Right Utility Bar -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-white/[0.03] border border-white/10 hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- Direct Connect -->
+                    <a href="#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[11px] font-medium tracking-wider uppercase transition-all shadow-lg hover:shadow-brand-500/20">
+                        Contact
+                    </a>
+
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2 rounded-lg bg-white/[0.04] border border-white/10 focus:outline-none" aria-label="Toggle mobile navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer with Disciplines -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-white/10 px-6 py-6 space-y-4 font-mono text-xs tracking-wider" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Home</a>
+            <div class="py-2 border-b border-white/5 space-y-2.5">
+                <div class="text-[var(--text-muted)] text-[9px] tracking-widest uppercase">DISCIPLINES</div>
+                <a href="dental-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Dental Prosthetics</a>
+                <a href="video-editing.html" class="block text-brand-400 pl-3 border-l border-brand-400/40">Cinematic Post</a>
+                <a href="graphic-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Visual Identity</a>
+                <a href="web-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Web Systems</a>
+            </div>
+            <a href="#gallery" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Work</a>
+            <a href="#tools" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Systems</a>
+            <a href="#about" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">About</a>
+            <a href="#contact" class="block text-brand-400 font-medium py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main class="relative z-10" id="main-content" role="main">
+
+        <!-- ============================================================
+        HERO SECTION
+        ============================================================ -->
+        <section class="relative pt-24 pb-12 lg:pt-32 lg:pb-16 reveal">
+            <div class="max-w-5xl mx-auto px-6 space-y-8">
+
+                <!-- Breadcrumb -->
+                <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--text-muted)]">
+                    <a href="index.html" class="hover:text-brand-500 transition-colors">System</a>
+                    <span>/</span>
+                    <span class="text-brand-500">Discipline 02</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-light tracking-tight text-[var(--text-primary)] leading-tight">
+                    Video Post-Production <br>
+                    <span class="font-editorial italic text-brand-500">&amp; Audio Sync.</span>
+                </h1>
+                
+                <p class="text-[var(--text-muted)] text-lg max-w-2xl leading-relaxed">
+                    Technical timeline assembly, precise audio matching, and visual motion editing built for clean, high-retention media.
+                </p>
+
+                <!-- Pill tags -->
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Speed Ramping</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Motion Graphics</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Multi-Cam</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Audio Sync</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-muted)]">Kinetic Typography</span>
+                </div>
+
+                <!-- Quick Domain Stats -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[var(--bg-border)]">
+                    <div>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Primary Tools</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">Premiere Pro • After Effects</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Specialization</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">Timeline Assembly • Motion Design</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-mono text-brand-500 font-bold uppercase tracking-wider">Output Formats</p>
+                        <p class="text-xs font-mono text-[var(--text-muted)] mt-1">4K • Web • Vertical • Broadcast</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ABOUT / PHILOSOPHY
+        ============================================================ -->
+        <section id="about" class="py-20 border-t border-[var(--bg-border)] reveal" aria-labelledby="about-headline">
+            <div class="max-w-5xl mx-auto px-6">
+                <h3 class="text-2xl font-light text-[var(--text-primary)] reveal reveal-delay-1">
+                    Core <span class="font-editorial italic text-brand-500">Philosophy</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-1 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">01 // RHYTHM</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Pacing &amp; Beat</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Every cut should serve the story. Timing is everything—whether it's matching a music drop, a spoken word, or the natural rhythm of a scene.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-2 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">02 // CLARITY</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Audio &amp; Visual Precision</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Clean audio is non-negotiable. Visuals should be sharp and intentional—no unnecessary motion, no noise. Just what the viewer needs to see and hear.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        EDITING SPECIALIZATIONS
+        ============================================================ -->
+        <section id="tools" class="py-20 border-t border-[var(--bg-border)] reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <h3 class="text-2xl font-light text-[var(--text-primary)] reveal reveal-delay-1">
+                    Editing <span class="font-editorial italic text-brand-500">Specializations</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-1 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">01 // MOTION</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Graphic &amp; Kinetic Typography</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Custom text animations, animated lower-thirds, and synchronized dynamic subtitles designed for high legibility and viewer engagement across vertical and landscape formats.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">After Effects</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Keyframing</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Lower-Thirds</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-2 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">02 // PACING</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Precision Speed Ramping</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Smooth speed ramps, time-remapping, and frame-rate adjustments to create seamless transitions and rhythm matching the music beat or action timing.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Time Remapping</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Frame Rate</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Optical Flow</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-3 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">03 // SYNC</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Audio-Visual Sync &amp; Voiceover</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Multi-track audio alignment, precision lip-syncing, and video trimming tailored around recorded voiceovers, podcasts, and narration tracks.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Lip-Sync</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Multi-Track</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Noise Reduction</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-4 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">04 // ASSEMBLY</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Podcast &amp; Multi-Cam Editing</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Timeline structuring for multi-speaker formats, cutting between camera angles based on active audio cues, and applying noise reduction to vocal tracks.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Multi-Cam</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Podcast</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Noise Reduction</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-5 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">05 // GRAPHICS</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Motion Graphics Integration</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Clean 2D graphics insertion, logo reveals, subtle callouts, and keyframe animations using After Effects to elevate standard cuts without cluttering the screen.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Logo Reveals</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Callouts</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Keyframing</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-8 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-6 flex flex-col shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 mb-6 tracking-widest">06 // ADAPT</span>
+                        <h4 class="font-editorial italic text-2xl mb-4 text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Casual &amp; Commercial Edits</h4>
+                        <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-auto">Adaptable video assembly—from clean corporate presentations and vlog-style content to short-form reel/TikTok cuts—focused on pacing, color balance, and clean cuts.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Corporate</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Vlog</span>
+                            <span class="px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[9px] font-mono text-[var(--text-muted)]">Reels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        POST-PRODUCTION PIPELINE
+        ============================================================ -->
+        <section class="py-20 border-t border-[var(--bg-border)] reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex items-end justify-between reveal border-b border-[var(--bg-border)] pb-6">
+                    <h3 class="text-2xl font-light text-[var(--text-primary)]">
+                        Post-Production <span class="font-editorial italic text-brand-500">Pipeline</span>
+                    </h3>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)] hidden sm:block">4 Stages</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+                    
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-6 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-1 shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 block mb-3">01</span>
+                        <h4 class="font-editorial italic text-lg text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Media Organization</h4>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Sorting raw A-roll/B-roll, syncing scratch audio to high-quality vocal tracks, and setting up sequence settings.</p>
+                    </div>
+
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-6 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-2 shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 block mb-3">02</span>
+                        <h4 class="font-editorial italic text-lg text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Rough Cut &amp; Assembly</h4>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Trimming fluff, enforcing narrative pacing, and locking down the core timeline.</p>
+                    </div>
+
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-6 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-3 shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 block mb-3">03</span>
+                        <h4 class="font-editorial italic text-lg text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Motion, Text &amp; Audio Polish</h4>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Adding kinetic text, applying speed ramps, integrating motion graphics, and balancing multi-channel audio.</p>
+                    </div>
+
+                    <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] p-6 rounded-2xl hover:border-brand-500/30 transition-all duration-300 group reveal reveal-delay-4 shadow-sm">
+                        <span class="font-mono text-[10px] text-brand-500 block mb-3">04</span>
+                        <h4 class="font-editorial italic text-lg text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Final Render &amp; Export</h4>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Rendering high-bitrate outputs optimized for web, YouTube, or mobile platform specifications.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+               <!-- ============================================================
+        SOFTWARE TOOLKIT
+        ============================================================ -->
+        <section class="py-20 border-t border-[var(--bg-border)] reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex items-end justify-between reveal border-b border-[var(--bg-border)] pb-6">
+                    <h3 class="text-2xl font-light text-[var(--text-primary)]">
+                        Software <span class="font-editorial italic text-brand-500">Toolkit</span>
+                    </h3>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)] hidden sm:block">3 Primary Tools</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                    
+                    <!-- Tool 1: Premiere Pro -->
+                    <div class="group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-1 hover:border-brand-500/40 transition-all duration-500 shadow-sm flex flex-col">
+                        <div class="p-6 md:p-8 relative z-10 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">01</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Primary NLE</span>
+                            </div>
+                            <h4 class="font-editorial italic text-2xl text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Adobe Premiere Pro</h4>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Advanced timeline assembly, multi-cam editing, speed ramping, and color grading.</p>
+                        </div>
+                        <div class="relative w-full bg-[var(--bg-elevated)] border-t border-[var(--bg-border)] flex items-center justify-center p-3 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-950/20 to-transparent pointer-events-none"></div>
+                            <span class="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider relative z-10">Timeline Mastery</span>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: After Effects -->
+                    <div class="group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-2 hover:border-brand-500/40 transition-all duration-500 shadow-sm flex flex-col">
+                        <div class="p-6 md:p-8 relative z-10 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">02</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Motion Design</span>
+                            </div>
+                            <h4 class="font-editorial italic text-2xl text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Adobe After Effects</h4>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Kinetic typography, keyframing, motion graphics, and visual effects integration.</p>
+                        </div>
+                        <div class="relative w-full bg-[var(--bg-elevated)] border-t border-[var(--bg-border)] flex items-center justify-center p-3 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-bl from-brand-950/20 to-transparent pointer-events-none"></div>
+                            <span class="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider relative z-10">Motion Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Tool 3: Audacity -->
+                    <div class="group relative bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl overflow-hidden reveal reveal-delay-3 hover:border-brand-500/40 transition-all duration-500 shadow-sm flex flex-col">
+                        <div class="p-6 md:p-8 relative z-10 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="font-mono text-[10px] text-brand-500 uppercase tracking-widest">03</span>
+                                <span class="h-px flex-1 bg-[var(--bg-border)]"></span>
+                                <span class="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest">Audio Processing</span>
+                            </div>
+                            <h4 class="font-editorial italic text-2xl text-[var(--text-primary)] group-hover:text-brand-500 transition-colors">Audacity</h4>
+                            <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2">Vocal processing, noise reduction, audio sync preparation, and multi-track cleanup.</p>
+                        </div>
+                        <div class="relative w-full bg-[var(--bg-elevated)] border-t border-[var(--bg-border)] flex items-center justify-center p-3 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-950/20 to-transparent pointer-events-none"></div>
+                            <span class="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider relative z-10">Audio Precision</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CONTACT
+        ============================================================ -->
+        <section id="contact" class="py-20 reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="bg-[var(--bg-card)] border border-[var(--bg-border)] rounded-2xl p-10 md:p-16 text-center space-y-8 relative overflow-hidden shadow-sm">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/10 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-light text-[var(--text-primary)] mb-2">
+                            Have a <span class="font-editorial italic text-brand-500">video project</span> in mind?
+                        </h3>
+                        <p class="text-sm text-[var(--text-muted)] max-w-md mx-auto mb-8">
+                            Let's discuss your next post-production workflow.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4 font-mono text-[10px] uppercase tracking-widest">
+                            <a href="mailto:contact@yugaldoddamani.dev" class="px-6 py-3 rounded-md bg-[var(--bg-elevated)] border border-[var(--bg-border)] hover:border-brand-500 hover:text-brand-500 transition-all">Email</a>
+                            <a href="https://wa.me/919552232349" target="_blank" class="px-6 py-3 rounded-md bg-[var(--bg-elevated)] border border-[var(--bg-border)] hover:border-brand-500 hover:text-brand-500 transition-all">WhatsApp</a>
+                            <a href="index.html" class="px-6 py-3 rounded-md bg-brand-600 text-white hover:bg-brand-500 shadow-lg shadow-brand-950/50 transition-all">Homepage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="border-t border-white/5 bg-black/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-md bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 text-sm">Y</div>
+                        <span class="font-sans font-semibold text-xs tracking-wider uppercase text-white">YD // 2026</span>
+                    </div>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed font-light">
+                        Dental technology student and digital systems builder operating at the intersection of CAD workflows and modern web architecture.
+                    </p>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="font-mono text-xs space-y-2.5" aria-label="Footer Navigation">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Navigation</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div><a href="index.html" class="text-white hover:text-brand-400 transition-colors">Home</a></div>
+                        <div><a href="#gallery" class="text-white hover:text-brand-400 transition-colors">Work</a></div>
+                        <div><a href="#tools" class="text-white hover:text-brand-400 transition-colors">Systems</a></div>
+                        <div><a href="#about" class="text-white hover:text-brand-400 transition-colors">About</a></div>
+                        <div><a href="#contact" class="text-white hover:text-brand-400 transition-colors">Contact</a></div>
+                    </div>
+                </nav>
+                
+                <!-- Colophon -->
+                <div class="space-y-2 font-mono text-xs text-[var(--text-muted)]">
+                    <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Colophon</h3>
+                    <p class="text-[11px] leading-relaxed">
+                        Built with semantic HTML, Tailwind CSS, and vanilla JavaScript. Set in Playfair Display &amp; JetBrains Mono. No client-side framework runtime.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-muted)]">
+                <span>&copy; 2026 Yugal Doddamani. All rights reserved. Built with strict performance parameters.</span>
+                <div class="flex gap-4">
+                    <a href="llms.txt" class="hover:text-brand-400 transition-colors">llms.txt</a>
+                    <a href="robots.txt" class="hover:text-brand-400 transition-colors">robots.txt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Atelier JavaScript Core -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

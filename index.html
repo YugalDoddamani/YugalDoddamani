@@ -1,13 +1,55 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yugal Doddamani</title>
+    
+    <title>Yugal Doddamani — Dental Technology & Digital Systems</title>
+    <meta name="description" content="Yugal Doddamani is a dental technology student and digital systems builder working at the intersection of dental CAD workflows and modern web architecture. Based in India." />
+    <meta name="keywords" content="Yugal Doddamani, dental technology, dental CAD, exocad, web development, digital systems, India" />
+    
+    <meta name="author" content="Yugal Doddamani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yugaldoddamani.github.io/YugalDoddamani/" />
+    
+    <meta property="og:title" content="Yugal Doddamani — Dental Technology & Digital Systems" />
+    <meta property="og:description" content="Translating physical micrometer tolerances into zero-bloat digital interfaces. Operating at the intersection of dental CAD workflows and modern web architecture." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yugaldoddamani.github.io/YugalDoddamani/" />
+    <meta property="og:image" content="https://yugaldoddamani.github.io/YugalDoddamani/assets/og-image.jpg" />
+    <meta property="og:site_name" content="Yugal Doddamani" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yugal Doddamani — Dental Technology & Digital Systems" />
+    <meta name="twitter:description" content="Translating physical micrometer tolerances into zero-bloat digital interfaces." />
+    
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <link rel="me" href="https://linkedin.com/in/yugaldoddamani" />
+    <link rel="me" href="https://instagram.com/yugaldoddamani" />
+    
+    <meta name="theme-color" content="#0a0706" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f0ec" media="(prefers-color-scheme: light)" />
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yugal Doddamani",
+        "url": "https://yugaldoddamani.github.io/YugalDoddamani/",
+        "description": "Dental technology student and digital systems builder based in India.",
+        "jobTitle": "Dental Technology Student & Digital Systems Builder",
+        "address": { "@type": "PostalAddress", "addressCountry": "India" },
+        "sameAs": [
+            "https://linkedin.com/in/yugaldoddamani",
+            "https://instagram.com/yugaldoddamani"
+        ]
+    }
+    </script>
 
-    <!-- Tailwind CSS via CDN -->
+    <!-- Tailwind Play CDN & Configuration -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -15,20 +57,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fef2f2',
-                            100: '#ffe1e1',
-                            400: '#f87171',
-                            500: '#ef4444',
-                            600: '#dc2626',
-                            700: '#b91c1c',
-                            900: '#7f1d1d',
-                            950: '#450a0a',
+                            400: '#d97757',
+                            500: '#c46343',
+                            600: '#ab4d2f',
+                            700: '#8c3a21',
+                            900: '#4a1e12',
+                            950: '#2a0f08',
                         },
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                 },
@@ -36,676 +75,648 @@
         };
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Editorial & Monospace Typography with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- ===== EXTERNAL CSS ===== -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Y</text></svg>" />
 </head>
-<body>
+<body class="bg-[#0a0706] text-[#f5ede6] antialiased selection:bg-brand-500 selection:text-black">
 
-    <body>
-<!-- ============================================================
-    LOADING SCREEN WITH CUSTOM SVG ICONS
-    ============================================================ -->
-<div id="loading-screen">
-    <div class="loading-content">
-        <!-- Icon Container - Icons will cycle here -->
-        <div class="loading-icon" id="loading-icon">
-            <img src="assets/tooth-svgrepo-com.svg" alt="Loading" id="loading-icon-img" />
-        </div>
-        <div class="loading-bar">
-            <div class="loading-fill" id="loading-fill"></div>
-        </div>
-    </div>
-</div>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:p-4 focus:bg-brand-500 focus:text-white focus:font-mono focus:text-xs">
+        Skip to main content
+    </a>
 
-    <!-- Canvas Background -->
-    <canvas id="bg-canvas"></canvas>
-    
-    <!-- ... rest of your code ... -->
-    
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
 
-    <!-- Canvas Background -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Custom Cursor -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
+    <!-- Cinematic Vignette -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
 
     <!-- ============================================================
-    HEADER
+    PREMIUM CINEMATIC LOADING SCREEN
     ============================================================ -->
-    <header class="sticky top-0 z-50 glass-header border-b border-[var(--bg-border)] transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 group text-left">
-                <div class="w-9 h-9 rounded-lg bg-brand-950 border border-brand-500/40 flex items-center justify-center font-display text-brand-500 font-bold group-hover:bg-brand-500 group-hover:text-black transition-all">
-                    Y
+    <div id="loading-screen" role="status" aria-label="Loading">
+        <div class="loading-backdrop" aria-hidden="true"></div>
+        
+        <!-- Animated gradient orb -->
+        <div class="loading-orb" aria-hidden="true"></div>
+        
+        <div class="loading-content">
+            <!-- Sequential icon display -->
+            <div class="loading-icon-wrapper">
+                <div class="loading-icon-ring" aria-hidden="true">
+                    <span class="loading-icon-ring-spinner"></span>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-display tracking-wider text-xl font-bold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
-                        YUGAL DODDAMANI<span class="text-brand-500">.</span>
-                    </span>
-                    <span class="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase -mt">Design &amp; Technology</span>
+                <div class="loading-icon" id="loading-icon">
+                    <img src="assets/tooth-svgrepo-com.svg" alt="" id="loading-icon-img" />
                 </div>
-            </a>
+            </div>
+            
+            <!-- Loading text -->
+            <div class="loading-text">
+                <span class="loading-label" id="loading-label">Initializing</span>
+                <span class="loading-dots" id="loading-dots">...</span>
+            </div>
+            
+            <!-- Progress bar -->
+            <div class="loading-bar-container">
+                <div class="loading-bar-track">
+                    <div class="loading-fill" id="loading-fill"></div>
+                </div>
+                <span class="loading-percent" id="loading-percent">0%</span>
+            </div>
+        </div>
+    </div>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-1 bg-[var(--bg-card)] p-1.5 rounded-full border border-[var(--bg-border)] text-xs font-mono uppercase tracking-wider shadow-sm">
-                <a href="index.html" class="px-4 py-2 rounded-full text-brand-500 bg-[var(--bg-elevated)] font-semibold transition-all">
-                    Home
-                </a>
+    <!-- Dynamic Canvas Particle Field -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-                <!-- Services Dropdown -->
-                <div class="dropdown-container" id="services-dropdown">
-                    <button class="dropdown-trigger px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all flex items-center gap-1" onclick="toggleDropdown(event)">
-                        <span>Services</span>
-                        <span class="arrow">▾</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="dental-design.html">
-                            <span class="icon">🦷</span>
-                            Dental Design &amp; CAD
-                        </a>
-                        <a href="video-editing.html">
-                            <span class="icon">🎬</span>
-                            Video Editing &amp; Production
-                        </a>
-                        <a href="graphic-design.html">
-                            <span class="icon">🎨</span>
-                            Graphic Design &amp; Visual Systems
-                        </a>
-                        <div class="divider"></div>
-                        <a href="web-design.html">
-                            <span class="icon">💻</span>
-                            Web Design &amp; Architecture
-                        </a>
+    <!-- Interactive Cursor Elements -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/5 transition-colors duration-300" role="banner">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16 md:h-[72px]">
+
+                <!-- Brand Monogram -->
+                <a href="index.html" class="flex items-center gap-3.5 group shrink-0" aria-label="Yugal Doddamani">
+                    <div class="w-8 h-8 rounded-lg bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 font-semibold text-base group-hover:bg-brand-400 group-hover:text-black transition-all" aria-hidden="true">Y</div>
+                    <div>
+                        <span class="font-sans tracking-tight text-xs font-semibold uppercase text-[var(--text-primary)] group-hover:text-brand-400 transition-colors block leading-tight">YD // 2026</span>
+                       <span class="text-[9px] font-mono tracking-[0.2em] text-[var(--text-muted)] uppercase block leading-none mt-1">IND</span>
                     </div>
+                </a>
+
+                
+                <!-- Desktop Navigation with Disciplines Dropdown -->
+                <nav class="hidden md:flex items-center gap-1 bg-black/40 backdrop-blur-xl px-2 py-1.5 rounded-full border border-white/10 text-xs font-mono tracking-wider shadow-2xl" role="navigation" aria-label="Main Navigation">
+                    <a href="index.html" class="px-4 py-1.5 rounded-full text-brand-400 bg-white/5 font-medium transition-all" aria-current="page">Home</a>
+
+                    <!-- Disciplines Dropdown -->
+                    <div class="dropdown-container" id="services-dropdown">
+                        <button class="dropdown-trigger px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5" onclick="toggleDropdown(event)" aria-haspopup="true" aria-expanded="false">
+                            <span>Disciplines</span>
+                            <span class="arrow text-[8px]" aria-hidden="true">▾</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="dental-design.html" role="menuitem">Dental Prosthetics</a>
+                            <a href="video-editing.html" role="menuitem">Cinematic Post</a>
+                            <a href="graphic-design.html" role="menuitem">Visual Identity</a>
+                            <div class="divider" role="separator"></div>
+                            <a href="web-design.html" role="menuitem">Web Systems</a>
+                        </div>
+                    </div>
+
+                    <a href="#projects" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Work</a>
+                    <a href="#tools" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Systems</a>
+                    <a href="#about" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">About</a>
+                    <a href="#contact" class="px-4 py-1.5 rounded-full text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-all">Contact</a>
+                </nav>
+
+                <!-- Right Utility Bar -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full bg-white/[0.03] border border-white/10 hover:border-brand-400/50 text-[var(--text-primary)] transition-all shadow-sm" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- Direct Connect -->
+                    <a href="#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-mono text-[11px] font-medium tracking-wider uppercase transition-all shadow-lg hover:shadow-brand-500/20">
+                        Contact
+                    </a>
+
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2 rounded-lg bg-white/[0.04] border border-white/10 focus:outline-none" aria-label="Toggle mobile navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
                 </div>
-
-                <a href="index.html#work" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
-                    Projects
-                </a>
-                <a href="index.html#mindset" class="px-4 py-2 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all">
-                    Mindset
-                </a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <!-- Theme Toggle -->
-                <button id="theme-toggle"
-                    class="p-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 text-[var(--text-primary)] transition-all flex items-center justify-center shadow-sm"
-                    aria-label="Toggle Theme">
-                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-amber-400"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-400"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                </button>
-
-                <!-- Contact CTA -->
-                <a href="index.html#contact" class="hidden sm:flex px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-brand-950/60 items-center gap-2 group">
-                    <span>Let's Connect</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                </a>
-
-                <!-- Mobile Menu Toggle -->
-                <button id="menu-toggle" class="md:hidden text-[var(--text-primary)] p-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--bg-border)] focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-[var(--bg-border)] px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-wider">
-            <a href="index.html" class="block text-brand-400 font-bold py-2 border-b border-[var(--bg-border)]">
-                01. Home
-            </a>
-
-            <!-- Mobile Services Section -->
-            <div class="py-2 border-b border-[var(--bg-border)] space-y-3">
-                <div class="text-[var(--text-muted)] text-[10px] tracking-widest">02. SERVICES</div>
-                <a href="dental-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
-                    🦷 Dental Design &amp; CAD
-                </a>
-                <a href="video-editing.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
-                    🎬 Video Editing &amp; Production
-                </a>
-                <a href="graphic-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
-                    🎨 Graphic Design &amp; Visual Systems
-                </a>
-                <a href="web-design.html" class="block text-[var(--text-primary)] hover:text-brand-400 py-1.5 pl-3 border-l-2 border-brand-500/30 hover:border-brand-500 transition-colors text-[11px]">
-                    💻 Web Design &amp; Architecture
-                </a>
+        <!-- Mobile Drawer with Disciplines -->
+        <div id="mobile-menu" class="hidden md:hidden glass-mobile-menu border-b border-white/10 px-6 py-6 space-y-4 font-mono text-xs tracking-wider" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block text-brand-400 font-medium py-1 border-b border-white/5">Home</a>
+            <div class="py-2 border-b border-white/5 space-y-2.5">
+                <div class="text-[var(--text-muted)] text-[9px] tracking-widest uppercase">DISCIPLINES</div>
+                <a href="dental-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Dental Prosthetics</a>
+                <a href="video-editing.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Cinematic Post</a>
+                <a href="graphic-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Visual Identity</a>
+                <a href="web-design.html" class="block text-white hover:text-brand-400 pl-3 border-l border-brand-400/40">Web Systems</a>
             </div>
-
-            <a href="index.html#work" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
-                03. Selected Projects
-            </a>
-            <a href="index.html#capabilities" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
-                04. Capabilities Matrix
-            </a>
-            <a href="index.html#mindset" class="block text-[var(--text-muted)] hover:text-brand-400 py-2 border-b border-[var(--bg-border)]">
-                05. Mindset
-            </a>
-            <a href="index.html#contact" class="block text-brand-500 font-bold py-2">
-                06. Initiate Contact
-            </a>
+            <a href="#projects" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Work</a>
+            <a href="#tools" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">Systems</a>
+            <a href="#about" class="block text-[var(--text-muted)] hover:text-white py-1 border-b border-white/5">About</a>
+            <a href="#contact" class="block text-brand-400 font-medium py-1">Contact</a>
         </div>
     </header>
 
     <!-- ============================================================
     MAIN CONTENT
     ============================================================ -->
-    <main class="relative z-10">
+    <main class="relative z-10" id="main-content" role="main">
 
-        <!-- HERO -->
-        <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- ============================================================
+        HERO SECTION
+        ============================================================ -->
+        <section id="hero" class="relative min-h-[95vh] flex items-center overflow-hidden py-20 lg:py-28">
+            
+            <!-- Atmospheric Background -->
+            <div class="absolute inset-0 pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
+                <span data-parallax="0.25" class="absolute top-[8%] -left-12 font-editorial italic text-[18vw] text-white/[0.02] leading-none whitespace-nowrap">
+                    Material Precision
+                </span>
+                <div data-parallax="-0.15" class="absolute bottom-10 right-0 w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[120px]"></div>
+            </div>
 
-                    <div class="lg:col-span-7 space-y-6 text-left">
-                        <!-- Status Pill -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-brand-900/60 text-xs font-mono text-brand-400 reveal reveal-delay-1">
-                            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                            <span>MULTIDISCIPLINARY MAKER &amp; TECHNOLOGIST</span>
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Content -->
+                    <div class="lg:col-span-7 space-y-8" data-tunnel="0.8" data-tunnel-offset="0.2">
+                    <div class="lg:col-span-7 space-y-8">
+                        <div class="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+                            <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-brand-400">
+                                EST. 2026 // CHENNAI, IND
+                            </span>
                         </div>
 
-                        <!-- Name -->
-                        <div class="space-y-1 reveal reveal-delay-2">
-                            <span class="font-hand text-3xl text-brand-400 block -rotate-1">Hello, I'm</span>
-                            <h1 class="font-display text-6xl sm:text-7xl md:text-8xl font-bold uppercase tracking-tight text-[var(--text-primary)] leading-none">
-                                YUGAL DODDAMANI<span class="text-brand-500">.</span>
-                            </h1>
-                        </div>
+                        <h1 class="text-5xl sm:text-7xl xl:text-8xl tracking-tight text-[var(--text-primary)] font-light leading-[1.02]">
+                            YUGAL<br />
+                            <span class="font-editorial italic font-normal text-brand-400">DODDAMANI</span>
+                        </h1>
 
-                        <!-- Identity Pills -->
-                        <div class="flex flex-wrap items-center gap-2 pt-1 reveal reveal-delay-3">
-                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
-                                <span class="text-brand-400">🦷</span>
-                                <span>Dental Technologist</span>
-                            </div>
-                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
-                                <span class="text-brand-400">🎬</span>
-                                <span>Video Editor</span>
-                            </div>
-                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
-                                <span class="text-brand-400">🎨</span>
-                                <span>Graphic Designer</span>
-                            </div>
-                            <div class="px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-xs font-mono text-[var(--text-primary)] flex items-center gap-2 hover:border-brand-500/50 transition-colors">
-                                <span class="text-brand-400">💻</span>
-                                <span>Web Designer &amp; Technologist</span>
-                            </div>
-                        </div>
-
-                        <!-- Description -->
-                        <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed max-w-xl pt-2 font-normal reveal reveal-delay-4">
-                            Understanding root problems before picking tools. Fusing micron-level physical CAD precision, digital visual media, and high-performance web architecture.
+                        <p class="text-base sm:text-lg text-[var(--text-muted)] max-w-xl leading-relaxed font-light">
+                            Dental Technology Student &amp; Digital Systems Builder
                         </p>
 
-                        <!-- CTAs -->
-                        <div class="pt-4 flex flex-wrap items-center gap-4 reveal reveal-delay-5">
-                            <a href="#work" class="px-6 py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all shadow-xl shadow-brand-950/60 flex items-center gap-2 group">
-                                <span>Explore Selected Projects</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"><line x1="7" y1="7" x2="17" y2="17"/><polyline points="17 7 17 17 7 17"/></svg>
+                        <p class="text-sm text-[var(--text-muted)] max-w-xl leading-relaxed font-light border-l-2 border-brand-400/30 pl-4">
+                            Translating physical micrometer tolerances into zero-bloat digital interfaces. Operating at the intersection of dental CAD workflows and modern web architecture.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-5 pt-4">
+                            <a href="#projects" class="group relative px-8 py-4 rounded-full bg-brand-500 text-white font-mono text-xs uppercase tracking-widest overflow-hidden transition-all hover:bg-brand-600 shadow-2xl">
+                                <span class="relative z-10 flex items-center gap-2">
+                                    Explore Work <span>↓</span>
+                                </span>
+                            </a>
+                            <a href="#contact" class="px-6 py-4 rounded-full border border-white/10 text-[var(--text-muted)] font-mono text-xs uppercase tracking-widest hover:border-brand-400 hover:text-white transition-all">
+                                View CV
                             </a>
                         </div>
                     </div>
-
-                    <!-- Portrait -->
-<div class="lg:col-span-5 flex justify-center reveal reveal-delay-3">
-    <div class="portrait-glow-frame w-full max-w-sm sm:max-w-md shadow-2xl shadow-brand-950/80 group">
-        <div class="portrait-glow-inner relative aspect-[4/5] bg-[var(--bg-card)] flex flex-col justify-between p-6 overflow-hidden">
-            
-            <!-- YOUR IMAGE: m2.png -->
-            <img 
-                src="assets/m2.png" 
-                alt="Yugal - Multidisciplinary Designer & Technologist"
-                class="absolute inset-0 w-full h-full object-cover object-top"
-            />
-            
-            <!-- Dark gradient overlay for cinematic feel -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
-            
-            <!-- Top badge -->
-            <div class="relative z-20 flex items-center justify-between">
-                
-            </div>
-            
-            <!-- Bottom info -->
-            <div class="relative z-20 space-y-1 bg-black/80 backdrop-blur-md p-3.5 rounded-xl border border-[var(--bg-border)]">
-                <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="text-slate-400">LOCATION</span>
-                    <span class="text-slate-200">INDIA</span>
-                </div>
-                <div class="flex items-center justify-between text-[11px] font-mono">
-                    <span class="text-slate-400">STATUS</span>
-                    <span class="text-emerald-400">AVAILABLE FOR COLLABORATION</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                </div>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 pt-8 border-t border-[var(--bg-border)]">
-                    <!-- Stat 1 -->
-                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-1">
-                        <div class="flex items-start justify-between">
-                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">01</span>
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Dental CAD &amp; CAM</h3>
-                            <p class="text-xs font-mono text-brand-400 mt-1">&lt;20µm Fit Tolerance</p>
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                Micron-level precision in dental restorations through advanced 3D CAD modeling, occlusal morphology optimization, and precise CAM milling workflows.
-                            </p>
-                            <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Exocad</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">CAM Milling</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Zirconia</span>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Stat 2 -->
-                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-2">
-                        <div class="flex items-start justify-between">
-                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">02</span>
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                    <!-- Right Portrait -->
+
+                    <div class="lg:col-span-5 relative" data-tunnel="1.2" data-tunnel-offset="0.15">
+                    <div class="lg:col-span-5 relative">
+                        <!-- Floating Badge -->
+                        <div data-parallax="0.18" class="hidden sm:block absolute -top-8 -left-8 z-20 p-4 rounded-xl bg-black/70 border border-white/10 backdrop-blur-xl max-w-[210px] shadow-2xl">
+                            <span class="font-mono text-[9px] uppercase tracking-widest text-brand-400 block">TOLERANCE THRESHOLD</span>
+                            <span class="font-sans font-bold text-sm text-[var(--text-primary)] block mt-1">&le; 20 Micrometers</span>
+                            <p class="font-mono text-[9px] text-[var(--text-muted)] mt-1">CAD margin precision verification</p>
+                        </div></div>
+
+                        <!-- Portrait -->
+                        <figure data-parallax="-0.08" class="editorial-frame curtain-reveal rounded-2xl overflow-hidden aspect-[4/5] relative">
+                            <img src="assets/m2.png" alt="Yugal Doddamani" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700" />
+                            <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex justify-between items-end">
+                                <div>
+                                    <span class="font-mono text-[10px] uppercase tracking-widest text-brand-400">ARCHIVE 2026</span>
+                                    <h3 class="font-editorial text-lg text-white font-normal italic">Yugal Doddamani</h3>
+                                </div>
+                                <span class="font-mono text-[10px] text-white/50">01 &mdash; 04</span>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Visual Media &amp; Design</h3>
-                            <p class="text-xs font-mono text-brand-400 mt-1">Design &amp; Video Production</p>
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                Strategic visual storytelling through video editing, color grading, and graphic design systems that establish clear hierarchy and emotional resonance.
-                            </p>
-                            <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Color Grading</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Visual Hierarchy</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Dark Micro-UI</span>
-                            </div>
-                        </div>
+                        </figure>
                     </div>
 
-                    <!-- Stat 3 -->
-                    <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/40 transition-all group reveal reveal-delay-3">
-                        <div class="flex items-start justify-between">
-                            <span class="font-display text-4xl font-bold text-brand-500/30 tracking-tight">03</span>
-                            <div class="w-10 h-10 rounded-lg bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="font-display text-xl font-bold text-[var(--text-primary)] uppercase tracking-wide">Web Systems &amp; Architecture</h3>
-                            <p class="text-xs font-mono text-brand-400 mt-1">100/100 Lighthouse Perf</p>
-                            <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-2">
-                                High-performance static site architecture with zero runtime JavaScript, achieving perfect Lighthouse scores while maintaining $0 recurring infrastructure costs.
-                            </p>
-                            <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">Astro SSG</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">PostgreSQL RLS</span>
-                                <span class="px-2 py-0.5 text-[9px] font-mono rounded-full bg-[var(--bg-elevated)] border border-[var(--bg-border)] text-[var(--text-muted)]">$0 Hosting</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section id="work" class="py-24 bg-[var(--bg-card)]/40 border-t border-[var(--bg-border)]">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-                    <div>
-                        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-brand-500 mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                            <span>Selected Works</span>
-                        </div>
-                        <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">
-                            PROBLEM <span class="text-brand-500">→</span> SOLUTION EVIDENCE
-                        </h2>
-                    </div>
-                    <p class="text-xs font-mono text-[var(--text-muted)] max-w-sm">
-                        Detailed case studies breaking down root cause diagnosis, cross-domain inputs, and measurable outcomes.
+        <!-- ============================================================
+        ABOUT / PHILOSOPHY SECTION
+        ============================================================ -->
+        <section id="about" class="py-28 border-t border-white/5 relative" aria-labelledby="about-headline">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="space-y-3">
+                    <span class="font-mono text-[11px] text-brand-400 uppercase tracking-widest flex items-center gap-2">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                        01 // PHILOSOPHY
+                    </span>
+                    <h2 id="about-headline" class="text-3xl sm:text-4xl font-light text-[var(--text-primary)] leading-snug">
+                        Precision doesn't change when <span class="font-editorial italic">the medium does.</span>
+                    </h2>
+                </div>
+
+                <div class="mt-12 space-y-8 text-base sm:text-lg text-[var(--text-muted)] leading-relaxed font-light">
+                    <p class="text-scroll-highlight">
+                        Whether designing a multi-unit crown restoration in exocad where a 30-micrometer margin dictates structural failure, or architecting a data dashboard to track batch workflows, the governing rule remains identical: eliminate the noise and build for absolute functional integrity.
+                    </p>
+                    <p class="text-scroll-highlight">
+                        As a third-year dental technology student at Saveetha Dental College alongside running an independent digital lab workflow, I approach web systems and design with the same rigorous methodology. No redundant layers, no bloated dependencies—just clean, high-performance execution.
                     </p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Project 1 -->
-                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-1" onclick="openCaseStudy('case-1')">
-                        <div>
-                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
-                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">01</span>
-                                <div class="absolute top-4 left-4 z-20 flex gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-brand-950 text-brand-400 border border-brand-800/40">Dental CAD/CAM</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
-                                    <span>PRECISION FIT</span>
-                                    <span>2025</span>
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Micron-Margin Crown System</h3>
-                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
-                                    Resolving fit discrepancy in zirconia restorations through strict CAD alignment &amp; sintering compensation.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-footer flex items-center justify-between text-xs font-mono">
-                            <span class="text-[var(--text-muted)]">&lt;20µm Margin Fit</span>
-                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
-                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </span>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-2" onclick="openCaseStudy('case-2')">
-                        <div>
-                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
-                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">02</span>
-                                <div class="absolute top-4 left-4 z-20 flex gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-rose-950 text-rose-300 border border-rose-800/40">Web Architecture</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
-                                    <span>WEB ENGINE</span>
-                                    <span>2026</span>
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Zero-JS Portfolio Platform</h3>
-                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
-                                    Zero-client-JS static engine achieving 100/100 Lighthouse metrics with $0 hosting cost.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-footer flex items-center justify-between text-xs font-mono">
-                            <span class="text-[var(--text-muted)]">100/100 Perf Metric</span>
-                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
-                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </span>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card group cursor-pointer rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/60 transition-all duration-300 overflow-hidden flex flex-col shadow-sm reveal reveal-delay-3" onclick="openCaseStudy('case-3')">
-                        <div>
-                            <div class="relative aspect-video bg-[var(--bg-elevated)] overflow-hidden border-b border-[var(--bg-border)] flex items-center justify-center">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent z-10"></div>
-                                <span class="font-display text-6xl font-bold text-[var(--bg-border)] group-hover:scale-110 transition-transform duration-500 select-none">03</span>
-                                <div class="absolute top-4 left-4 z-20 flex gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-emerald-950 text-emerald-300 border border-emerald-800/40">PostgreSQL RLS</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
-                                    <span>SECURITY &amp; DATA</span>
-                                    <span>2026</span>
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors uppercase mt-2">Secure Contact Tap Pipeline</h3>
-                                <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 description">
-                                    Supabase PostgreSQL backend with Row Level Security for physical NFC/QR card contact ingestion.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-footer flex items-center justify-between text-xs font-mono">
-                            <span class="text-[var(--text-muted)]">Zero Secret Exposure</span>
-                            <span class="text-brand-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
-                                Deep Dive <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </span>
-                        </div>
-                    </article>
-                </div>
             </div>
         </section>
 
-        <!-- CAPABILITIES -->
-        <section id="capabilities" class="py-24 max-w-7xl mx-auto px-6">
-            <div class="max-w-2xl mb-12">
-                <div class="text-xs font-mono uppercase tracking-widest text-brand-500 mb-2 reveal reveal-delay-1">// Interdisciplinary Matrix</div>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide reveal reveal-delay-2">FOUR DOMAINS. ONE THINKING PROCESS.</h2>
+        <!-- ============================================================
+        PROJECTS SECTION
+        ============================================================ -->
+        <section id="projects" class="max-w-7xl mx-auto px-6 py-28 relative">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8 mb-16">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-brand-400">02 // SELECTED DEPLOYMENTS</span>
+                    <h2 class="text-4xl sm:text-5xl font-light text-[var(--text-primary)] mt-2">
+                        Systems &amp; <span class="font-editorial italic">Architecture</span>
+                    </h2>
+                </div>
+                <p class="font-mono text-xs text-[var(--text-muted)] mt-4 md:mt-0 max-w-xs md:text-right">
+                    Three deployments spanning automation, web integration, and performance architecture.
+                </p>
             </div>
 
+            <!-- PROJECT 01: Lab Batch Master -->
+            <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-16 border-b border-white/5 group">
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-brand-400">
+                        <span>01</span>
+                        <span class="text-white/20">&bull;</span>
+                        <span>AUTOMATION &amp; DATA</span>
+                    </div>
+
+                    <h3 class="text-3xl sm:text-4xl font-light text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                        Lab Batch Master Dashboard
+                    </h3>
+
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed font-light">
+                        Developed a centralized tracking system using advanced Google Sheets QUERY and custom logic formulas to monitor case completion timelines and clinical delay factors for a cohort of 13 students.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-2 font-mono text-[10px] text-[var(--text-muted)]">
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Google Sheets</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Array Formulas</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Data Logic</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div data-parallax="0.06" class="editorial-frame curtain-reveal rounded-2xl aspect-[16/10] overflow-hidden bg-[#120e0b]">
+                        <div class="w-full h-full flex flex-col justify-between p-8 sm:p-12 bg-gradient-to-br from-[#1c120c] via-[#120d0a] to-[#0a0706]">
+                            <div class="flex justify-between items-center font-mono text-[10px] text-[var(--text-muted)]">
+                                <span>WORKFLOW SPECIFICATION</span>
+                                <span class="text-brand-400 font-semibold">13-STUDENT COHORT</span>
+                            </div>
+                            <div class="space-y-2 text-center my-auto">
+                                <span class="font-mono text-xs uppercase tracking-widest text-brand-400">Batch Tracking System</span>
+                                <div class="text-4xl sm:text-6xl font-editorial italic text-white/90 font-light">Case Timeline</div>
+                                <p class="font-mono text-[11px] text-[var(--text-muted)] max-w-sm mx-auto">Real-time delay monitoring &bull; Completion forecasting</p>
+                            </div>
+                            <div class="flex justify-between items-center font-mono text-[10px] text-white/30 border-t border-white/5 pt-3">
+                                <span>DASHBOARD DEPLOYMENT</span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 02: Restaurant Brand & POS -->
+            <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-16 border-b border-white/5 group">
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <div data-parallax="-0.06" class="editorial-frame curtain-reveal rounded-2xl aspect-[16/10] overflow-hidden bg-[#0d1112]">
+                        <div class="w-full h-full flex flex-col justify-between p-8 sm:p-12 bg-gradient-to-br from-[#0c1417] via-[#090d0e] to-[#07090a]">
+                            <div class="flex justify-between items-center font-mono text-[10px] text-[var(--text-muted)]">
+                                <span>INTEGRATION SPECIFICATION</span>
+                                <span class="text-emerald-400 font-semibold">LIVE DEPLOYMENT</span>
+                            </div>
+                            <div class="space-y-2 text-center my-auto">
+                                <span class="font-mono text-xs uppercase tracking-widest text-emerald-400">POS &amp; Order Flow</span>
+                                <div class="text-4xl sm:text-6xl font-editorial italic text-white/90 font-light">Brand Portal</div>
+                                <p class="font-mono text-[11px] text-[var(--text-muted)] max-w-sm mx-auto">Petpooja integration &bull; Streamlined ordering pathways</p>
+                            </div>
+                            <div class="flex justify-between items-center font-mono text-[10px] text-white/30 border-t border-white/5 pt-3">
+                                <span>RESTAURANT SYSTEMS</span>
+                                <span>OPERATIONAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 order-1 lg:order-2 space-y-5">
+                    <div class="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-brand-400">
+                        <span>02</span>
+                        <span class="text-white/20">&bull;</span>
+                        <span>WEB INTEGRATION</span>
+                    </div>
+
+                    <h3 class="text-3xl sm:text-4xl font-light text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                        Restaurant Brand &amp; POS Portal
+                    </h3>
+
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed font-light">
+                        Built a fully integrated web platform for a culinary business, embedding Petpooja POS widgets and configuring streamlined online ordering pathways within tight structural constraints.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-2 font-mono text-[10px] text-[var(--text-muted)]">
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Wix Platform</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">POS API Integration</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">UI Design</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 03: Static Portfolio Architecture -->
+            <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-16 border-b border-white/5 group">
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-brand-400">
+                        <span>03</span>
+                        <span class="text-white/20">&bull;</span>
+                        <span>PERFORMANCE WEB</span>
+                    </div>
+
+                    <h3 class="text-3xl sm:text-4xl font-light text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">
+                        Static Portfolio Architecture
+                    </h3>
+
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed font-light">
+                        Engineered a zero-bloat, highly optimized static portfolio framework designed for instant render times, clean DOM hierarchies, and a native 100 Lighthouse performance benchmark.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-2 font-mono text-[10px] text-[var(--text-muted)]">
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Tailwind CSS</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">Vanilla JS</span>
+                        <span class="px-3 py-1 rounded bg-white/[0.03] border border-white/10">GPU Acceleration</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div data-parallax="0.06" class="editorial-frame curtain-reveal rounded-2xl aspect-[16/10] overflow-hidden bg-[#16120e]">
+                        <div class="w-full h-full flex flex-col justify-between p-8 sm:p-12 bg-gradient-to-br from-[#1c140d] via-[#140e09] to-[#0a0705]">
+                            <div class="flex justify-between items-center font-mono text-[10px] text-[var(--text-muted)]">
+                                <span>PERFORMANCE AUDIT</span>
+                                <span class="text-emerald-400 font-semibold">100/100 LIGHTHOUSE</span>
+                            </div>
+                            <div class="space-y-2 text-center my-auto">
+                                <span class="font-mono text-xs uppercase tracking-widest text-emerald-400">Zero-Bloat Framework</span>
+                                <div class="text-4xl sm:text-6xl font-editorial italic text-white/90 font-light">Instant Render</div>
+                                <p class="font-mono text-[11px] text-[var(--text-muted)] max-w-sm mx-auto">Clean DOM &bull; Native performance &bull; No framework overhead</p>
+                            </div>
+                            <div class="flex justify-between items-center font-mono text-[10px] text-white/30 border-t border-white/5 pt-3">
+                                <span>PORTFOLIO ENGINE</span>
+                                <span>BENCHMARKED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ============================================================
+        TOOLS & WORKFLOWS SECTION
+        ============================================================ -->
+        <section id="tools" class="max-w-7xl mx-auto px-6 py-28 relative">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8 mb-16">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-brand-400">03 // HARDWARE &amp; SOFTWARE STACK</span>
+                    <h2 class="text-3xl sm:text-4xl font-light text-[var(--text-primary)] mt-2">
+                        Operational <span class="font-editorial italic">Toolkit</span>
+                    </h2>
+                </div>
+                <p class="font-mono text-xs text-[var(--text-muted)] mt-4 md:mt-0 max-w-xs md:text-right">
+                    The tools I use across dental CAD, web systems, data logic, and media production.
+                </p>
+            </div>
+
+            <!-- 4-Column Toolkit Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-1">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
-                        </div>
-                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Dental Tech</h3>
-                        <p class="text-xs font-mono text-brand-400 mb-3">Micron Fit Precision</p>
-                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">3D intraoral CAD, occlusal morphology, and sintering math.</p>
-                    </div>
-                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Exocad • CAM Milling</div>
-                </div>
 
-                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-2">
+                <!-- 01: Digital Dental CAD -->
+                <div class="tool-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col justify-between" data-tool-card="01">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                        <div class="flex justify-between font-mono text-[10px] uppercase text-brand-400 pb-3 border-b border-white/5">
+                            <span>DENTAL CAD</span>
+                            <span>EXOCAD</span>
                         </div>
-                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Video Editing</h3>
-                        <p class="text-xs font-mono text-brand-400 mb-3">Pacing &amp; Storytelling</p>
-                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Rhythmic video pacing, color grading, and audio mix design.</p>
-                    </div>
-                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Color Grading • Pacing</div>
-                </div>
-
-                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-3">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3.5 2.5 6.5 8 10 5.5-3.5 8-6.5 8-10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Graphic Design</h3>
-                        <p class="text-xs font-mono text-brand-400 mb-3">Visual Hierarchy</p>
-                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Dark aesthetic systems, typography hierarchy, and spatial layout.</p>
-                    </div>
-                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Design Tokens • Grid System</div>
-                </div>
-
-                <div class="p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-600/50 transition-all flex flex-col justify-between group shadow-sm reveal reveal-delay-4">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-brand-950/80 border border-brand-800/40 flex items-center justify-center text-brand-400 mb-4 group-hover:bg-brand-500 group-hover:text-black transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                        </div>
-                        <h3 class="font-display text-lg font-bold text-[var(--text-primary)] mb-1 uppercase">Web Architecture</h3>
-                        <p class="text-xs font-mono text-brand-400 mb-3">Performance &amp; Security</p>
-                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">Static HTML pre-rendering, Supabase RLS, zero runtime JS.</p>
-                    </div>
-                    <div class="mt-6 pt-3 border-t border-[var(--bg-border)] text-[10px] font-mono text-[var(--text-muted)]">Astro SSG • PostgreSQL RLS</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MINDSET -->
-        <section id="mindset" class="py-24 max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 p-8 rounded-2xl bg-gradient-to-br from-brand-950/60 via-[var(--bg-card)] to-[var(--bg-card)] border border-brand-900/40 relative shadow-md reveal reveal-delay-1">
-                    <span class="font-serif text-6xl text-brand-500/30 absolute top-4 left-6 select-none">&ldquo;</span>
-                    <div class="relative z-10 space-y-4 pt-4">
-                        <p class="font-display text-xl text-[var(--text-primary)] tracking-wide uppercase leading-snug">
-                            Good design is not just how clean something looks, but how accurately it solves a physical or digital problem.
+                        <h3 class="font-editorial italic text-xl text-white mt-4 font-normal">Digital Dental CAD</h3>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 font-light">
+                            exocad (v3.3 Chemnitz) • PartialCAD • Blender Dental workflows.
                         </p>
-                        <div class="pt-4 border-t border-brand-900/40 flex items-center justify-between">
-                            <span class="font-hand text-2xl text-brand-400">Yugal Doddamani</span>
-                            <span class="text-[10px] font-mono text-[var(--text-muted)] uppercase">TECHNOLOGIST STATEMENT</span>
-                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 font-mono text-[10px] text-[var(--text-muted)]">
+                        Zirconia &bull; Framework &bull; Morphology
                     </div>
                 </div>
-                <div class="lg:col-span-7 space-y-5 text-sm text-[var(--text-muted)] leading-relaxed reveal reveal-delay-2">
-                    <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Personal Philosophy</div>
-                    <h3 class="font-display text-3xl font-bold uppercase text-[var(--text-primary)]">FACT-BASED LOGIC &amp; HUMAN JUDGMENT</h3>
-                    <p>
-                        I value direct clarity and objective problem-solving over unsupported claims. In dental technology, if a crown margin is off by 30 micrometers, it fails. That same standard applies across video editing, graphic design, and code architecture.
-                    </p>
+
+                <!-- 02: Web Systems -->
+                <div class="tool-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col justify-between" data-tool-card="02">
+                    <div>
+                        <div class="flex justify-between font-mono text-[10px] uppercase text-brand-400 pb-3 border-b border-white/5">
+                            <span>FRONTEND</span>
+                            <span>PERFORMANCE</span>
+                        </div>
+                        <h3 class="font-editorial italic text-xl text-white mt-4 font-normal">Web Systems &amp; Frontend</h3>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 font-light">
+                            Semantic HTML5 • CSS3 • Tailwind CSS • Responsive UI components.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 font-mono text-[10px] text-[var(--text-muted)]">
+                        Zero-framework &bull; Pure DOM
+                    </div>
+                </div>
+
+                <!-- 03: Data & Workflow Logic -->
+                <div class="tool-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col justify-between" data-tool-card="03">
+                    <div>
+                        <div class="flex justify-between font-mono text-[10px] uppercase text-brand-400 pb-3 border-b border-white/5">
+                            <span>DATA</span>
+                            <span>LOGIC</span>
+                        </div>
+                        <h3 class="font-editorial italic text-xl text-white mt-4 font-normal">Data &amp; Workflow Logic</h3>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 font-light">
+                            Advanced spreadsheet querying • Automation scripts • Process optimization.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 font-mono text-[10px] text-[var(--text-muted)]">
+                        Google Sheets &bull; Custom Formulas
+                    </div>
+                </div>
+
+                <!-- 04: Media & Post-Production -->
+                <div class="tool-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col justify-between" data-tool-card="04">
+                    <div>
+                        <div class="flex justify-between font-mono text-[10px] uppercase text-brand-400 pb-3 border-b border-white/5">
+                            <span>MEDIA</span>
+                            <span>POST</span>
+                        </div>
+                        <h3 class="font-editorial italic text-xl text-white mt-4 font-normal">Media &amp; Post-Production</h3>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed mt-2 font-light">
+                            Adobe Premiere • After Effects • Industrial graphic layouts.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 font-mono text-[10px] text-[var(--text-muted)]">
+                        Cinema-grade &bull; Motion Rhythm
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CONTACT SECTION
+        ============================================================ -->
+        <section id="contact" class="max-w-7xl mx-auto px-6 py-28">
+            <div class="relative rounded-3xl border border-white/10 bg-gradient-to-b from-[#140e0b] to-[#0a0706] p-8 sm:p-16 overflow-hidden text-center shadow-2xl">
+                
+                <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+                <span class="font-mono text-xs text-brand-400 tracking-[0.2em] uppercase block mb-3">04 // COMMUNICATION</span>
+                <h2 class="text-4xl sm:text-6xl font-light text-[var(--text-primary)] tracking-tight">
+                    Initiate <span class="font-editorial italic text-brand-400">Contact</span>
+                </h2>
+                <p class="mt-4 text-sm sm:text-base text-[var(--text-muted)] max-w-md mx-auto font-light leading-relaxed">
+                    Open for digital design collaborations, web development tasks, and technical workflow discussions.
+                </p>
+
+                <!-- Contact Channels -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+                    
+                    <!-- Email -->
+                    <a href="mailto:contact@yugaldoddamani.dev" class="group flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-black/40 hover:border-brand-400 hover:bg-black/60 transition-all text-left">
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-[var(--text-muted)] group-hover:text-brand-400 transition-colors">EMAIL</span>
+                        <div class="my-4">
+                            <span class="block font-sans font-medium text-sm text-white">Direct Mail</span>
+                            <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-1">contact@yugaldoddamani.dev</span>
+                        </div>
+                        <div class="flex items-center justify-between font-mono text-[9px] text-brand-400 pt-2 border-t border-white/5">
+                            <span>SEND</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-black/40 hover:border-brand-400 hover:bg-black/60 transition-all text-left">
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-[var(--text-muted)] group-hover:text-brand-400 transition-colors">WHATSAPP</span>
+                        <div class="my-4">
+                            <span class="block font-sans font-medium text-sm text-white">Direct Line</span>
+                            <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-1">+91 95522 32349</span>
+                        </div>
+                        <div class="flex items-center justify-between font-mono text-[9px] text-brand-400 pt-2 border-t border-white/5">
+                            <span>CHAT</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-black/40 hover:border-brand-400 hover:bg-black/60 transition-all text-left">
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-[var(--text-muted)] group-hover:text-brand-400 transition-colors">LINKEDIN</span>
+                        <div class="my-4">
+                            <span class="block font-sans font-medium text-sm text-white">Network</span>
+                            <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-1">yugaldoddamani</span>
+                        </div>
+                        <div class="flex items-center justify-between font-mono text-[9px] text-brand-400 pt-2 border-t border-white/5">
+                            <span>CONNECT</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-black/40 hover:border-brand-400 hover:bg-black/60 transition-all text-left">
+                        <span class="font-mono text-[9px] uppercase tracking-widest text-[var(--text-muted)] group-hover:text-brand-400 transition-colors">INSTAGRAM</span>
+                        <div class="my-4">
+                            <span class="block font-sans font-medium text-sm text-white">Visual Diary</span>
+                            <span class="block font-mono text-[11px] text-[var(--text-muted)] truncate mt-1">@yugaldoddamani</span>
+                        </div>
+                        <div class="flex items-center justify-between font-mono text-[9px] text-brand-400 pt-2 border-t border-white/5">
+                            <span>FOLLOW</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="mt-12 font-mono text-[10px] text-white/30 tracking-[0.2em] uppercase">
+                    Saveetha Dental College &bull; Chennai, India
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-<section id="contact" class="py-24 bg-[var(--bg-card)]/60 border-t border-[var(--bg-border)]">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2 reveal reveal-delay-1">
-            <div class="text-xs font-mono uppercase tracking-widest text-brand-500">// Let's Connect</div>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-[var(--text-primary)] tracking-wide">GET IN TOUCH</h2>
-            <p class="text-sm text-[var(--text-muted)] max-w-lg mx-auto">
-                I'm always open to collaborations, creative projects, or just a conversation. Reach out through any of the channels below.
-            </p>
-        </div>
-
-        <!-- Contact Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto reveal reveal-delay-2">
-            
-            <!-- Email -->
-            <a href="mailto:yugal.work@proton.me?subject=Portfolio%20Inquiry&body=Hi%20Yugal%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect." 
-               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
-                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <!-- ============================================================
+        FOOTER
+        ============================================================ -->
+        <footer class="border-t border-white/5 bg-black/60 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Brand -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-7 h-7 rounded-md bg-brand-950 border border-brand-400/30 flex items-center justify-center font-editorial italic text-brand-400 text-sm">Y</div>
+                            <span class="font-sans font-semibold text-xs tracking-wider uppercase text-white">YD // 2026</span>
+                        </div>
+                        <p class="text-xs text-[var(--text-muted)] leading-relaxed font-light">
+                            Dental technology student and digital systems builder operating at the intersection of CAD workflows and modern web architecture.
+                        </p>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <nav class="font-mono text-xs space-y-2.5" aria-label="Footer Navigation">
+                        <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Navigation</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><a href="index.html" class="text-white hover:text-brand-400 transition-colors">Home</a></div>
+                            <div><a href="#projects" class="text-white hover:text-brand-400 transition-colors">Work</a></div>
+                            <div><a href="#tools" class="text-white hover:text-brand-400 transition-colors">Systems</a></div>
+                            <div><a href="#about" class="text-white hover:text-brand-400 transition-colors">About</a></div>
+                            <div><a href="#contact" class="text-white hover:text-brand-400 transition-colors">Contact</a></div>
+                        </div>
+                    </nav>
+                    
+                    <!-- Colophon -->
+                    <div class="space-y-2 font-mono text-xs text-[var(--text-muted)]">
+                        <h3 class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-3">Colophon</h3>
+                        <p class="text-[11px] leading-relaxed">
+                            Built with semantic HTML, Tailwind CSS, and vanilla JavaScript. Set in Playfair Display &amp; JetBrains Mono. No client-side framework runtime.
+                        </p>
+                    </div>
                 </div>
-                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Email</h4>
-                <p class="text-xs text-[var(--text-muted)] mt-1">yugal.work@proton.me</p>
-                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Send message →</span>
-            </a>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/919552232349?text=Hi%20Yugal%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
-                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                
+                <div class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-muted)]">
+                    <span>&copy; 2026 Yugal Doddamani. All rights reserved. Built with strict performance parameters.</span>
+                    <div class="flex gap-4">
+                        <a href="llms.txt" class="hover:text-brand-400 transition-colors">llms.txt</a>
+                        <a href="robots.txt" class="hover:text-brand-400 transition-colors">robots.txt</a>
+                    </div>
                 </div>
-                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">WhatsApp</h4>
-                <p class="text-xs text-[var(--text-muted)] mt-1">+91 9552232349</p>
-                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Chat now →</span>
-            </a>
+            </div>
+        </footer>
 
-            <!-- Instagram -->
-            <a href="https://instagram.com/yugaldoddamani" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
-                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </div>
-                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">Instagram</h4>
-                <p class="text-xs text-[var(--text-muted)] mt-1">@yugaldoddamani</p>
-                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Follow →</span>
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/yugaldoddamani" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="group p-6 rounded-xl bg-[var(--bg-card)] border border-[var(--bg-border)] hover:border-brand-500/50 transition-all text-center hover:shadow-xl hover:shadow-brand-950/20">
-                <div class="w-12 h-12 mx-auto rounded-full bg-brand-950/60 border border-brand-800/40 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-black transition-all mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </div>
-                <h4 class="font-mono text-sm font-semibold text-[var(--text-primary)] group-hover:text-brand-400 transition-colors">LinkedIn</h4>
-                <p class="text-xs text-[var(--text-muted)] mt-1">Connect with me</p>
-                <span class="text-[10px] font-mono text-brand-400 opacity-0 group-hover:opacity-100 transition-opacity">Connect →</span>
-            </a>
-
-        </div>
-
-        <!-- Brand Instagram -->
-        <div class="text-center mt-8 reveal reveal-delay-3">
-            <p class="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">Also find my brand</p>
-            <a href="https://instagram.com/carnixsmilestudio" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 mt-2 text-sm text-[var(--text-primary)] hover:text-brand-400 transition-colors font-mono">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                @carnixsmilestudio
-                <span class="text-[10px] text-[var(--text-muted)]">(Brand)</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-        
     </main>
-
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
-    <!-- FOOTER -->
-<footer class="border-t border-[var(--bg-border)] py-12 bg-[var(--bg-base)]">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
-            <!-- Copyright -->
-            <div class="text-xs font-mono text-[var(--text-muted)] text-center md:text-left">
-                &copy; 2026 Yugal Doddamani <span class="text-brand-500">&bull;</span> Design &amp; Technology
-            </div>
-
-            <!-- Social Links -->
-            <div class="flex items-center gap-6">
-                <a href="https://linkedin.com/in/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="https://instagram.com/yugaldoddamani" target="_blank" rel="noopener noreferrer" 
-                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="https://instagram.com/carnixsmilestudio" target="_blank" rel="noopener noreferrer" 
-                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors" aria-label="Brand Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <span class="w-px h-6 bg-[var(--bg-border)]"></span>
-                <a href="mailto:yugal.work@proton.me" 
-                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors text-xs font-mono">
-                    Email
-                </a>
-                <a href="https://wa.me/919552232349" target="_blank" rel="noopener noreferrer"
-                   class="text-[var(--text-muted)] hover:text-brand-400 transition-colors text-xs font-mono">
-                    WhatsApp
-                </a>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="flex items-center gap-6 text-xs font-mono text-[var(--text-muted)]">
-                <a href="/llms.txt" class="hover:text-brand-400 transition-colors flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                    /llms.txt
-                </a>
-                <a href="/sitemap.xml" class="hover:text-brand-400 transition-colors">sitemap.xml</a>
-            </div>
-
-        </div>
-    </div>
-</footer>
 
     <!-- ============================================================
     CASE STUDY MODAL
     ============================================================ -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-        <div id="modal-container" class="bg-[var(--bg-card)] border border-[var(--bg-border)] w-full max-w-2xl rounded-2xl p-6 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-[#140e0b] border border-white/10 w-full max-w-2xl rounded-2xl p-6 md:p-10 max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-[var(--text-muted)] hover:text-white p-2 rounded-full hover:bg-white/5 transition-all" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
             <div id="modal-content"></div>
         </div>
     </div>
 
-    <!-- ===== EXTERNAL JAVASCRIPT ===== -->
+    <!-- Atelier JavaScript Core -->
     <script src="js/main.js"></script>
 </body>
 </html>
