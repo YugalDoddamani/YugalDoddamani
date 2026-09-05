@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/404.html" },
+    { "source": "/llms.txt", "destination": "/404.html" }
+  ]
+}
