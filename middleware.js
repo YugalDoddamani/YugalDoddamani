@@ -2,10 +2,9 @@ export const config = {
   matcher: ['/robots.txt', '/llms.txt'],
 };
 
-export default async function middleware(request) {
+export default function middleware(request) {
   const userAgent = request.headers.get('user-agent') || '';
 
-  // Recognized search engine and AI crawlers
   const botPatterns = [
     /googlebot/i,
     /bingbot/i,
@@ -26,12 +25,12 @@ export default async function middleware(request) {
 
   const isBot = botPatterns.some((pattern) => pattern.test(userAgent));
 
-  // If it's a human browser, fetch and serve your 404.html page instead
+  // If it's a human, redirect them to a nice 404 error page or respond with a 404 status
   if (!isBot) {
-    const url = new URL('/404.html', request.url);
-    return fetch(url);
+    // Option A: Send them straight to your styled 404.html page
+    return Response.redirect(new URL('/404.html', request.url), 302);
   }
 
-  // If it's a bot, let the request pass through normally to the actual text file
+  // If it's a bot, let it pass through to read the text file
   return fetch(request);
 }
